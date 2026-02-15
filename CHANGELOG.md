@@ -29,4 +29,4 @@ Erstes Release: Du kannst Favoriten und addon_data bequem zwischen Geräten sync
 
 ---
 
-[1.0.0]: https://github.com/benjarogit/Auto-FTP-Sync-Plus/releases/tag/v1.0.0
+[1.0.0]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.0

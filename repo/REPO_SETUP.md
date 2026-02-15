@@ -2,7 +2,7 @@
 
 Diese Anleitung beschreibt, wo du das Repo hostest, was du hochlädst und wie Nutzer es verwenden.
 
-**Dieses Projekt:** Das Repository wird über **GitHub Raw-URLs** betrieben. Die URLs in `repository.dokukanal/addon.xml` zeigen auf `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus/main/repo/output/`. Der Inhalt von `repo/output/` wird nach jedem Release committed, damit Kodi die Addons von GitHub laden kann.
+**Dieses Projekt:** Das Repository wird über **GitHub Raw-URLs** betrieben. Die URLs in `repository.dokukanal/addon.xml` zeigen auf `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/`. Der Inhalt von `repo/output/` wird nach jedem Release committed, damit Kodi die Addons von GitHub laden kann.
 
 ## 1. Wo das Repo liegt
 

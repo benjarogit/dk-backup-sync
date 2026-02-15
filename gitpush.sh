@@ -42,7 +42,7 @@ if [ -n "$TAG" ]; then
   git push origin "$TAG"
   echo ""
   echo "--- Release auf GitHub erstellen ---"
-  echo "1. Öffne: https://github.com/benjarogit/Auto-FTP-Sync-Plus/releases/new"
+  echo "1. Öffne: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/new"
   echo "2. Wähle Tag: $TAG"
   echo "3. Titel: z.B. Release $TAG"
   echo "4. Beschreibung: Abschnitt aus CHANGELOG.md für diese Version kopieren (## [${TAG#v}] – ...)"

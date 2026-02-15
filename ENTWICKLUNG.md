@@ -2,7 +2,7 @@
 
 ## Workspace = Repo (1:1)
 
-Dieser Ordner **Auto-FTP-Sync-Plus** ist das komplette GitHub-Repository. In Cursor/VS Code diesen Ordner als Workspace öffnen (oder die Datei `../kodi.code-workspace`, die genau diesen Ordner lädt). Dann siehst du nur:
+Dieser Ordner ist das komplette GitHub-Repository. In deinem Editor (z. B. VS Code) diesen Ordner als Workspace öffnen. Dann siehst du nur:
 
 - `addons/` – Plugin und Skin (Quellcode)
 - `repo/` – Build-Skript, Repository-Addon, `output/`
