@@ -23,6 +23,17 @@ def _l(s):
     return ADDON.getLocalizedString(s)
 
 
+def _apply_skin_startup_default_once():
+    """Wenn Skin Arctic Zephyr Doku installiert ist und noch nie gesetzt: startup_file einmalig auf True."""
+    if ADDON.getSettingBool('skin_startup_default_set'):
+        return
+    skin_path = xbmcvfs.translatePath('special://home/addons/skin.arctic.zephyr.doku')
+    if not os.path.isdir(skin_path):
+        return
+    ADDON.setSettingBool('startup_file', True)
+    ADDON.setSettingBool('skin_startup_default_set', True)
+
+
 def run_action(action):
     if action == 'backup':
         from resources.lib import backup_restore
@@ -147,6 +158,14 @@ elif action == 'category' and category == 'sync':
     xbmcplugin.endOfDirectory(handle)
 else:
     # Main menu: Sync, Wartung, Info, Einstellungen
+    _apply_skin_startup_default_once()
+    # Beim ersten Öffnen des Addons: Ersteinrichtungs-Wizard anzeigen
+    try:
+        if not ADDON.getSettingBool('first_run_done'):
+            from resources.lib import first_run
+            first_run.run_wizard()
+    except Exception as e:
+        xbmc.log("Plugin first-run wizard: %s" % e, xbmc.LOGERROR)
     xbmcplugin.setPluginCategory(handle, ADDON.getAddonInfo('name'))
     add_category_item(_l(30069), 'sync')           # Sync
     add_category_item(_l(30070), 'maintenance')    # Wartung

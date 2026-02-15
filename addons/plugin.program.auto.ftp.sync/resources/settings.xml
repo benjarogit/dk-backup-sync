@@ -53,7 +53,7 @@
         <setting id="image_list_url" type="text" label="30016" default="http://domain.de/images.txt" enable="eq(-1,0)"/>
         <setting id="image_local_folder" type="folder" label="30085" default="" enable="eq(-2,1)"/>
         <setting id="image_network_path" type="text" label="30086" default="" enable="eq(-3,2)"/>
-        <setting id="enable_image_rotation" type="bool" label="30017" default="true"/> 
+        <setting id="enable_image_rotation" type="bool" label="30017" default="false"/> 
     </category>
 
     <!-- Extra Optionen -->
@@ -86,6 +86,8 @@
         <setting id="info_guide_hint" type="text" label="30076" default="" />
     </category>
 
-    <!-- Ersteinrichtung (nur intern) -->
+    <!-- Ersteinrichtung: Wizard nur einmal (Kodi speichert persistent via Settings-API) -->
     <setting id="first_run_done" type="bool" default="false" visible="false"/>
+    <!-- Skin-Start-Up: einmalig Default „an“ gesetzt, wenn Skin installiert -->
+    <setting id="skin_startup_default_set" type="bool" default="false" visible="false"/>
 </settings>

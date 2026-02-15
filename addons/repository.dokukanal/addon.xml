@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.4" provider-name="Doku-Kanal">
+	<requires>
+		<import addon="xbmc.core" version="21.0.0"/>
+	</requires>
 	<extension point="xbmc.addon.repository">
-		<!-- Repo served from GitHub raw; branch: main -->
+		<!-- Repo served from GitHub raw; branch: main. HTTPS only (Kodi best practice). -->
 		<dir>
 			<info>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml.md5</checksum>
 			<datadir>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/</datadir>
+			<hashes>sha256</hashes>
 		</dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en_gb">Repository for Auto FTP Sync and related add-ons</summary>
 		<summary lang="de_de">Repository für Auto FTP Sync und weitere Add-ons</summary>
+		<description lang="en_gb">Provides the Auto FTP Sync plugin, Arctic Zephyr Doku-Kanal skin and related add-ons. Install this repository once, then install or update add-ons from Add-ons → Install from repository → Doku-Kanal Repository. Requires Kodi 21 (Omega) or newer.</description>
+		<description lang="de_de">Stellt das Addon Auto FTP Sync, den Skin Arctic Zephyr Doku-Kanal und weitere Add-ons bereit. Repository einmal installieren, danach Add-ons unter Add-ons → Aus Repository installieren → Doku-Kanal Repository installieren oder aktualisieren. Erfordert Kodi 21 (Omega) oder neuer.</description>
 		<platform>all</platform>
 		<assets>
 			<icon>icon.png</icon>

@@ -49,8 +49,8 @@ msgid "Static Folders (comma separated)"
 msgstr "Statische Ordner (durch Kommas getrennt)"
 
 msgctxt "#30010"
-msgid "FTP Settings"
-msgstr "FTP-Einstellungen"
+msgid "Profile 1 – Connection"
+msgstr "Profil 1 – Verbindung"
 
 msgctxt "#30011"
 msgid "FTP Base Path"
@@ -305,8 +305,8 @@ msgid "Auto FTP Sync – Guide & Setup"
 msgstr "Auto FTP Sync – Anleitung & Einrichtung"
 
 msgctxt "#30074"
-msgid "Folder structure:[CR]On your server (FTP, SFTP or SMB): base path / auto_fav_sync / <custom_folder> / favourites.xml[CR]Example: /kodi/auto_fav_sync/MyDevice/favourites.xml[CR][CR]Connection: In Settings → Connection you choose the connection type (FTP, SFTP, SMB) and the active profile (Profile 1–3). Sync always uses the active profile.[CR][CR]Static folders:[CR]Static favourite categories (e.g. Anime, Horror) are managed by this addon. Configure folder names in Settings → Favourites (comma-separated list). Storage: addon_data/plugin.program.auto.ftp.sync/Static Favourites/<Name>/favourites.xml.[CR][CR]Images:[CR]In Settings → Images you can set a URL list, a local folder or a network path (SMB/NFS) for background rotation.[CR][CR]Sync and Backup:[CR]Sync only favourites or also addon_data (Settings → Enable 'addon_data' Sync). For backup, include or exclude addon_data (Settings → Backup). Backup and Restore are in the addon menu under Maintenance."
-msgstr "Ordnerstruktur:[CR]Auf dem Server (FTP, SFTP oder SMB): Basis-Pfad / auto_fav_sync / <custom_folder> / favourites.xml[CR]Beispiel: /kodi/auto_fav_sync/MeinGerät/favourites.xml[CR][CR]Verbindung: In den Einstellungen unter Verbindung wählst du den Verbindungstyp (FTP, SFTP, SMB) und das aktive Verbindungsprofil (Profil 1–3). Der Sync nutzt immer das aktive Profil.[CR][CR]Statische Ordner:[CR]Statische Favoriten-Kategorien (z. B. Anime, Horror) werden vom Addon verwaltet. Ordnernamen unter Einstellungen → Favoriten eintragen (kommagetrennt). Speicherort: addon_data/plugin.program.auto.ftp.sync/Static Favourites/<Name>/favourites.xml.[CR][CR]Bilder:[CR]Unter Einstellungen → Bilder kannst du eine URL-Liste, einen lokalen Ordner oder einen Netzwerkpfad (SMB/NFS) für die Hintergrundrotation einstellen.[CR][CR]Sync und Backup:[CR]Nur Favoriten oder zusätzlich addon_data synchronisieren (Einstellungen → 'addon_data' Synchronisation). Beim Backup addon_data einbeziehen oder weglassen (Einstellungen → Backup). Backup und Wiederherstellung findest du im Addon-Menü unter Wartung."
+msgid "Folder structure:[CR]On your server (FTP, SFTP or SMB): base path / auto_fav_sync / <custom_folder> / favourites.xml[CR]Example: /kodi/auto_fav_sync/MyDevice/favourites.xml[CR][CR]Connection: In Settings → Connection you choose the connection type (FTP, SFTP, SMB) and the active profile (Profile 1–3). Sync always uses the active profile.[CR][CR]Static folders:[CR]Static favourite categories (e.g. Anime, Horror) are managed by this addon. Configure folder names in Settings → Favourites (comma-separated list). Storage: addon_data/plugin.program.auto.ftp.sync/Static Favourites/<Name>/favourites.xml.[CR][CR]Images:[CR]In Settings → Images you can set a URL list, a local folder or a network path (SMB/NFS) for background rotation.[CR][CR]Sync and Backup:[CR]Sync only favourites or also addon_data (Settings → Enable 'addon_data' Sync). For backup, include or exclude addon_data (Settings → Backup).[CR][CR]Backup & Restore:[CR]Backup: Open addon → Maintenance → Create backup. Restore: Maintenance → Restore from backup → choose local ZIP file or URL.[CR][CR]Recommended settings:[CR]Main system on, addon data sync on, background image rotation off, Auto-Clean off; Skin Startup on when the skin is installed.[CR][CR]Links (copy URL):[CR]GitHub: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026[CR]Kodi Nerds: https://www.kodinerds.net/thread/78796-release-favoriten-auto-ftp-sync-update-1-0-2-25-01-25/"
+msgstr "Ordnerstruktur:[CR]Auf dem Server (FTP, SFTP oder SMB): Basis-Pfad / auto_fav_sync / <custom_folder> / favourites.xml[CR]Beispiel: /kodi/auto_fav_sync/MeinGerät/favourites.xml[CR][CR]Verbindung: In den Einstellungen unter Verbindung wählst du den Verbindungstyp (FTP, SFTP, SMB) und das aktive Verbindungsprofil (Profil 1–3). Der Sync nutzt immer das aktive Profil.[CR][CR]Statische Ordner:[CR]Statische Favoriten-Kategorien (z. B. Anime, Horror) werden vom Addon verwaltet. Ordnernamen unter Einstellungen → Favoriten eintragen (kommagetrennt). Speicherort: addon_data/plugin.program.auto.ftp.sync/Static Favourites/<Name>/favourites.xml.[CR][CR]Bilder:[CR]Unter Einstellungen → Bilder kannst du eine URL-Liste, einen lokalen Ordner oder einen Netzwerkpfad (SMB/NFS) für die Hintergrundrotation einstellen.[CR][CR]Sync und Backup:[CR]Nur Favoriten oder zusätzlich addon_data synchronisieren (Einstellungen → 'addon_data' Synchronisation). Beim Backup addon_data einbeziehen oder weglassen (Einstellungen → Backup).[CR][CR]Backup & Restore:[CR]Backup: Addon öffnen → Wartung → Backup erstellen. Restore: Wartung → Restore aus Backup → lokale ZIP-Datei oder URL wählen.[CR][CR]Empfohlene Einstellungen:[CR]Hauptsystem an, Addon-Datensynchronisation an, Hintergrundbildrotation aus, Auto-Clean aus; Skin-Start-Up an, wenn der Skin installiert ist.[CR][CR]Links (URL zum Kopieren):[CR]GitHub: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026[CR]Kodi Nerds: https://www.kodinerds.net/thread/78796-release-favoriten-auto-ftp-sync-update-1-0-2-25-01-25/"
 
 msgctxt "#30075"
 msgid "Info"
@@ -411,4 +411,60 @@ msgstr "Verbindungstyp"
 msgctxt "#30100"
 msgid "Run first-time setup again"
 msgstr "Ersteinrichtung erneut ausführen"
+
+msgctxt "#30101"
+msgid "Skin Arctic Zephyr Doku is not installed – Startup Mod has no effect."
+msgstr "Skin Arctic Zephyr Doku ist nicht installiert – Start-Up-Mod hat keine Wirkung."
+
+msgctxt "#30102"
+msgid "Setup wizard"
+msgstr "Einrichtungs-Assistent"
+
+msgctxt "#30103"
+msgid "Welcome. In a few steps we will set up sync, connection type, server and folder names. You can change everything later in Settings."
+msgstr "Willkommen. In wenigen Schritten richten wir Sync, Verbindungstyp, Server und Ordnernamen ein. Alles kannst du später in den Einstellungen ändern."
+
+msgctxt "#30104"
+msgid "Step %d of %d"
+msgstr "Schritt %d von %d"
+
+msgctxt "#30105"
+msgid "Enable sync of favourites (and optionally addon data) with the server?"
+msgstr "Soll die Synchronisation von Favoriten (und optional Addon-Daten) mit dem Server aktiviert werden?"
+
+msgctxt "#30106"
+msgid "Yes = this device uploads data to the server; other devices download from it."
+msgstr "Ja = dieses Gerät lädt Daten zum Server hoch; andere Geräte laden sie von dort."
+
+msgctxt "#30107"
+msgid "Connection type (FTP, SFTP or SMB)"
+msgstr "Verbindungstyp (FTP, SFTP oder SMB)"
+
+msgctxt "#30108"
+msgid "FTP Host (IP or hostname of your server)"
+msgstr "FTP-Host (IP oder Hostname des Servers)"
+
+msgctxt "#30109"
+msgid "FTP User (login name)"
+msgstr "FTP-Benutzer (Anmeldename)"
+
+msgctxt "#30110"
+msgid "FTP Password (for the user above)"
+msgstr "FTP-Passwort (für den obigen Benutzer)"
+
+msgctxt "#30111"
+msgid "FTP Base Path (path on the server, e.g. kodi)"
+msgstr "FTP-Basispfad (Pfad auf dem Server, z. B. kodi)"
+
+msgctxt "#30112"
+msgid "Custom folder name (name for this device on the server, e.g. MyDevice)"
+msgstr "Benutzerdefinierter Ordnername (Name für dieses Gerät auf dem Server, z. B. MyDevice)"
+
+msgctxt "#30113"
+msgid "Static folders (favourite categories, comma-separated, e.g. Anime, Horror)"
+msgstr "Statische Ordner (Favoriten-Kategorien, kommagetrennt, z. B. Anime, Horror)"
+
+msgctxt "#30114"
+msgid "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
+msgstr "Einrichtung abgeschlossen. Addon öffnen und oben 'Anleitung & Einrichtung' wählen."
 

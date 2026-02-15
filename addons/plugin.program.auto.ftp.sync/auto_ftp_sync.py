@@ -274,13 +274,16 @@ def copy_custom_startup_file():
     if not ENABLE_ADDON_STARTUPFILE:
         return
 
-    source_path = os.path.join(xbmcvfs.translatePath('special://home/addons/plugin.program.auto.ftp.sync/extras/skin.arctic.zephyr.doku'), 'Custom_Startup.xml')
-    destination_folder = xbmcvfs.translatePath('special://home/addons/skin.arctic.zephyr.doku/1080i')
-    destination_path = os.path.join(destination_folder, 'Custom_Startup.xml')
-
-    if not os.path.exists(xbmcvfs.translatePath('special://home/addons/skin.arctic.zephyr.doku')):
-        xbmc.log("Zielordner für die Custom_Startup.xml existiert nicht. Vorgang wird übersprungen.", xbmc.LOGINFO)
+    skin_path = xbmcvfs.translatePath('special://home/addons/skin.arctic.zephyr.doku')
+    if not os.path.exists(skin_path):
+        msg = ADDON.getLocalizedString(30101)
+        xbmc.log(msg, xbmc.LOGINFO)
+        xbmc.executebuiltin('Notification({}, {})'.format(ADDON.getAddonInfo('name'), msg))
         return
+
+    source_path = os.path.join(xbmcvfs.translatePath('special://home/addons/plugin.program.auto.ftp.sync/extras/skin.arctic.zephyr.doku'), 'Custom_Startup.xml')
+    destination_folder = os.path.join(skin_path, '1080i')
+    destination_path = os.path.join(destination_folder, 'Custom_Startup.xml')
 
     try:
         # Datei kopieren und überschreiben
