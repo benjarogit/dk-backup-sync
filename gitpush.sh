@@ -3,7 +3,7 @@
 # Usage:
 #   ./gitpush.sh                          # commit message: "Update repo output and docs"
 #   ./gitpush.sh "Fix sync bug"            # custom commit message
-#   ./gitpush.sh "Release 1.0.0" v1.0.0   # commit, push, then create tag v1.0.0 and push tag
+#   ./gitpush.sh "Release 1.0.0" v1.0.0   # commit, push, tag v1.0.0, push tag, create GitHub release if gh installed
 set -e
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -20,9 +20,9 @@ TAG="${2:-}"
 echo "Building repository..."
 python3 repo/build_repo.py
 
-git add addons/ repo/ README.md CHANGELOG.md .gitignore 2>/dev/null || true
+# Only stage what belongs on GitHub (no git add -A)
+git add addons/ repo/ README.md CHANGELOG.md .gitignore ENTWICKLUNG.md gitpush.sh 2>/dev/null || true
 git add repo/output/ 2>/dev/null || true
-git add -A
 echo "--- git status ---"
 git status
 
@@ -32,7 +32,7 @@ BRANCH=$(git rev-parse --abbrev-ref HEAD)
 git push origin "$BRANCH"
 
 if [ -n "$TAG" ]; then
-  TAG=$(echo "$TAG" | sed 's/^v//')  # allow 1.0.0 or v1.0.0
+  TAG=$(echo "$TAG" | sed 's/^v//')
   if [[ ! "$TAG" =~ ^v ]]; then
     TAG="v$TAG"
   fi
@@ -40,14 +40,38 @@ if [ -n "$TAG" ]; then
   echo "Creating tag $TAG..."
   git tag -a "$TAG" -m "Release $TAG"
   git push origin "$TAG"
-  echo ""
-  echo "--- Release auf GitHub erstellen ---"
-  echo "1. Öffne: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/new"
-  echo "2. Wähle Tag: $TAG"
-  echo "3. Titel: z.B. Release $TAG"
-  echo "4. Beschreibung: Abschnitt aus CHANGELOG.md für diese Version kopieren (## [${TAG#v}] – ...)"
-  echo "   CHANGELOG.md liegt im Repo-Root."
+
+  # Release notes: extract English block from CHANGELOG for this version
+  VER="${TAG#v}"
+  REINSTALL_HINT="If you are updating from an older version, reinstalling the addon may be required."
+  NOTES_FILE=$(mktemp)
+  trap 'rm -f "$NOTES_FILE"' EXIT
+
+  awk -v ver="$VER" '
+    $0 ~ /^## \[/ && index($0, "[" ver "]") > 0 { in_version=1; next }
+    in_version && /^### English/ { in_english=1; next }
+    in_english && (/^---/ || /^## \[/) { exit }
+    in_english { print }
+  ' CHANGELOG.md | tr -d '\r' > "$NOTES_FILE"
+  echo "" >> "$NOTES_FILE"
+  echo "$REINSTALL_HINT" >> "$NOTES_FILE"
+
+  if command -v gh >/dev/null 2>&1; then
+    echo ""
+    echo "Creating GitHub release $TAG..."
+    gh release create "$TAG" --notes-file "$NOTES_FILE"
+    echo "Done. Release: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/$TAG"
+  else
+    echo ""
+    echo "--- Create GitHub release manually ---"
+    echo "1. Open: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/new"
+    echo "2. Choose tag: $TAG"
+    echo "3. Title: e.g. Release $TAG"
+    echo "4. Description: Copy the English section for this version from CHANGELOG.md (### English under ## [${VER}]) and add:"
+    echo "   $REINSTALL_HINT"
+    echo "   CHANGELOG.md is in the repo root."
+  fi
 else
   echo ""
-  echo "Done. Für ein Release: ./gitpush.sh \"Release 1.0.0\" v1.0.0"
+  echo "Done. For a release: ./gitpush.sh \"Release 1.0.0\" v1.0.0"
 fi
