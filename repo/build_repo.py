@@ -9,6 +9,7 @@ Output in repo/output/ is used for the GitHub repository; commit it after each r
 """
 import hashlib
 import os
+import shutil
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
@@ -131,6 +132,41 @@ def validate_addon_zip(zip_path: Path, addon_id: str) -> list[str]:
     return errors
 
 
+def copy_addon_assets_to_output(addon_id: str, out_dir: Path) -> None:
+    """
+    Copy icon and fanart from addon source to out_dir/addon_id/ so Kodi can load them
+    from datadir URLs (avoids 404s in repo browser).
+    """
+    src = ADDONS_SOURCE / addon_id
+    if not src.is_dir():
+        src = REPO_DIR / addon_id
+    if not src.is_dir():
+        return
+    addon_xml = src / "addon.xml"
+    if not addon_xml.exists():
+        return
+    tree = ET.parse(addon_xml)
+    root = tree.getroot()
+    dest_subdir = out_dir / addon_id
+    dest_subdir.mkdir(parents=True, exist_ok=True)
+    for ext in root.findall(".//extension[@point='xbmc.addon.metadata']"):
+        assets = ext.find("assets")
+        if assets is None:
+            continue
+        for tag in ("icon", "fanart"):
+            for node in assets.findall(tag):
+                if not (node.text and node.text.strip()):
+                    continue
+                rel_path = node.text.strip().replace("\\", "/")
+                src_file = src / rel_path
+                if not src_file.is_file():
+                    continue
+                dest_file = dest_subdir / rel_path
+                dest_file.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(src_file, dest_file)
+                print(f"  Copied {rel_path} to output/{addon_id}/")
+
+
 def get_addon_xml_string(addon_id: str) -> str:
     """Return full content of addon.xml for addon_id."""
     path = ADDONS_SOURCE / addon_id / "addon.xml"
@@ -179,7 +215,6 @@ def build_md5(out_dir: Path) -> None:
 
 
 def main():
-    import shutil
     out_dir = OUTPUT_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     # Remove old flat zips if any (we now use datadir/addon_id/addon_id-version.zip)
@@ -210,6 +245,7 @@ def main():
                     f"Validation failed: {zip_name}\n  " + "\n  ".join(val_errors)
                 )
             print(f"Created {zip_name}")
+            copy_addon_assets_to_output(addon_id, out_dir)
         except SystemExit:
             raise
         except Exception as e:
