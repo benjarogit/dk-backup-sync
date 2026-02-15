@@ -438,9 +438,7 @@ msgstr "Ja = dieses Gerät lädt Daten zum Server hoch; andere Geräte laden sie
 
 msgctxt "#30107"
 msgid "Connection type (FTP, SFTP or SMB)"
-msgstr "Verbindungstyp (FTP, SFTP oder SMB)"
-
-msgctxt "#30108"
+msgstr "Verbindungstyp (FTP, SFTP oder SMB)"msgctxt "#30108"
 msgid "FTP Host (IP or hostname of your server)"
 msgstr "FTP-Host (IP oder Hostname des Servers)"
 
@@ -450,17 +448,13 @@ msgstr "FTP-Benutzer (Anmeldename)"
 
 msgctxt "#30110"
 msgid "FTP Password (for the user above)"
-msgstr "FTP-Passwort (für den obigen Benutzer)"
-
-msgctxt "#30111"
+msgstr "FTP-Passwort (für den obigen Benutzer)"msgctxt "#30111"
 msgid "FTP Base Path (path on the server, e.g. kodi)"
 msgstr "FTP-Basispfad (Pfad auf dem Server, z. B. kodi)"
 
 msgctxt "#30112"
 msgid "Custom folder name (name for this device on the server, e.g. MyDevice)"
-msgstr "Benutzerdefinierter Ordnername (Name für dieses Gerät auf dem Server, z. B. MyDevice)"
-
-msgctxt "#30113"
+msgstr "Benutzerdefinierter Ordnername (Name für dieses Gerät auf dem Server, z. B. MyDevice)"msgctxt "#30113"
 msgid "Static folders (favourite categories, comma-separated, e.g. Anime, Horror)"
 msgstr "Statische Ordner (Favoriten-Kategorien, kommagetrennt, z. B. Anime, Horror)"
 
