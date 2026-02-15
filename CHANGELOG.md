@@ -27,6 +27,18 @@ Erstes Release: Du kannst Favoriten und addon_data bequem zwischen Geräten sync
 - **Doku-Kanal-Repository:** Das Addon wird über das Repository „Doku-Kanal“ installiert und aktualisiert (GitHub Raw-URLs). Siehe README und REPO_SETUP für die Repo-URLs.
 - **Build-Skript:** `repo/build_repo.py` erzeugt addons.xml und Addon-ZIPs in `repo/output/` für GitHub.
 
+### English
+
+First release: Sync favourites and addon_data between devices, create backups, and automate maintenance.
+
+**Sync:** Choose connection type (FTP, SFTP or SMB) in settings; no separate addon needed for SMB/SFTP (Kodi built-in). Up to 3 connection profiles (e.g. Home, Office, NAS) with name, host, user, password and base path; the active profile is set under **Settings → Connection**. First-run wizard guides you through setup; you can run it again from the addon menu under “Run first-time setup again”. Background images can rotate from a URL list, local folder or network path (SMB/NFS); settings under **Images**.
+
+**Backup & Restore:** In settings you can include **addon_data** in backups. Create backup and restore from the addon menu under **Maintenance**; restore from local ZIP or URL, optionally clean userdata first.
+
+**Auto-Clean:** Cleans cache, packages, thumbnails and logs on a schedule (e.g. daily, weekly); configurable in settings.
+
+**Repository:** The addon is installed and updated via the Doku-Kanal repository (GitHub Raw URLs). See README and REPO_SETUP for repo URLs.
+
 ---
 
 [1.0.0]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.0
