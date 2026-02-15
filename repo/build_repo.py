@@ -25,7 +25,7 @@ ADDON_IDS = [
 
 
 def make_zip(addon_id: str, out_dir: Path) -> str:
-    """Create ZIP for addon_id; return path to zip."""
+    """Create ZIP for addon_id in out_dir/addon_id/; return zip filename. Kodi expects datadir/addon_id/addon_id-version.zip."""
     src = ADDONS_SOURCE / addon_id
     if not src.is_dir():
         raise FileNotFoundError(f"Addon folder not found: {src}")
@@ -36,7 +36,9 @@ def make_zip(addon_id: str, out_dir: Path) -> str:
     root = tree.getroot()
     version = root.get("version", "1.0.0")
     zip_name = f"{addon_id}-{version}.zip"
-    zip_path = out_dir / zip_name
+    subdir = out_dir / addon_id
+    subdir.mkdir(parents=True, exist_ok=True)
+    zip_path = subdir / zip_name
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, allowZip64=True) as zf:
         for root_dir, dirs, files in os.walk(src):
             dirs[:] = [d for d in dirs if d != ".git"]
@@ -176,6 +178,9 @@ def main():
     import shutil
     out_dir = OUTPUT_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
+    # Remove old flat zips if any (we now use datadir/addon_id/addon_id-version.zip)
+    for old_zip in out_dir.glob("*.zip"):
+        old_zip.unlink()
     repo_addon_src = REPO_DIR / "repository.dokukanal"
     repo_addon_dest = ADDONS_SOURCE / "repository.dokukanal"
     # Ensure repo addon has an icon (copy from script addon if missing)
@@ -185,14 +190,16 @@ def main():
         if src_icon.exists():
             shutil.copy2(src_icon, repo_icon)
             print(f"Copied icon to {repo_icon}")
-    # Copy repository addon from repo/ to addons so it can be zipped
-    if repo_addon_src.is_dir() and not repo_addon_dest.is_dir():
+    # Copy repository addon from repo/ to addons so it can be zipped (repo/ is source of truth)
+    if repo_addon_src.is_dir():
+        if repo_addon_dest.exists():
+            shutil.rmtree(repo_addon_dest)
         shutil.copytree(repo_addon_src, repo_addon_dest)
         print(f"Copied repository addon to {repo_addon_dest}")
     for addon_id in ADDON_IDS:
         try:
             zip_name = make_zip(addon_id, out_dir)
-            zip_path = out_dir / zip_name
+            zip_path = out_dir / addon_id / zip_name
             val_errors = validate_addon_zip(zip_path, addon_id)
             if val_errors:
                 raise SystemExit(

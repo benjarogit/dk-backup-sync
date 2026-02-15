@@ -35,9 +35,9 @@
 	<extension point="xbmc.addon.repository">
 		<!-- Repo served from GitHub raw; branch: main -->
 		<dir>
-			<info>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus/main/repo/output/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus/main/repo/output/addons.xml.md5</checksum>
-			<datadir>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus/main/repo/output/</datadir>
+			<info>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml.md5</checksum>
+			<datadir>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/</datadir>
 			<hashes>sha256</hashes>
 		</dir>
 	</extension>
