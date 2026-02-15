@@ -461,3 +461,23 @@ msgstr "Static folders (favourite categories, comma-separated, e.g. Anime, Horro
 msgctxt "#30114"
 msgid "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
 msgstr "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
+
+msgctxt "#30118"
+msgid "Always"
+msgstr "Always"
+
+msgctxt "#30119"
+msgid "Daily"
+msgstr "Daily"
+
+msgctxt "#30120"
+msgid "Every 3 Days"
+msgstr "Every 3 Days"
+
+msgctxt "#30121"
+msgid "Weekly"
+msgstr "Weekly"
+
+msgctxt "#30122"
+msgid "Monthly"
+msgstr "Monthly"

@@ -461,3 +461,23 @@ msgstr "Statische Ordner (Favoriten-Kategorien, kommagetrennt, z. B. Anime, Horr
 msgctxt "#30114"
 msgid "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
 msgstr "Einrichtung abgeschlossen. Addon öffnen und oben 'Anleitung & Einrichtung' wählen."
+
+msgctxt "#30118"
+msgid "Always"
+msgstr "Immer"
+
+msgctxt "#30119"
+msgid "Daily"
+msgstr "Täglich"
+
+msgctxt "#30120"
+msgid "Every 3 Days"
+msgstr "Alle 3 Tage"
+
+msgctxt "#30121"
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+msgctxt "#30122"
+msgid "Monthly"
+msgstr "Monatlich"

@@ -25,8 +25,6 @@ ADDON = xbmcaddon.Addon()
 ENABLED = ADDON.getSettingBool('enable_sync')
 IS_MAIN_SYSTEM = ADDON.getSettingBool('is_main_system')
 
-# Verbindung: Werte aus aktivem Profil (_get_active_profile_settings)
-
 # Favouriten
 OVERWRITE_STATIC = ADDON.getSettingBool('overwrite_static')
 CUSTOM_FOLDER = ADDON.getSettingString('custom_folder')
