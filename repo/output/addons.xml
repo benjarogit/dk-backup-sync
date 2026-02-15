@@ -32,7 +32,7 @@
 		</assets>
 	</extension>
 </addon>
-<addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.9" provider-name="Doku-Kanal">
+<addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.10" provider-name="Doku-Kanal">
 	<requires>
 		<import addon="xbmc.addon" version="21.0.0"/>
 	</requires>
@@ -42,7 +42,6 @@
 			<info>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml.md5</checksum>
 			<datadir>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/</datadir>
-			<hashes>sha256</hashes>
 		</dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
