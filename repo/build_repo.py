@@ -50,6 +50,10 @@ def make_zip(addon_id: str, out_dir: Path) -> str:
                 # Kodi expects first ZIP entry to be the addon-id folder (repository.dokukanal/...)
                 arc = f"{addon_id}/{rel.as_posix()}"
                 zf.write(full, arc)
+    # Nur die aktuelle Version behalten – alte ZIPs in diesem Addon-Ordner löschen
+    for old in subdir.glob("*.zip"):
+        if old.name != zip_name:
+            old.unlink()
     return zip_name
 
 
