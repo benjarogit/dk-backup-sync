@@ -43,9 +43,13 @@ if [ -n "$TAG" ]; then
     TAG="v$TAG"
   fi
   echo ""
-  echo "Creating tag $TAG..."
-  git tag -a "$TAG" -m "Release $TAG"
-  git push origin "$TAG"
+  if git rev-parse "$TAG" >/dev/null 2>&1; then
+    echo "Tag $TAG already exists, creating/updating release only."
+  else
+    echo "Creating tag $TAG..."
+    git tag -a "$TAG" -m "Release $TAG"
+    git push origin "$TAG"
+  fi
 
   # Release notes: extract English block from CHANGELOG for this version
   VER="${TAG#v}"
