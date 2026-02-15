@@ -467,4 +467,3 @@ msgstr "Statische Ordner (Favoriten-Kategorien, kommagetrennt, z. B. Anime, Horr
 msgctxt "#30114"
 msgid "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
 msgstr "Einrichtung abgeschlossen. Addon öffnen und oben 'Anleitung & Einrichtung' wählen."
-
