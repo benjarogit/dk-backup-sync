@@ -2,6 +2,24 @@
 
 Alle wichtigen Änderungen werden hier dokumentiert. Das Projekt folgt [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.21] – 2026-02-22
+
+- Einstellungen: Doku-Kanal-Shortcut mit Beschreibung (31902), Icon dksync.png; Klick öffnet Plugin-Fenster (Crash mit Addon-Info vermieden)
+- Dialoge: Bestätigungen (yesno) mit klaren Texten; Backup/Wiederherstellen als zwei Menüpunkte; Wiederherstellen: Lokal/URL/Abbrechen, Backup-Validierung
+- Einstellungs-Labels: Sync, Add-on-Data, Favoriten-Ordner verständlicher; Kategorien; Anleitung pro Bereich; Button „Plugin öffnen“
+- Anleitungen im Plugin-Menü; Hintergrundbild systemweit; MyPrograms/Addon-Settings: Rahmen (Border-Radius, Highlight-Farbe)
+- Skin: Geist-Font; DialogTextViewer angepasst; GlobalFanart nutzt home.slideshowpath
+
+### English
+
+- Settings: Doku-Kanal shortcut with description (31902), icon dksync.png; click opens plugin window (avoid addon-info crash)
+- Dialogs: confirmations (yesno) with clear text; Backup and Restore as two menu items; Restore: Local/URL/Cancel, backup validation
+- Settings labels: Sync, addon data, favourite folder clearer; categories; help per section; “Open plugin” button
+- Instructions in plugin menu; background image system-wide; MyPrograms/Addon settings: border radius, highlight colour
+- Skin: Geist font; DialogTextViewer adjusted; GlobalFanart uses home.slideshowpath
+
+---
+
 ## [1.0.20] – 2026-02-15
 
 - Plugin- und Repo-Updates seit v1.0.19.
@@ -260,6 +278,7 @@ First release: Sync favourites and addon_data between devices, create backups, a
 **Repository:** The addon is installed and updated via the Doku-Kanal repository (GitHub Raw URLs). See README and REPO_SETUP for repo URLs.
 
 ---[1.0.4]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.4[1.0.6]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.6[1.0.8]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.8[1.0.10]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.10[1.0.12]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.12[1.0.14]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.14[1.0.16]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.16[1.0.18]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.18[1.0.20]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.20
+[1.0.21]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.21
 
 [1.0.19]: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases/tag/v1.0.19
 
