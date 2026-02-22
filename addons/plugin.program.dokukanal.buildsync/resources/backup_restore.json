@@ -1,0 +1,7 @@
+[
+  {"path": "user_path", "file": "favourites.xml"},
+  {"path": "user_path", "file": "guisettings.xml"},
+  {"path": "user_path", "file": "sources.xml"},
+  {"path": "user_path", "file": "advancedsettings.xml"},
+  {"path": "data_path", "folder": "addon_data", "setting_id": "backup_include_addon_data"}
+]

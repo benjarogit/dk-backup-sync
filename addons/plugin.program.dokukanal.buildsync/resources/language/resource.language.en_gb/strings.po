@@ -1,0 +1,1085 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kodi Addons\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+"POT-Creation-Date: 2024-05-23 14:00+0000\n"
+"PO-Revision-Date: 2024-05-23 14:00+0000\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (https://kodi.weblate.cloud/languages/en_gb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30001"
+msgid "FTP-SYNC"
+msgstr "FTP-SYNC"
+
+msgctxt "#30002"
+msgid "Enable sync on startup"
+msgstr "Enable sync on startup"
+
+msgctxt "#30003"
+msgid "This device uploads addon_data"
+msgstr "This device uploads addon_data"
+
+msgctxt "#30004"
+msgid "Sync addon_data too"
+msgstr "Sync addon_data too"
+
+msgctxt "#30005"
+msgid "Favourites"
+msgstr "Favourites"
+
+msgctxt "#30006"
+msgid "Server folder for sync"
+msgstr "Server folder for sync"
+
+msgctxt "#30007"
+msgid "Second folder (reserved)"
+msgstr "Second folder (reserved)"
+
+msgctxt "#30008"
+msgid "Overwrite Static Favourites"
+msgstr "Overwrite static folders"
+
+msgctxt "#30009"
+msgid "Static Folders (comma separated)"
+msgstr "Static folders"
+
+msgctxt "#30010"
+msgid "Profile 1 – Connection"
+msgstr "Profile 1 – Connection"
+
+msgctxt "#30011"
+msgid "Base path (e.g. kodi – FTP/SFTP: directory on server, SMB: share name)"
+msgstr "Base path (e.g. kodi – FTP/SFTP: directory on server, SMB: share name)"
+
+msgctxt "#30012"
+msgid "Host (IP address or hostname)"
+msgstr "Host (IP address or hostname)"
+
+msgctxt "#30013"
+msgid "Username"
+msgstr "Username"
+
+msgctxt "#30014"
+msgid "FTP Password"
+msgstr "FTP Password"
+
+msgctxt "#30015"
+msgid "Image Settings"
+msgstr "Image Settings"
+
+msgctxt "#30016"
+msgid "Image List URL"
+msgstr "Image List URL"
+
+msgctxt "#30017"
+msgid "Enable Image Rotation"
+msgstr "Enable Image Rotation"
+
+msgctxt "#30018"
+msgid "Favourites downloaded"
+msgstr "Favourites downloaded"
+
+msgctxt "#30019"
+msgid "Error downloading Favourites"
+msgstr "Error downloading favourites. Check connection (Settings → Connection) and folder name (Settings → Favourites)."
+
+msgctxt "#30020"
+msgid "'addon_data' Upload successful"
+msgstr "'addon_data' Upload successful"
+
+msgctxt "#30021"
+msgid "Error downloading"
+msgstr "Error downloading"
+
+msgctxt "#30022"
+msgid "Custom Folder Name is required"
+msgstr "Custom folder name is required. Enter a name for this device in Settings → Favourites."
+
+msgctxt "#30023"
+msgid "Custom folder '{folder}' does not exist on the server. Please create it and try again."
+msgstr "Custom folder '{folder}' does not exist on the server. Please create it and try again."
+
+msgctxt "#30024"
+msgid "Favorites successfully synchronized"
+msgstr "Favorites successfully synchronized"
+
+msgctxt "#30025"
+msgid "Error downloading {folder} favourites from server"
+msgstr "Error downloading {folder} favourites from server"
+
+msgctxt "#30026"
+msgid "{folder} favourites downloaded"
+msgstr "{folder} favourites downloaded"
+
+msgctxt "#30027"
+msgid "Synchronization complete. Reload to see the updated favourites?"
+msgstr "Synchronization complete. Reload to see the updated favourites?"
+
+msgctxt "#30028"
+msgid "Error with favorites sync"
+msgstr "Error with favourites sync. Check connection (Settings → Connection) and folder name (Settings → Favourites), then try again."
+
+msgctxt "#30029"
+msgid "'addon_data' Upload failed"
+msgstr "'addon_data' Upload failed"
+
+msgctxt "#30030"
+msgid "'addon_data' synchronized"
+msgstr "'addon_data' synchronized"
+
+msgctxt "#30031"
+msgid "Random image downloaded"
+msgstr "Random image downloaded"
+
+msgctxt "#30032"
+msgid "Image list URL not provided"
+msgstr "Image list URL not provided"
+
+msgctxt "#30033"
+msgid "No image URLs found in the list"
+msgstr "No image URLs found in the list"
+
+msgctxt "#30034"
+msgid "Cache cleared"
+msgstr "Cache cleared"
+
+msgctxt "#30035"
+msgid "'addon_data' sync failed"
+msgstr "'addon_data' sync failed"
+
+msgctxt "#30036"
+msgid "Extra synchronization"
+msgstr "Extra synchronization"
+
+msgctxt "#30037"
+msgid "Skin 'arctic.zephyr' Startup Mod"
+msgstr "Skin 'arctic.zephyr' Startup Mod"
+
+msgctxt "#30038"
+msgid "Backup"
+msgstr "Backup"
+
+msgctxt "#30039"
+msgid "Enter build backup name"
+msgstr "Enter build backup name"
+
+msgctxt "#30040"
+msgid "Creating build backup..."
+msgstr "Creating build backup..."
+
+msgctxt "#30041"
+msgid "Build backup saved: {path} ({size})"
+msgstr "Build backup saved: {path} ({size})"
+
+msgctxt "#30042"
+msgid "Error: {err}"
+msgstr "Error: {err}. Please check the path and settings, then try again."
+
+msgctxt "#30043"
+msgid "Backup folder not set or invalid."
+msgstr "Backup folder not set or invalid. Set the backup storage location in Settings → Backup."
+
+msgctxt "#30044"
+msgid "No files to backup."
+msgstr "No files to backup. Check the backup path in Settings → Backup."
+
+msgctxt "#30045"
+msgid "Select ZIP file to restore"
+msgstr "Select ZIP file to restore"
+
+msgctxt "#30046"
+msgid "Restoring..."
+msgstr "Restoring..."
+
+msgctxt "#30047"
+msgid "Restore complete."
+msgstr "Restore complete."
+
+msgctxt "#30048"
+msgid "Errors: {count} files could not be extracted."
+msgstr "Errors: {count} files could not be extracted."
+
+msgctxt "#30049"
+msgid "Restart Kodi to apply changes."
+msgstr "Restart Kodi to apply changes."
+
+msgctxt "#30050"
+msgid "Wipe cache/temp before restore?"
+msgstr "Wipe cache/temp before restore?"
+
+msgctxt "#30051"
+msgid "Backup folder"
+msgstr "Storage location for backup ZIPs (e.g. local folder or network path)"
+
+msgctxt "#30052"
+msgid "Restore folder (optional)"
+msgstr "Restore folder (optional)"
+
+msgctxt "#30053"
+msgid "Wipe cache before restore"
+msgstr "Wipe cache before restore"
+
+msgctxt "#30054"
+msgid "Auto-Clean"
+msgstr "Auto-Clean"
+
+msgctxt "#30055"
+msgid "Enable Auto-Clean on startup"
+msgstr "Enable Auto-Clean on startup"
+
+msgctxt "#30056"
+msgid "Frequency"
+msgstr "Frequency"
+
+msgctxt "#30057"
+msgid "Clear cache"
+msgstr "Clear cache"
+
+msgctxt "#30058"
+msgid "Clear packages"
+msgstr "Clear packages"
+
+msgctxt "#30059"
+msgid "Clear thumbnail cache"
+msgstr "Clear thumbnail cache"
+
+msgctxt "#30060"
+msgid "Backup: Create"
+msgstr "Backup: Create"
+
+msgctxt "#30061"
+msgid "Run Auto-Clean now"
+msgstr "Run Auto-Clean now"
+
+msgctxt "#30062"
+msgid "Settings"
+msgstr "Settings"
+
+msgctxt "#30063"
+msgid "Backup: Restore"
+msgstr "Backup: Restore"
+
+msgctxt "#30064"
+msgid "Choose local file"
+msgstr "Choose local file"
+
+msgctxt "#30065"
+msgid "Choose external (URL) file"
+msgstr "Choose external (URL) file"
+
+msgctxt "#30066"
+msgid "Enter backup ZIP URL (http(s)://...)"
+msgstr "Enter backup ZIP URL (http(s)://...)"
+
+msgctxt "#30067"
+msgid "Downloading..."
+msgstr "Downloading..."
+
+msgctxt "#30068"
+msgid "Download failed. Check URL and connection."
+msgstr "Download failed. Check URL and connection."
+
+msgctxt "#30320"
+msgid "Choose source: local ZIP file or URL."
+msgstr "Choose source: local ZIP file or URL."
+
+msgctxt "#30069"
+msgid "Sync"
+msgstr "Sync"
+
+msgctxt "#30070"
+msgid "Maintenance"
+msgstr "Maintenance"
+
+msgctxt "#30071"
+msgid "Guide & Setup"
+msgstr "Guide & Setup"
+
+msgctxt "#30072"
+msgid "Sync runs automatically at startup. See Guide for FTP and folder setup."
+msgstr "Sync runs automatically at startup. See Guide for FTP and folder setup."
+
+msgctxt "#30073"
+msgid "Auto FTP Sync – Guide & Setup"
+msgstr "Auto FTP Sync – Guide & Setup"
+
+msgctxt "#30074"
+msgid "Wizard: The first-time setup wizard does not run automatically. To run it: Open addon → Maintenance → 'Run first-time setup again'.[CR][CR]Folders: The addon tries to create the required remote folder structure automatically. If that fails (e.g. permissions), create the folder structure on the server manually (Settings → Info & Guide). Use lowercase for folder names (e.g. benni, anime). If the custom folder is still missing, the addon shows 'Custom folder not found'.[CR][CR]Server structure: One folder = custom name (e.g. Benni); inside: favourites.xml and addon_data.zip. Per static entry (setting 'Static folders') one subfolder with that exact name containing favourites.xml. Folder names are normalized to lowercase – create them on the server in lowercase (e.g. benni, anime).[CR][CR]Test connection: Use e.g. FileZilla (FTP/SFTP) or Windows Explorer (SMB) with the same host, user, and path; the addon has no built-in 'Test connection' button.[CR][CR]Folder structure:[CR]On your server (FTP, SFTP or SMB): base path / auto_fav_sync / <custom_folder> / favourites.xml[CR]Example: /kodi/auto_fav_sync/MyDevice/favourites.xml[CR][CR]Connection: In Settings → Connection you choose the connection type (FTP, SFTP, SMB) and the active profile (Profile 1–3). Sync always uses the active profile.[CR][CR]Static folders:[CR]Static favourite categories (e.g. Anime, Horror) are managed by this addon. Configure folder names in Settings → Favourites (comma-separated list). Storage: addon_data/plugin.program.auto.ftp.sync/Static Favourites/<Name>/favourites.xml.[CR][CR]Images:[CR]In Settings → Images you can set a URL list, a local folder or a network path (SMB/NFS) for background rotation.[CR][CR]Sync and Backup:[CR]Sync only favourites or also addon_data (Settings → Enable 'addon_data' Sync). For backup, include or exclude addon_data (Settings → Backup).[CR][CR]Backup & Restore:[CR]Backup: Open addon → Maintenance → Create backup. Restore: Maintenance → Restore from backup → choose local ZIP file or URL.[CR][CR]Recommended settings:[CR]Main system on, addon data sync on, background image rotation off, Auto-Clean off; Skin Startup on when the skin is installed.[CR][CR]Links (copy URL):[CR]GitHub: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026[CR]Kodi Nerds: https://www.kodinerds.net/thread/78796-release-favoriten-auto-ftp-sync-update-1-0-2-25-01-25/"
+msgstr "[B]Wizard:[/B] The first-time setup wizard does not run automatically. To run it: Open addon → Maintenance → 'Run first-time setup again'.[CR][CR][B]Create folders on the server:[/B] The addon tries to create the required remote folder structure automatically. If that fails (e.g. permissions), create it manually: base path/auto_fav_sync/<folder name> (lowercase, e.g. benni). Per static entry (setting 'Static folders') one subfolder with that name containing favourites.xml. Settings → Info & Guide. If the custom folder is still missing, the addon shows 'Custom folder not found'.[CR][CR][B]Server structure:[/B] One folder = custom name (e.g. Benni); inside: favourites.xml and addon_data.zip. Per static entry one subfolder with that exact name containing favourites.xml. Use lowercase on the server (e.g. benni, anime).[CR][CR][B]Test connection:[/B] Use e.g. FileZilla (FTP/SFTP) or Windows Explorer (SMB) with the same host, user, and path; the addon has no built-in 'Test connection' button.[CR][CR][B]Folder structure on FTP:[/B][CR]Base path / auto_fav_sync / <folder name> / favourites.xml[CR]Example: /kodi/auto_fav_sync/benni/favourites.xml[CR][CR][B]Connection:[/B] In Settings → Connection you choose the connection type (FTP, SFTP, SMB) and the active profile (Profile 1–3). Sync always uses the active profile.[CR][CR][B]Static folders:[/B] Static favourite categories (e.g. Anime, Horror) are managed by this addon. Configure folder names in Settings → Favourites (comma-separated list). Storage: addon_data/plugin.program.auto.ftp.sync/Static Favourites/<Name>/favourites.xml.[CR][CR][B]Images:[/B] In Settings → Images you can set a URL list, a local folder or a network path (SMB/NFS) for background rotation.[CR][CR][B]Sync and Backup:[/B] Sync only favourites or also addon_data (Settings → Enable 'addon_data' Sync). For backup, include or exclude addon_data (Settings → Backup).[CR][CR][B]Backup and Restore:[/B] Backup: Open addon → Create backup (main menu or Maintenance). Restore: Restore build → choose local ZIP file or URL.[CR][CR][B]Recommended settings:[/B] Main system on, addon data sync on, background image rotation off, Auto-Clean off; Skin Startup on when the skin is installed.[CR][CR][B]Links (copy URL):[/B][CR]GitHub: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026[CR]Kodi Nerds: https://www.kodinerds.net/thread/78796-release-favoriten-auto-ftp-sync-update-1-0-2-25-01-25/"
+
+msgctxt "#30075"
+msgid "Info"
+msgstr "Info"
+
+msgctxt "#30076"
+msgid "To view the guide: Open the addon and choose 'Guide & Setup'."
+msgstr "To view the guide: Open the addon and choose 'Guide & Setup'."
+
+msgctxt "#30077"
+msgid "Clear Kodi logs (userdata)"
+msgstr "Clear Kodi logs (userdata)"
+
+msgctxt "#30078"
+msgid "Clear cache, thumbnail and log folders of all add-ons (plugins, scripts, skins)"
+msgstr "Clear cache, thumbnail and log folders of all add-ons (plugins, scripts, skins)"
+
+msgctxt "#30079"
+msgid "About"
+msgstr "About"
+
+msgctxt "#30080"
+msgid "This skin is optimized for Auto FTP Sync."
+msgstr "This skin is optimized for Auto FTP Sync."
+
+msgctxt "#30081"
+msgid "Include addon_data in backup"
+msgstr "Include addon_data in backup"
+
+msgctxt "#30082"
+msgid "Connection type (FTP / SFTP / SMB)"
+msgstr "Connection type (FTP / SFTP / SMB)"
+
+msgctxt "#30083"
+msgid "SFTP port (default: 22)"
+msgstr "SFTP port (default: 22)"
+
+msgctxt "#30084"
+msgid "Image source"
+msgstr "Image source"
+
+msgctxt "#30085"
+msgid "Local image folder"
+msgstr "Local image folder"
+
+msgctxt "#30086"
+msgid "Network image path (SMB)"
+msgstr "Network image path (SMB)"
+
+msgctxt "#30087"
+msgid "Active profile"
+msgstr "Active profile"
+
+msgctxt "#30088"
+msgid "Profile 1"
+msgstr "Profile 1"
+
+msgctxt "#30089"
+msgid "Profile 2"
+msgstr "Profile 2"
+
+msgctxt "#30090"
+msgid "Profile 3"
+msgstr "Profile 3"
+
+msgctxt "#30091"
+msgid "Profile name"
+msgstr "Profile name"
+
+msgctxt "#30092"
+msgid "First-time setup"
+msgstr "First-time setup"
+
+msgctxt "#30093"
+msgid "Enable sync?"
+msgstr "Enable sync?"
+
+msgctxt "#30094"
+msgid "Setup complete. Open the addon menu and choose 'Guide & Setup' for the full guide."
+msgstr "Setup complete. Open the addon menu and choose 'Guide & Setup' for the full guide."
+
+msgctxt "#30095"
+msgid "Is this device the main system (upload source)?"
+msgstr "Is this device the main system (upload source)?"
+
+msgctxt "#30096"
+msgid "FTP"
+msgstr "FTP"
+
+msgctxt "#30097"
+msgid "SFTP"
+msgstr "SFTP"
+
+msgctxt "#30098"
+msgid "SMB"
+msgstr "SMB"
+
+msgctxt "#30099"
+msgid "Connection type"
+msgstr "Connection type"
+
+msgctxt "#30100"
+msgid "Run first-time setup again"
+msgstr "Run first-time setup again"
+
+msgctxt "#30101"
+msgid "Skin Arctic Zephyr Doku is not installed – Startup Mod has no effect."
+msgstr "Skin Arctic Zephyr Doku is not installed – Startup Mod has no effect."
+
+msgctxt "#30102"
+msgid "Setup wizard"
+msgstr "Setup wizard"
+
+msgctxt "#30103"
+msgid "Welcome. In a few steps we will set up sync, connection type, server and folder names. You can change everything later in Settings."
+msgstr "Welcome. In a few steps we will set up sync, connection type, server and folder names. You can change everything later in Settings."
+
+msgctxt "#30104"
+msgid "Step %d of %d"
+msgstr "Step %d of %d"
+
+msgctxt "#30105"
+msgid "Enable sync of favourites (and optionally addon data) with the server?"
+msgstr "Enable sync of favourites (and optionally addon data) with the server?"
+
+msgctxt "#30106"
+msgid "Yes = this device uploads data to the server; other devices download from it."
+msgstr "Yes = this device uploads data to the server; other devices download from it."
+
+msgctxt "#30107"
+msgid "Connection type (FTP, SFTP or SMB)"
+msgstr "Connection type (FTP, SFTP or SMB)"
+
+msgctxt "#30108"
+msgid "FTP Host (IP or hostname of your server)"
+msgstr "FTP Host (IP or hostname of your server)"
+
+msgctxt "#30109"
+msgid "FTP User (login name)"
+msgstr "FTP User (login name)"
+
+msgctxt "#30110"
+msgid "FTP Password (for the user above)"
+msgstr "FTP Password (for the user above)"
+
+msgctxt "#30111"
+msgid "FTP Base Path (path on the server, e.g. kodi)"
+msgstr "FTP Base Path (path on the server, e.g. kodi)"
+
+msgctxt "#30112"
+msgid "Custom folder name (name for this device on the server, e.g. MyDevice)"
+msgstr "Custom folder name (name for this device on the server, e.g. MyDevice)"
+
+msgctxt "#30113"
+msgid "Static folders (favourite categories, comma-separated, e.g. Anime, Horror)"
+msgstr "Static folders (favourite categories, comma-separated, e.g. Anime, Horror)"
+
+msgctxt "#30114"
+msgid "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
+msgstr "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
+
+msgctxt "#30118"
+msgid "Always"
+msgstr "Always"
+
+msgctxt "#30119"
+msgid "Daily"
+msgstr "Daily"
+
+msgctxt "#30120"
+msgid "Every 3 Days"
+msgstr "Every 3 Days"
+
+msgctxt "#30121"
+msgid "Weekly"
+msgstr "Weekly"
+
+msgctxt "#30122"
+msgid "Monthly"
+msgstr "Monthly"
+
+msgctxt "#30123"
+msgid "Remote folder for addon_data missing. Create base path / auto_fav_sync / <custom_folder> on the server."
+msgstr "Remote folder for addon_data missing. Create base path / auto_fav_sync / <custom_folder> on the server."
+
+msgctxt "#30124"
+msgid "Connection & Profiles"
+msgstr "Connection & Profiles"
+
+msgctxt "#30125"
+msgid "Info & Guide"
+msgstr "Info & Guide"
+
+msgctxt "#30126"
+msgid "General info"
+msgstr "General info"
+
+msgctxt "#30127"
+msgid "Not all folders could be created automatically. Please create the folder structure on the server manually (Settings → Info & Guide)."
+msgstr "Not all folders could be created automatically. Please create the folder structure on the server manually (Settings → Info & Guide)."
+
+msgctxt "#30128"
+msgid "What do you want to set up?"
+msgstr "What do you want to set up?"
+
+msgctxt "#30129"
+msgid "Enable sync"
+msgstr "Enable sync"
+
+msgctxt "#30130"
+msgid "Include addon_data sync"
+msgstr "Include addon_data sync"
+
+msgctxt "#30131"
+msgid "Set up connection (FTP/SFTP/SMB)"
+msgstr "Set up connection (FTP/SFTP/SMB)"
+
+msgctxt "#30132"
+msgid "Set backup folder"
+msgstr "Set backup folder"
+
+msgctxt "#30133"
+msgid "Backup folder path"
+msgstr "Backup folder path"
+
+msgctxt "#30134"
+msgid "Update"
+msgstr "Update"
+
+msgctxt "#30135"
+msgid "Version %s has been installed. See Guide for changes."
+msgstr "Version %s has been installed. See Guide for changes."
+
+msgctxt "#30137"
+msgid "Show full guide"
+msgstr "Show full guide"
+
+msgctxt "#30138"
+msgid "Debug-Info"
+msgstr "Debug-Info"
+
+msgctxt "#30139"
+msgid "Restore URL (used when choosing 'Restore from URL')"
+msgstr "Restore URL (used when choosing 'Restore from URL')"
+
+msgctxt "#30140"
+msgid "Delete backup file after restore?"
+msgstr "Delete backup file after restore?"
+
+msgctxt "#30141"
+msgid "Restoration complete. Kodi will restart when you click OK."
+msgstr "Restoration complete. Kodi will restart when you click OK."
+
+msgctxt "#30142"
+msgid "Keep"
+msgstr "Keep"
+
+msgctxt "#30143"
+msgid "Delete"
+msgstr "Delete"
+
+msgctxt "#30144"
+msgid "Test connection"
+msgstr "Test connection"
+
+msgctxt "#30145"
+msgid "Connection successful. Settings are saved."
+msgstr "Connection successful. Settings are saved."
+
+msgctxt "#30146"
+msgid "Connection failed"
+msgstr "Connection failed. Please check host, username and password in Settings → Connection."
+
+msgctxt "#30147"
+msgid "Connection"
+msgstr "Connection"
+
+msgctxt "#30150"
+msgid "Server structure"
+msgstr "Server structure"
+
+msgctxt "#30151"
+msgid "One folder = custom name (e.g. Benni); inside: favourites.xml and addon_data.zip. Per static entry one subfolder with that name containing favourites.xml. Use lowercase on the server (e.g. benni, anime).[CR][CR]Folder structure on FTP:[CR]Base path / auto_fav_sync / <folder name> / favourites.xml[CR]Example: /kodi/auto_fav_sync/benni/favourites.xml"
+msgstr "[B]Server structure:[/B] One folder = custom name (e.g. Benni); inside: favourites.xml and addon_data.zip. Per static entry one subfolder with that exact name containing favourites.xml. Use lowercase on the server (e.g. benni, anime).[CR][CR]Folder structure on FTP:[CR]Base path / auto_fav_sync / <folder name> / favourites.xml[CR]Example: /kodi/auto_fav_sync/benni/favourites.xml"
+
+msgctxt "#30152"
+msgid "Create folders on server"
+msgstr "Create folders on server"
+
+msgctxt "#30153"
+msgid "The addon tries to create the required remote folder structure automatically. If that fails (e.g. permissions), create it manually: base path/auto_fav_sync/<folder name> (lowercase, e.g. benni). Per static entry (setting 'Static folders') one subfolder with that name containing favourites.xml."
+msgstr "[B]Create folders on the server:[/B] The addon tries to create the required remote folder structure automatically. If that fails (e.g. permissions), create it manually: base path/auto_fav_sync/<folder name> (lowercase, e.g. benni). Per static entry (setting 'Static folders') one subfolder with that name containing favourites.xml."
+
+msgctxt "#30154"
+msgid "Connection & Test connection"
+msgstr "Connection & Test connection"
+
+msgctxt "#30155"
+msgid "In Settings → Connection you choose the connection type (FTP, SFTP, SMB). Sync uses this connection.[CR][CR]Test connection: In Settings → Connection use the 'Test connection' button. On success you see 'Connection successful'."
+msgstr "[B]Connection:[/B] In Settings → Connection you choose the connection type (FTP, SFTP, SMB). Sync uses this connection.[CR][CR][B]Test connection:[/B] In Settings → Connection use the 'Test connection' button. On success you see 'Connection successful'."
+
+msgctxt "#30156"
+msgid "Backup & Restore"
+msgstr "Backup & Restore"
+
+msgctxt "#30157"
+msgid "Backup: Open addon → Create backup (main menu or Maintenance). Restore: Restore build → choose local ZIP file or URL. Optional: include addon_data in backup (Settings → Backup)."
+msgstr "[B]Backup and Restore:[/B] Backup: Open addon → Create backup (main menu or Maintenance). Restore: Restore build → choose local ZIP file or URL. Optional: include addon_data in backup (Settings → Backup)."
+
+msgctxt "#30158"
+msgid "Recommended settings"
+msgstr "Recommended settings"
+
+msgctxt "#30159"
+msgid "Main system on, addon data sync on, background image rotation off, Auto-Clean off; Skin Startup on when the skin is installed."
+msgstr "[B]Recommended settings:[/B] Main system on, addon data sync on, background image rotation off, Auto-Clean off; Skin Startup on when the skin is installed."
+
+msgctxt "#30160"
+msgid "Picsum (Random)"
+msgstr "Picsum (Random)"
+
+msgctxt "#30161"
+msgid "Network path (SMB)"
+msgstr "Network path (SMB)"
+
+msgctxt "#30162"
+msgid "Auto-Clean complete."
+msgstr "Auto-Clean complete."
+
+msgctxt "#30163"
+msgid "Background image display"
+msgstr "Background image display"
+
+msgctxt "#30164"
+msgid "Download"
+msgstr "Download"
+
+msgctxt "#30165"
+msgid "Show directly from URL"
+msgstr "Show directly from URL"
+
+msgctxt "#30166"
+msgid "Connection 1"
+msgstr "Connection 1"
+
+msgctxt "#30167"
+msgid "Connection 2"
+msgstr "Connection 2"
+
+msgctxt "#30168"
+msgid "Connection 3"
+msgstr "Connection 3"
+
+msgctxt "#30169"
+msgid "Active connection"
+msgstr "Active connection"
+
+msgctxt "#30170"
+msgid "Add Doku-Kanal source to file manager?"
+msgstr "Add Doku-Kanal source to file manager?"
+
+msgctxt "#30171"
+msgid "File manager source: In Settings → File manager → Add source you can add the Doku-Kanal repository. Name: Doku-Kanal. Path: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/tree/main/repo/output"
+msgstr "File manager source: In Settings → File manager → Add source you can add the Doku-Kanal repository. Name: Doku-Kanal. Path: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/tree/main/repo/output"
+
+msgctxt "#30172"
+msgid "File manager source (Doku-Kanal)"
+msgstr "File manager source (Doku-Kanal)"
+
+msgctxt "#30173"
+msgid "Recommendations"
+msgstr "Recommendations"
+
+msgctxt "#30174"
+msgid "Use / install Doku-Kanal skin"
+msgstr "Use Doku skin"
+
+msgctxt "#30175"
+msgid "Enable debug display for Doku-Kanal skin"
+msgstr "Enable debug display for Doku-Kanal skin"
+
+msgctxt "#30176"
+msgid "Doku-Kanal skin is already installed. You can activate it under Settings → Look and feel."
+msgstr "Doku-Kanal skin is already installed. You can activate it under Settings → Look and feel."
+
+msgctxt "#30180"
+msgid "Background updated"
+msgstr "Background updated"
+
+msgctxt "#30181"
+msgid "Favourites sync interval (minutes; 0 = only at start)"
+msgstr "How often to sync favourites with the server (0 = only at Kodi start)."
+
+msgctxt "#30183"
+msgid "Only at start"
+msgstr "Only at start"
+
+msgctxt "#30184"
+msgid "5 min"
+msgstr "5 min"
+
+msgctxt "#30185"
+msgid "10 min"
+msgstr "10 min"
+
+msgctxt "#30186"
+msgid "20 min"
+msgstr "20 min"
+
+msgctxt "#30187"
+msgid "30 min"
+msgstr "30 min"
+
+msgctxt "#30188"
+msgid "60 min"
+msgstr "60 min"
+
+msgctxt "#30190"
+msgid "Backup favourites now"
+msgstr "Backup favourites"
+
+msgctxt "#30191"
+msgid "Open settings"
+msgstr "Settings"
+
+msgctxt "#30192"
+msgid "Info and guides"
+msgstr "Info and guides"
+
+msgctxt "#30193"
+msgid "Install skin"
+msgstr "Install skin"
+
+msgctxt "#30194"
+msgid "Info (hint)"
+msgstr "Info (hint)"
+
+msgctxt "#30195"
+msgid "Manual action"
+msgstr "Manual action"
+
+msgctxt "#30196"
+msgid "Test connection 1"
+msgstr "Test connection 1"
+
+msgctxt "#30197"
+msgid "Test connection 2"
+msgstr "Test connection 2"
+
+msgctxt "#30198"
+msgid "Test connection 3"
+msgstr "Test connection 3"
+
+msgctxt "#30199"
+msgid "Image list URL reachable."
+msgstr "Image list URL reachable."
+
+msgctxt "#30200"
+msgid "Test image sources URL"
+msgstr "Test image sources"
+
+msgctxt "#30201"
+msgid "Settings & Actions"
+msgstr "Settings & Actions"
+
+msgctxt "#30202"
+msgid "Backup favourites now"
+msgstr "Backup favourites now"
+
+msgctxt "#30203"
+msgid "Test connection (active profile)"
+msgstr "Test connection (active profile)"
+
+msgctxt "#30204"
+msgid "Test image source"
+msgstr "Test image source"
+
+msgctxt "#30205"
+msgid "Create backup / Restore"
+msgstr "Create backup / Restore"
+
+msgctxt "#30206"
+msgid "Run AutoClean now"
+msgstr "Run AutoClean now"
+
+msgctxt "#30207"
+msgid "Install skin"
+msgstr "Install skin"
+
+msgctxt "#30208"
+msgid "Guide & setup"
+msgstr "Guide & setup"
+
+msgctxt "#30209"
+msgid "Server & folders"
+msgstr "Server & folders"
+
+msgctxt "#30210"
+msgid "Connection (guide)"
+msgstr "Connection (guide)"
+
+msgctxt "#30211"
+msgid "Backup (guide)"
+msgstr "Backup (guide)"
+
+msgctxt "#30212"
+msgid "Recommended add-ons"
+msgstr "Recommended add-ons"
+
+msgctxt "#30213"
+msgid "File manager"
+msgstr "File manager"
+
+msgctxt "#30214"
+msgid "Debug / Logs"
+msgstr "Debug / Logs"
+
+msgctxt "#30215"
+msgid "Addon → Settings & Actions → …"
+msgstr "Addon → Settings & Actions → …"
+
+msgctxt "#30220"
+msgid "Since no connection is configured, favourites were saved locally only.\n\nLocation: {path}"
+msgstr "Since no connection is configured, favourites were saved locally only.\n\nLocation: {path}"
+
+msgctxt "#30221"
+msgid "Favourites will now be saved.[CR][CR]• If a connection is configured (FTP/SFTP/SMB), favourites will be saved to the server.[CR]• A local backup (favourites.xml.bak) is always created.[CR][CR]Continue?"
+msgstr "Favourites will now be saved.[CR][CR]• If a connection is configured (FTP/SFTP/SMB), favourites will be saved to the server.[CR]• A local backup (favourites.xml.bak) is always created.[CR][CR]Continue?"
+
+msgctxt "#30222"
+msgid "Favourites sync mode"
+msgstr "Favourites sync mode"
+
+msgctxt "#30223"
+msgid "Merge (Union)"
+msgstr "Merge: keep local and server favourites combined"
+
+msgctxt "#30224"
+msgid "Overwrite only"
+msgstr "Overwrite: use only server list (local favourites replaced)"
+
+msgctxt "#30225"
+msgid "Run connection test now?"
+msgstr "Run connection test now?"
+
+msgctxt "#30226"
+msgid "Not configured."
+msgstr "No connection configured. Set up host, username and path in Settings → Connection."
+
+msgctxt "#30227"
+msgid "Test"
+msgstr "Test"
+
+msgctxt "#30228"
+msgid "Cancel"
+msgstr "Cancel"
+
+msgctxt "#30229"
+msgid "Open plugin from Program Add-ons to run actions."
+msgstr "Open plugin from Program Add-ons to run actions."
+
+msgctxt "#30230"
+msgid "Open plugin menu"
+msgstr "Open plugin menu"
+
+msgctxt "#30300"
+msgid "Please wait…"
+msgstr "Please wait…"
+
+msgctxt "#30301"
+msgid "Favourites will be synced with the server or a local backup will be created."
+msgstr "Favourites will be synced with the server or a local backup will be created."
+
+msgctxt "#30302"
+msgid "The configured image source URLs will be checked for availability."
+msgstr "The configured image source URLs will be checked for availability."
+
+msgctxt "#30303"
+msgid "Temporary and cache files will be cleaned according to your settings."
+msgstr "Cache, packages and thumbnail cache will be cleaned according to your settings (Settings → Auto-Clean)."
+
+msgctxt "#30304"
+msgid "A backup of the current settings and data will be created at the configured location."
+msgstr "A backup of the current settings and data will be created at the configured location."
+
+msgctxt "#30305"
+msgid "A previously created backup will be restored. Current data may be overwritten."
+msgstr "A previously created backup will be restored. Current data may be overwritten."
+
+msgctxt "#30306"
+msgid "The following connection will be tested to see if a connection is possible:"
+msgstr "The following connection will be tested to see if a connection is possible:"
+
+msgctxt "#30307"
+msgid "Testing connection…"
+msgstr "Testing connection…"
+
+msgctxt "#30308"
+msgid "The connection can be established successfully. All good."
+msgstr "The connection can be established successfully. All good."
+
+msgctxt "#30309"
+msgid "Connection failed."
+msgstr "Connection failed."
+
+msgctxt "#30317"
+msgid "Connection failed. Please check Host, username and password under Settings → Connection. Currently no host is configured."
+msgstr "Connection failed. Please check Host, username and password under Settings → Connection. Currently no host is configured."
+
+msgctxt "#30318"
+msgid "Invalid connection number. Please choose 1, 2 or 3."
+msgstr "Invalid connection number. Please choose 1, 2 or 3."
+
+msgctxt "#30319"
+msgid "No files cleaned."
+msgstr "No files cleaned."
+
+msgctxt "#30310"
+msgid "Save"
+msgstr "Save"
+
+msgctxt "#30311"
+msgid "Create"
+msgstr "Create"
+
+msgctxt "#30312"
+msgid "Restore"
+msgstr "Restore"
+
+msgctxt "#30313"
+msgid "Run"
+msgstr "Run"
+
+msgctxt "#30314"
+msgid "Favourites synced.[CR]Connection type: {connection}[CR]Local: {local}[CR]Server: {remote}"
+msgstr "Favourites synced.[CR]Connection type: {connection}[CR]Local: {local}[CR]Server: {remote}"
+
+msgctxt "#30315"
+msgid "Error: {error}"
+msgstr "Error: {error}"
+
+msgctxt "#30316"
+msgid "Tested: %s"
+msgstr "Tested: %s"
+
+msgctxt "#30321"
+msgid "Backup and Restore"
+msgstr "Backup and Restore"
+
+msgctxt "#30322"
+msgid "What do you want to do?"
+msgstr "What do you want to do?"
+
+msgctxt "#30324"
+msgid "Choose other file..."
+msgstr "Choose other file..."
+
+msgctxt "#30325"
+msgid "This file is not a valid build backup (missing or invalid manifest)."
+msgstr "This file is not a valid build backup (missing or invalid manifest)."
+
+msgctxt "#30326"
+msgid "Save backup to connection (FTP/SFTP/SMB)"
+msgstr "Save backup to connection (FTP/SFTP/SMB)"
+
+msgctxt "#30327"
+msgid "Connection for backup/restore (1, 2 or 3)"
+msgstr "Connection for backup/restore (1, 2 or 3)"
+
+msgctxt "#30328"
+msgid "Remote path for backups (subfolder on server)"
+msgstr "Remote path for backups (subfolder on server)"
+
+msgctxt "#30329"
+msgid "From connection (FTP/SFTP/SMB)"
+msgstr "From connection (FTP/SFTP/SMB)"
+
+msgctxt "#30330"
+msgid "Sync"
+msgstr "Sync"
+
+msgctxt "#30331"
+msgid "Add-on-Data"
+msgstr "Add-on-Data"
+
+msgctxt "#30332"
+msgid "Favourites – General"
+msgstr "Favourites – General"
+
+msgctxt "#30333"
+msgid "Custom folder"
+msgstr "Custom folder"
+
+msgctxt "#30334"
+msgid "Static folders"
+msgstr "Static folders"
+
+msgctxt "#30335"
+msgid "None (disabled)"
+msgstr "None (disabled)"
+
+msgctxt "#30336"
+msgid "Image source"
+msgstr "Image source"
+
+msgctxt "#30337"
+msgid "Image display"
+msgstr "Image display"
+
+msgctxt "#30338"
+msgid "Create backup"
+msgstr "Create backup"
+
+msgctxt "#30339"
+msgid "Restore"
+msgstr "Restore"
+
+msgctxt "#30341"
+msgid "Only one device should have 'upload' enabled; others sync by download only."
+msgstr "Only one device should have 'upload' enabled; others sync by download only."
+
+msgctxt "#30342"
+msgid "Instructions"
+msgstr "Instructions"
+
+msgctxt "#30343"
+msgid "FTP-Sync"
+msgstr "FTP-Sync"
+
+msgctxt "#30344"
+msgid "Sync on startup: Favourites, Add-on-Data, images. Add-on-Data: enable sync, then choose which device uploads (one device only)."
+msgstr "Sync on startup: Favourites, Add-on-Data, images. Add-on-Data: enable sync, then choose which device uploads (one device only)."
+
+msgctxt "#30345"
+msgid "Favourites"
+msgstr "Favourites"
+
+msgctxt "#30346"
+msgid "Sync interval, merge/overwrite mode. Server folder for sync. Static folders for overwrite."
+msgstr "Sync interval, merge/overwrite mode. Server folder for sync. Static folders for overwrite."
+
+msgctxt "#30347"
+msgid "Show instructions"
+msgstr "Show instructions"
+
+msgctxt "#30348"
+msgid "Open plugin"
+msgstr "Open plugin"
+
+msgctxt "#30349"
+msgid "Image settings"
+msgstr "Image settings"
+
+msgctxt "#30350"
+msgid "Image source (URL, local, network), rotation, display mode."
+msgstr "Image source (URL, local, network), rotation, display mode."
+
+msgctxt "#30351"
+msgid "Auto Clean"
+msgstr "Auto Clean"
+
+msgctxt "#30352"
+msgid "Clear cache, packages, thumbnails, logs. Optionally clear addon caches (all addons)."
+msgstr "Clear cache, packages, thumbnails, logs. Optionally clear addon caches (all addons)."
+
+msgctxt "#30353"
+msgid "Doku-Skin"
+msgstr "Doku-Skin"
+
+msgctxt "#30354"
+msgid "Install or activate the Doku-Kanal skin from addon settings."
+msgstr "Install or activate the Doku-Kanal skin from addon settings."

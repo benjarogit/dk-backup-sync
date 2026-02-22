@@ -1,0 +1,4 @@
+Geist font family (Geist-Regular.ttf, Geist-Bold.ttf)
+Copyright (c) 2023 Vercel, Inc.
+Licensed under the SIL Open Font License, Version 1.1 (OFL-1.1).
+https://github.com/vercel/geist-font

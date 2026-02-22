@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!-- Label formatting (e.g. [B] for bold) is skin-dependent; use only if the skin renders it. -->
+<settings version="1">
+    <section id="plugin.program.dokukanal.buildsync">
+        <category id="general" label="30001">
+            <group id="general_sync" label="30330">
+                <setting id="enable_sync" type="boolean" label="30002">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="open_plugin_btn" type="string" label="30348">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, open_plugin)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+            <group id="general_addon_data" label="30331">
+                <setting id="addon_sync" type="boolean" label="30004">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="is_main_system" type="boolean" label="30003">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+            </group>
+            <group id="general_help" label="30342">
+                <setting id="help_general_btn" type="string" label="30347">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, show_help_general)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
+
+        <category id="favourites" label="30005">
+            <group id="favourites_general" label="30332">
+                <setting id="favourites_sync_interval_minutes" type="string" label="30181">
+                    <level>0</level>
+                    <default>20</default>
+                    <constraints>
+                        <options>
+                            <option label="30183">0</option>
+                            <option label="30184">5</option>
+                            <option label="30185">10</option>
+                            <option label="30186">20</option>
+                            <option label="30187">30</option>
+                            <option label="30188">60</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="favourites_sync_mode" type="string" label="30222">
+                    <level>0</level>
+                    <default>merge</default>
+                    <constraints>
+                        <options>
+                            <option label="30223">merge</option>
+                            <option label="30224">overwrite</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+            </group>
+            <group id="favourites_custom" label="30333">
+                <setting id="custom_folder" type="string" label="30006">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="specific_custom_folder" type="string" label="30007">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string"/>
+                </setting>
+            </group>
+            <group id="favourites_static" label="30334">
+                <setting id="overwrite_static" type="boolean" label="30008">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="static_folders" type="string" label="30009">
+                    <level>0</level>
+                    <default>Anime,Horror,Marvel,Goat</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+            </group>
+            <group id="favourites_help" label="30342">
+                <setting id="help_favourites_btn" type="string" label="30347">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, show_help_favourites)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
+
+        <category id="connection" label="30147">
+            <group id="connection_active" label="30169">
+                <setting id="active_connection" type="string" label="30169">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <options>
+                            <option label="30335">0</option>
+                            <option label="30166">1</option>
+                            <option label="30167">2</option>
+                            <option label="30168">3</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+            </group>
+            <group id="connection_1_group" label="30166">
+                <setting id="connection_1_connection_type" type="string" label="30082">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="30096">0</option>
+                            <option label="30097">1</option>
+                            <option label="30098">2</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="connection_1_sftp_port" type="string" label="30083">
+                    <level>0</level>
+                    <default>22</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_1_ftp_base_path" type="string" label="30011">
+                    <level>0</level>
+                    <default>kodi</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_1_ftp_host" type="string" label="30012">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_1_ftp_user" type="string" label="30013">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_1_ftp_pass" type="string" label="30014">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string">
+                        <hidden>true</hidden>
+                    </control>
+                </setting>
+            </group>
+            <group id="connection_2_group" label="30167">
+                <setting id="connection_2_connection_type" type="string" label="30082">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="30096">0</option>
+                            <option label="30097">1</option>
+                            <option label="30098">2</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="connection_2_sftp_port" type="string" label="30083">
+                    <level>0</level>
+                    <default>22</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_2_ftp_base_path" type="string" label="30011">
+                    <level>0</level>
+                    <default>kodi</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_2_ftp_host" type="string" label="30012">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_2_ftp_user" type="string" label="30013">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_2_ftp_pass" type="string" label="30014">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string">
+                        <hidden>true</hidden>
+                    </control>
+                </setting>
+            </group>
+            <group id="connection_3_group" label="30168">
+                <setting id="connection_3_connection_type" type="string" label="30082">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="30096">0</option>
+                            <option label="30097">1</option>
+                            <option label="30098">2</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="connection_3_sftp_port" type="string" label="30083">
+                    <level>0</level>
+                    <default>22</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_3_ftp_base_path" type="string" label="30011">
+                    <level>0</level>
+                    <default>kodi</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_3_ftp_host" type="string" label="30012">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_3_ftp_user" type="string" label="30013">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="connection_3_ftp_pass" type="string" label="30014">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string">
+                        <hidden>true</hidden>
+                    </control>
+                </setting>
+            </group>
+            <group id="connection_help" label="30342">
+                <setting id="help_connection_btn" type="string" label="30347">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, show_help_connection)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
+
+        <category id="image" label="30015">
+            <group id="image_source_group" label="30336">
+                <setting id="image_source" type="string" label="30084">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="30016">0</option>
+                            <option label="30085">1</option>
+                            <option label="30086">2</option>
+                            <option label="30160">3</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="image_list_url" type="string" label="30016">
+                    <level>0</level>
+                    <default>http://domain.de/images.txt</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="image_local_folder" type="string" label="30085">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="image_network_path" type="string" label="30161">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+            </group>
+            <group id="image_display_group" label="30337">
+                <setting id="enable_image_rotation" type="boolean" label="30017">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="image_display_mode" type="string" label="30163">
+                    <level>0</level>
+                    <default>0</default>
+                    <constraints>
+                        <options>
+                            <option label="30164">0</option>
+                            <option label="30165">1</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+            </group>
+            <group id="image_help" label="30342">
+                <setting id="help_image_btn" type="string" label="30347">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, show_help_image)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
+
+        <category id="backup" label="30038">
+            <group id="backup_create" label="30338">
+                <setting id="backup_path" type="string" label="30051">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="backup_save_to_connection" type="boolean" label="30326">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="backup_connection" type="string" label="30327">
+                    <level>0</level>
+                    <default>1</default>
+                    <constraints>
+                        <options>
+                            <option label="30166">1</option>
+                            <option label="30167">2</option>
+                            <option label="30168">3</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="backup_remote_path" type="string" label="30328">
+                    <level>0</level>
+                    <default>backups</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="backup_include_addon_data" type="boolean" label="30081">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="restore_path" type="string" label="30052">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string"/>
+                </setting>
+            </group>
+            <group id="backup_restore" label="30339">
+                <setting id="restore_wipe" type="boolean" label="30053">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="restore_url" type="string" label="30139">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="edit" format="string"/>
+                </setting>
+            </group>
+            <group id="backup_help" label="30342">
+                <setting id="help_backup_btn" type="string" label="30347">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, show_help_backup)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
+
+        <category id="autoclean" label="30054">
+            <group id="autoclean_group" label="30054">
+                <setting id="autoclean_enabled" type="boolean" label="30055">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="autoclean_freq" type="string" label="30056">
+                    <level>0</level>
+                    <default>3</default>
+                    <constraints>
+                        <options>
+                            <option label="30118">0</option>
+                            <option label="30119">1</option>
+                            <option label="30120">2</option>
+                            <option label="30121">3</option>
+                            <option label="30122">4</option>
+                        </options>
+                    </constraints>
+                    <control type="spinner" format="string"/>
+                </setting>
+                <setting id="autoclean_clearcache" type="boolean" label="30057">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="autoclean_clearpackages" type="boolean" label="30058">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="autoclean_clearthumbs" type="boolean" label="30059">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="autoclean_clearlogs" type="boolean" label="30077">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="autoclean_clearaddoncaches" type="boolean" label="30078">
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="autoclean_nextrun" type="string" label="30056">
+                    <level>4</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string"/>
+                </setting>
+            </group>
+            <group id="autoclean_help" label="30342">
+                <setting id="help_autoclean_btn" type="string" label="30347">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <control type="button" format="action">
+                        <data>RunScript($ID, show_help_autoclean)</data>
+                        <close>false</close>
+                    </control>
+                </setting>
+            </group>
+        </category>
+
+        <category id="recommendations" label="30173">
+            <group id="recommendations_group" label="30173">
+                <setting id="recommend_skin_debug" type="boolean" label="30175">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+            </group>
+        </category>
+
+        <category id="internal" label="30001" level="4">
+            <group id="internal_group" label="30001">
+                <setting id="settings_schema_version" type="string" label="30076">
+                    <level>4</level>
+                    <default>1</default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="first_run_done" type="boolean" label="30076">
+                    <level>4</level>
+                    <default>false</default>
+                    <visible>false</visible>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="changelog_seen_version" type="string" label="30076">
+                    <level>4</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <visible>false</visible>
+                    <control type="edit" format="string"/>
+                </setting>
+                <setting id="skin_startup_default_set" type="boolean" label="30076">
+                    <level>4</level>
+                    <default>false</default>
+                    <visible>false</visible>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="skin_debug_default_done" type="boolean" label="30076">
+                    <level>4</level>
+                    <default>false</default>
+                    <visible>false</visible>
+                    <control type="toggle"/>
+                </setting>
+            </group>
+        </category>
+    </section>
+</settings>
