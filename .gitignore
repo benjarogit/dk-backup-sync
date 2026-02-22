@@ -22,3 +22,7 @@ addons/**/*.zip
 gitpush.sh
 ENTWICKLUNG.md
 tools/
+# Lokaler Symlink .cursor/plans -> ~/.cursor/plans (Build-Button Workaround)
+.cursor/plans
+# Kodi-Quellcode (Referenz-Klon, nur zum Nachschlagen)
+kodi-xbmc/

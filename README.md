@@ -7,7 +7,7 @@
 <a name="english"></a>
 ## English
 
-**Auto FTP Sync Plus** is a Kodi addon that keeps your favourites and addon data in sync across devices (FTP, SFTP, SMB), runs backups and restores, rotates menu backgrounds from URLs or network paths, and cleans cache and thumbnails on a schedule. It is used together with the **Arctic Zephyr – Doku-Kanal** skin, which is offered in the same repository.
+**Auto FTP Sync Plus** is a Kodi addon that keeps your favourites and addon data in sync across devices (FTP, SFTP, SMB), runs backups and restores, rotates menu backgrounds from URLs or network paths, and cleans cache and thumbnails on a schedule. It is used together with the **Doku-Kanal (Skin)** skin, which is offered in the same repository.
 
 ### Features
 
@@ -23,7 +23,7 @@
 ### Requirements
 
 - **Kodi 21** (Omega) or newer
-- Static favourite folders (Anime, Horror, …) are managed by the addon; no external addon required. Location: `addon_data/plugin.program.auto.ftp.sync/Static Favourites/`
+- Static favourite folders (Anime, Horror, …) are managed by the addon; no external addon required. Location: `addon_data/plugin.program.dokukanal.buildsync/Static Favourites/`
 - For SFTP: Kodi with vfs.sftp support (or addon)
 - Other addons’ data (e.g. Shortlist) in addon_data is synced when “sync addon_data” is enabled
 
@@ -40,7 +40,7 @@ Installation order: (1) install the repo addon from ZIP once, (2) enable unknown
    If Kodi asks to allow unknown sources, go to **Settings** → **Add-ons** → **Unknown sources** and enable it. This is only needed for the first install from ZIP.
 
 3. **Install addon and skin from the repo**  
-   **Add-ons** → **Add-on browser** → **Install from repository** → select **Doku-Kanal** → install **Auto FTP Sync**. Optionally install the skin **Arctic Zephyr – Doku-Kanal** from the same repository. Alternatively, you can install the addon and skin from ZIP using the files under **Assets** on the Release page (**plugin.program.auto.ftp.sync-1.0.0.zip**, **skin.arctic.zephyr.doku-1.0.0.zip**).
+   **Add-ons** → **Add-on browser** → **Install from repository** → select **Doku-Kanal** → install **Doku-Kanal (Build and Sync)**. Optionally install the skin **Doku-Kanal (Skin)** from the same repository. Alternatively, you can install the addon and skin from ZIP using the files under **Assets** on the Release page (**plugin.program.dokukanal.buildsync-1.0.0.zip**, **skin.dokukanal-1.0.0.zip**).
 
 4. **Updates**  
    Once the repo is installed, Kodi will check for updates automatically. The repo points to this GitHub repository; you get new addon and skin versions through **Add-ons** → **My add-ons** → **Check for updates** or when Kodi updates on its own.
@@ -57,15 +57,15 @@ Installation order: (1) install the repo addon from ZIP once, (2) enable unknown
 
 ### License / Credits
 
-- **Auto FTP Sync:** Doku-Kanal
-- **Skin Arctic Zephyr – Doku-Kanal:** Based on Arctic Zephyr (jurialmunkey, beatmasterrs). See skin addon for license.
+- **Doku-Kanal (Build and Sync):** Doku-Kanal
+- **Doku-Kanal (Skin):** Based on Arctic Zephyr (jurialmunkey, beatmasterrs). See skin addon for license.
 
 ---
 
 <a name="deutsch"></a>
 ## Deutsch
 
-**Auto FTP Sync Plus** ist ein Kodi-Addon, das Favoriten und Addon-Daten zwischen Geräten synchron hält (FTP, SFTP, SMB), Backups erstellt und wiederherstellt, Menü-Hintergründe aus URLs oder Netzwerkpfaden rotieren lässt und Cache sowie Thumbnails nach Zeitplan aufräumt. Es wird zusammen mit dem Skin **Arctic Zephyr – Doku-Kanal** genutzt, der im gleichen Repository angeboten wird.
+**Auto FTP Sync Plus** ist ein Kodi-Addon, das Favoriten und Addon-Daten zwischen Geräten synchron hält (FTP, SFTP, SMB), Backups erstellt und wiederherstellt, Menü-Hintergründe aus URLs oder Netzwerkpfaden rotieren lässt und Cache sowie Thumbnails nach Zeitplan aufräumt. Es wird zusammen mit dem Skin **Doku-Kanal (Skin)** genutzt, der im gleichen Repository angeboten wird.
 
 ### Features
 
@@ -81,7 +81,7 @@ Installation order: (1) install the repo addon from ZIP once, (2) enable unknown
 ### Voraussetzungen
 
 - **Kodi 21** (Omega) oder neuer
-- Statische Favoritenordner (Anime, Horror, …) werden vom Addon verwaltet; kein externes Addon nötig. Speicherort: `addon_data/plugin.program.auto.ftp.sync/Static Favourites/`
+- Statische Favoritenordner (Anime, Horror, …) werden vom Addon verwaltet; kein externes Addon nötig. Speicherort: `addon_data/plugin.program.dokukanal.buildsync/Static Favourites/`
 - Für SFTP: Kodi mit vfs.sftp-Unterstützung (bzw. Addon)
 - Daten anderer Addons (z. B. Shortlist) im addon_data werden mit synchronisiert, wenn die Option „addon_data synchronisieren“ aktiviert ist
 
@@ -98,7 +98,7 @@ Reihenfolge: (1) Repo-Addon einmal per ZIP installieren, (2) bei Bedarf „Unbek
    Falls Kodi danach fragt: **Einstellungen** → **Add-ons** → **Unbekannte Quellen** erlauben. Nur für die erste Installation von einer ZIP nötig.
 
 3. **Addon und Skin aus dem Repo installieren**  
-   **Add-ons** → **Addon-Browser** → **Addons aus Repository installieren** → **Doku-Kanal** wählen → **Auto FTP Sync** installieren. Optional den Skin **Arctic Zephyr – Doku-Kanal** aus demselben Repository installieren. Alternativ kannst du Addon und Skin per ZIP aus den **Assets** des Releases installieren (**plugin.program.auto.ftp.sync-1.0.0.zip**, **skin.arctic.zephyr.doku-1.0.0.zip**).
+   **Add-ons** → **Addon-Browser** → **Addons aus Repository installieren** → **Doku-Kanal** wählen → **Doku-Kanal (Build and Sync)** installieren. Optional den Skin **Doku-Kanal (Skin)** aus demselben Repository installieren. Alternativ kannst du Addon und Skin per ZIP aus den **Assets** des Releases installieren (**plugin.program.dokukanal.buildsync-1.0.0.zip**, **skin.dokukanal-1.0.0.zip**).
 
 4. **Updates**  
    Sobald das Repo installiert ist, prüft Kodi automatisch auf Updates. Das Repo zeigt auf dieses GitHub-Repository; neue Addon- und Skin-Versionen erhältst du über **Add-ons** → **Meine Add-ons** → **Auf Updates prüfen** oder durch die automatische Update-Prüfung von Kodi.
@@ -115,5 +115,5 @@ Reihenfolge: (1) Repo-Addon einmal per ZIP installieren, (2) bei Bedarf „Unbek
 
 ### Lizenz / Credits
 
-- **Auto FTP Sync:** Doku-Kanal
-- **Skin Arctic Zephyr – Doku-Kanal:** Basiert auf Arctic Zephyr (jurialmunkey, beatmasterrs). Lizenz siehe Skin-Addon.
+- **Doku-Kanal (Build and Sync):** Doku-Kanal
+- **Doku-Kanal (Skin):** Basiert auf Arctic Zephyr (jurialmunkey, beatmasterrs). Lizenz siehe Skin-Addon.

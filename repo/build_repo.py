@@ -1,260 +1,109 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Build Kodi repository: create addons.xml, addons.xml.md5, and ZIPs for each addon.
-Run from project root with: python3 repo/build_repo.py
-Addons to include: plugin.program.auto.ftp.sync, repository.dokukanal, skin.arctic.zephyr.doku.
-Output: addons.xml, addons.xml.md5, *.zip in repo/output/.
-Output in repo/output/ is used for the GitHub repository; commit it after each release.
+Build Kodi repository: ZIPs und addons.xml aus dem Kodi-Addons-Ordner.
+Quelle: KODI_ADDONS (Default: $HOME/.kodi/addons)
+Ausgabe: repo/output/<addon_id>/<addon_id>-<version>.zip, addons.xml, addons.xml.md5
 """
 import hashlib
 import os
-import shutil
-import xml.etree.ElementTree as ET
+import re
 import zipfile
-from pathlib import Path
 
-# Paths relative to repo/
-# Es werden immer die aktuellen Dateien aus addons/ (Plugin, Skin) gepackt – keine Kopie aus ~/.kodi.
-REPO_DIR = Path(__file__).resolve().parent
-ADDONS_SOURCE = REPO_DIR.parent / "addons"
-OUTPUT_DIR = REPO_DIR / "output"
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ADDON_IDS = [
-    "plugin.program.auto.ftp.sync",
+    "plugin.program.dokukanal.buildsync",
+    "skin.dokukanal",
     "repository.dokukanal",
-    "skin.arctic.zephyr.doku",
 ]
+EXCLUDE = {"__pycache__", ".git", "*.pyc", ".gitignore"}
 
 
-def make_zip(addon_id: str, out_dir: Path) -> str:
-    """Create ZIP for addon_id in out_dir/addon_id/; return zip filename. Kodi expects datadir/addon_id/addon_id-version.zip."""
-    src = ADDONS_SOURCE / addon_id
-    if not src.is_dir():
-        raise FileNotFoundError(f"Addon folder not found: {src}")
-    addon_xml = src / "addon.xml"
-    if not addon_xml.exists():
-        raise FileNotFoundError(f"addon.xml not found in {src}")
-    tree = ET.parse(addon_xml)
-    root = tree.getroot()
-    version = root.get("version", "1.0.0")
-    zip_name = f"{addon_id}-{version}.zip"
-    subdir = out_dir / addon_id
-    subdir.mkdir(parents=True, exist_ok=True)
-    zip_path = subdir / zip_name
-    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, allowZip64=True) as zf:
-        for root_dir, dirs, files in os.walk(src):
-            dirs[:] = [d for d in dirs if d != ".git"]
+def get_kodi_addons_path():
+    return os.environ.get("KODI_ADDONS") or os.path.join(
+        os.path.expanduser("~"), ".kodi", "addons"
+    )
+
+
+def get_version_from_addon_xml(addon_dir):
+    addon_xml = os.path.join(addon_dir, "addon.xml")
+    if not os.path.isfile(addon_xml):
+        return None
+    with open(addon_xml, "r", encoding="utf-8", errors="replace") as f:
+        m = re.search(r'version="([^"]+)"', f.read())
+    return m.group(1) if m else None
+
+
+def should_exclude(name):
+    if name in EXCLUDE:
+        return True
+    if name.endswith(".pyc") or "__pycache__" in name:
+        return True
+    return False
+
+
+def zip_addon(source_dir, zip_path):
+    os.makedirs(os.path.dirname(zip_path), exist_ok=True)
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        for root, dirs, files in os.walk(source_dir):
+            dirs[:] = [d for d in dirs if not should_exclude(d)]
             for f in files:
-                if f.endswith(".zip"):
+                if should_exclude(f):
                     continue
-                full = Path(root_dir) / f
-                rel = full.relative_to(src)
-                # Kodi expects first ZIP entry to be the addon-id folder (repository.dokukanal/...)
-                arc = f"{addon_id}/{rel.as_posix()}"
-                zf.write(full, arc)
-    # Nur die aktuelle Version behalten – alte ZIPs in diesem Addon-Ordner löschen
-    for old in subdir.glob("*.zip"):
-        if old.name != zip_name:
-            old.unlink()
-    return zip_name
+                path = os.path.join(root, f)
+                arcname = os.path.relpath(path, source_dir)
+                zf.write(path, arcname)
 
 
-def _normalize_zip_name(n: str) -> str:
-    return n.replace("\\", "/")
-
-
-def validate_addon_zip(zip_path: Path, addon_id: str) -> list[str]:
-    """
-    Validate addon ZIP: structure (Kodi expects addon-id folder first), addon.xml
-    well-formed and required fields, and that referenced assets exist in the ZIP.
-    Returns list of error messages; empty if valid.
-    """
-    errors: list[str] = []
-    with zipfile.ZipFile(zip_path, "r") as zf:
-        names = [n.replace("\\", "/") for n in zf.namelist()]
-
-    if not names:
-        errors.append("ZIP is empty")
-        return errors
-
-    # 1) Structure: first entry must be addon_id/...
-    first = names[0]
-    if not first.startswith(addon_id + "/"):
-        errors.append(f"First ZIP entry must be '{addon_id}/...', got: {first}")
-
-    addon_xml_path = f"{addon_id}/addon.xml"
-    if addon_xml_path not in names:
-        errors.append(f"ZIP must contain '{addon_xml_path}'")
-        return errors  # cannot continue without addon.xml
-
-    # 2) Parse addon.xml (syntax + content)
-    with zipfile.ZipFile(zip_path, "r") as zf:
-        try:
-            xml_bytes = zf.read(addon_xml_path)
-            root = ET.fromstring(xml_bytes)
-        except ET.ParseError as e:
-            errors.append(f"addon.xml is not valid XML: {e}")
-            return errors
-
-    if root.tag != "addon":
-        errors.append(f"addon.xml root element must be <addon>, got <{root.tag}>")
-
-    xml_id = root.get("id")
-    if not xml_id:
-        errors.append("addon.xml: missing attribute 'id'")
-    elif xml_id != addon_id:
-        errors.append(f"addon.xml: id must be '{addon_id}', got '{xml_id}'")
-
-    version = root.get("version")
-    if not version or not version.strip():
-        errors.append("addon.xml: missing or empty 'version'")
-    else:
-        v = version.strip()
-        if not all(c in "0123456789." for c in v.replace(".", "")):
-            errors.append(f"addon.xml: version should be numeric (e.g. 1.0.0), got '{version}'")
-
-    if not (root.get("name") or "").strip():
-        errors.append("addon.xml: missing or empty 'name'")
-
-    # 3) Referenced assets (icon, fanart, screenshots) must exist in ZIP
-    prefix = addon_id + "/"
-    zip_set = set(names)
-    for ext in root.findall(".//extension[@point='xbmc.addon.metadata']"):
-        assets = ext.find("assets")
-        if assets is None:
-            continue
-        for tag in ("icon", "fanart", "screenshot"):
-            for node in assets.findall(tag):
-                if node.text:
-                    path_in_zip = prefix + node.text.strip().replace("\\", "/")
-                    if path_in_zip not in zip_set:
-                        errors.append(f"addon.xml references missing file: {node.text.strip()}")
-
-    return errors
-
-
-def copy_addon_assets_to_output(addon_id: str, out_dir: Path) -> None:
-    """
-    Copy icon and fanart from addon source to out_dir/addon_id/ so Kodi can load them
-    from datadir URLs (avoids 404s in repo browser).
-    """
-    src = ADDONS_SOURCE / addon_id
-    if not src.is_dir():
-        src = REPO_DIR / addon_id
-    if not src.is_dir():
-        return
-    addon_xml = src / "addon.xml"
-    if not addon_xml.exists():
-        return
-    tree = ET.parse(addon_xml)
-    root = tree.getroot()
-    dest_subdir = out_dir / addon_id
-    dest_subdir.mkdir(parents=True, exist_ok=True)
-    for ext in root.findall(".//extension[@point='xbmc.addon.metadata']"):
-        assets = ext.find("assets")
-        if assets is None:
-            continue
-        for tag in ("icon", "fanart"):
-            for node in assets.findall(tag):
-                if not (node.text and node.text.strip()):
-                    continue
-                rel_path = node.text.strip().replace("\\", "/")
-                src_file = src / rel_path
-                if not src_file.is_file():
-                    continue
-                dest_file = dest_subdir / rel_path
-                dest_file.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(src_file, dest_file)
-                print(f"  Copied {rel_path} to output/{addon_id}/")
-
-
-def get_addon_xml_string(addon_id: str) -> str:
-    """Return full content of addon.xml for addon_id."""
-    path = ADDONS_SOURCE / addon_id / "addon.xml"
-    if not path.exists():
-        # Repository addon might be in repo/repository.dokukanal
-        path = REPO_DIR / addon_id / "addon.xml"
-    if not path.exists():
-        raise FileNotFoundError(f"addon.xml not found for {addon_id}")
-    return path.read_text(encoding="utf-8").strip()
-
-
-def build_addons_xml(out_dir: Path) -> None:
-    """Build addons.xml from all addon.xml files."""
-    addons = []
-    for addon_id in ADDON_IDS:
-        try:
-            xml_str = get_addon_xml_string(addon_id)
-            # Wrap in addon tag if not already (addon.xml is a single <addon>)
-            if not xml_str.lstrip().startswith("<?xml"):
-                xml_str = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n' + xml_str
-            addons.append(xml_str)
-        except FileNotFoundError as e:
-            print(f"Skip {addon_id}: {e}")
-    addons_xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<addons>\n'
-    for a in addons:
-        # Extract inner <addon>...</addon> from file (strip XML decl if present)
-        a = a.strip()
-        if a.startswith("<?xml"):
-            a = a.split("?>", 1)[-1].strip()
-        addons_xml += a + "\n"
-    addons_xml += "</addons>\n"
-    out_path = out_dir / "addons.xml"
-    out_path.write_text(addons_xml, encoding="utf-8")
-    print(f"Wrote {out_path}")
-
-
-def build_md5(out_dir: Path) -> None:
-    """Build addons.xml.md5 from addons.xml."""
-    xml_path = out_dir / "addons.xml"
-    if not xml_path.exists():
-        raise FileNotFoundError("addons.xml not found; run build_addons_xml first")
-    data = xml_path.read_bytes()
-    md5 = hashlib.md5(data).hexdigest()
-    (out_dir / "addons.xml.md5").write_text(md5, encoding="utf-8")
-    print(f"Wrote {out_dir / 'addons.xml.md5'} ({md5})")
+def read_addon_xml(addon_dir):
+    path = os.path.join(addon_dir, "addon.xml")
+    if not os.path.isfile(path):
+        return None
+    with open(path, "r", encoding="utf-8", errors="replace") as f:
+        return f.read().strip()
 
 
 def main():
-    out_dir = OUTPUT_DIR
-    out_dir.mkdir(parents=True, exist_ok=True)
-    # Remove old flat zips if any (we now use datadir/addon_id/addon_id-version.zip)
-    for old_zip in out_dir.glob("*.zip"):
-        old_zip.unlink()
-    repo_addon_src = REPO_DIR / "repository.dokukanal"
-    repo_addon_dest = ADDONS_SOURCE / "repository.dokukanal"
-    # Ensure repo addon has an icon (copy from script addon if missing)
-    repo_icon = repo_addon_src / "icon.png"
-    if not repo_icon.exists():
-        src_icon = ADDONS_SOURCE / "plugin.program.auto.ftp.sync" / "resources" / "images" / "icon.png"
-        if src_icon.exists():
-            shutil.copy2(src_icon, repo_icon)
-            print(f"Copied icon to {repo_icon}")
-    # Copy repository addon from repo/ to addons so it can be zipped (repo/ is source of truth)
-    if repo_addon_src.is_dir():
-        if repo_addon_dest.exists():
-            shutil.rmtree(repo_addon_dest)
-        shutil.copytree(repo_addon_src, repo_addon_dest)
-        print(f"Copied repository addon to {repo_addon_dest}")
+    kodi_addons = get_kodi_addons_path()
+    output_base = os.path.join(REPO_ROOT, "repo", "output")
+    os.makedirs(output_base, exist_ok=True)
+
+    if not os.path.isdir(kodi_addons):
+        print("Fehler: Kodi-Addons-Ordner nicht gefunden:", kodi_addons)
+        print("Setze KODI_ADDONS auf den Pfad zu deiner Kodi addons/ (z. B. ~/.kodi/addons).")
+        return 1
+
+    addon_xmls = []
     for addon_id in ADDON_IDS:
-        try:
-            zip_name = make_zip(addon_id, out_dir)
-            zip_path = out_dir / addon_id / zip_name
-            val_errors = validate_addon_zip(zip_path, addon_id)
-            if val_errors:
-                raise SystemExit(
-                    f"Validation failed: {zip_name}\n  " + "\n  ".join(val_errors)
-                )
-            print(f"Created {zip_name}")
-            copy_addon_assets_to_output(addon_id, out_dir)
-        except SystemExit:
-            raise
-        except Exception as e:
-            print(f"ZIP {addon_id}: {e}")
-    build_addons_xml(out_dir)
-    build_md5(out_dir)
-    print("Done. Upload contents of", out_dir, "to your server and set repo URLs in repository addon.")
+        src = os.path.join(kodi_addons, addon_id)
+        if not os.path.isdir(src):
+            print("Hinweis: Übersprungen (nicht gefunden):", addon_id)
+            continue
+        version = get_version_from_addon_xml(src)
+        if not version:
+            print("Hinweis: Keine Version in addon.xml:", addon_id)
+            continue
+        out_dir = os.path.join(output_base, addon_id)
+        zip_name = f"{addon_id}-{version}.zip"
+        zip_path = os.path.join(out_dir, zip_name)
+        zip_addon(src, zip_path)
+        print("Erstellt:", zip_path)
+        xml_content = read_addon_xml(src)
+        if xml_content:
+            addon_xmls.append(xml_content)
+
+    addons_xml_content = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<addons>\n' + "\n".join(addon_xmls) + "\n</addons>\n"
+    addons_xml_path = os.path.join(output_base, "addons.xml")
+    with open(addons_xml_path, "w", encoding="utf-8") as f:
+        f.write(addons_xml_content)
+    print("Erstellt:", addons_xml_path)
+
+    md5_path = os.path.join(output_base, "addons.xml.md5")
+    with open(md5_path, "w", encoding="utf-8") as f:
+        f.write(hashlib.md5(addons_xml_content.encode("utf-8")).hexdigest())
+    print("Erstellt:", md5_path)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    exit(main())

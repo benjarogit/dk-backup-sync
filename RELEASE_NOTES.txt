@@ -1,11 +1,18 @@
 # Stichpunkte für den nächsten Release – werden in CHANGELOG.md und GitHub-Release übernommen, danach geleert.
 # Eine Zeile pro Änderung, mit "- " beginnen. Optional: Block "### English" für englische Fassung (sonst = gleicher Text).
-# Beispiel:
-# - Sync: Fehler bei SMB behoben
-# - Skin: Einstellungen-Layout angepasst
 #
-# ### English
-# - Sync: fixed SMB error
-# - Skin: adjusted settings layout
+- Einstellungen: Doku-Kanal-Shortcut mit Beschreibung (31902), Icon dksync.png; Klick öffnet Plugin-Fenster (Crash mit Addon-Info vermieden)
+- Dialoge: Bestätigungen (yesno) mit klaren Texten; Backup/Wiederherstellen als zwei Menüpunkte; Wiederherstellen: Lokal/URL/Abbrechen, Backup-Validierung
+- Einstellungs-Labels: Sync, Add-on-Data, Favoriten-Ordner verständlicher; Kategorien; Anleitung pro Bereich; Button „Plugin öffnen“
+- Anleitungen im Plugin-Menü; Hintergrundbild systemweit; MyPrograms/Addon-Settings: Rahmen (Border-Radius, Highlight-Farbe)
+- Skin: Geist-Font; DialogTextViewer angepasst; GlobalFanart nutzt home.slideshowpath
+#
+### English
+#
+- Settings: Doku-Kanal shortcut with description (31902), icon dksync.png; click opens plugin window (avoid addon-info crash)
+- Dialogs: confirmations (yesno) with clear text; Backup and Restore as two menu items; Restore: Local/URL/Cancel, backup validation
+- Settings labels: Sync, addon data, favourite folder clearer; categories; help per section; “Open plugin” button
+- Instructions in plugin menu; background image system-wide; MyPrograms/Addon settings: border radius, highlight colour
+- Skin: Geist font; DialogTextViewer adjusted; GlobalFanart uses home.slideshowpath
 #
 
