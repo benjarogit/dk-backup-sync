@@ -1,0 +1,4 @@
+Version 1.0.21 – 2025-02-21
+
+- Changelog aus Git-Commits; Anzeige nach Update aus GitHub (changelog.txt).
+- Repo-URL auf dk-backup-sync umgestellt.

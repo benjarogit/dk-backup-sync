@@ -26,3 +26,20 @@ tools/
 .cursor/plans
 # Kodi-Quellcode (Referenz-Klon, nur zum Nachschlagen)
 kodi-xbmc/
+
+# IDE / lokale Konfiguration (nicht für User)
+.cursor/
+.vscode/
+.vale.ini
+*.code-workspace
+
+# Lokale Docs/Referenz (nicht für User)
+ANLEITUNG.md
+docs/
+tests/
+
+# Fremd-Addon-ZIPs (nur zum Anschauen, nicht ins Repo)
+ParanoidWizard-DE.zip
+plugin.program.openwizard-*.zip
+plugin.program.super.favourites-*.zip
+script.ezmaintenanceplus-*.zip

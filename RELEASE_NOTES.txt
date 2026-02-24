@@ -1,3 +1,0 @@
-# Stichpunkte für den nächsten Release – werden in CHANGELOG.md und GitHub-Release übernommen, danach geleert.
-# Eine Zeile pro Änderung, mit "- " beginnen. Optional: Block "### English" für englische Fassung (sonst = gleicher Text).
-#

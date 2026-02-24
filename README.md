@@ -20,6 +20,7 @@
 | **Image sources** | Menu background images rotate from URLs, a local folder, or a network path (SMB/NFS). **Settings → Images**. |
 | **Backup / Restore** | **Maintenance → Backup** creates a full userdata ZIP (local or URL); you can include **addon_data**. **Maintenance → Restore** lets you restore from a local file or URL (with validation); optionally clear userdata before restore. |
 | **Auto-Clean** | Deletes cache, packages, thumbnails and logs on a schedule. Configure interval in addon settings. |
+| **Autostop** | Automatically stop paused playback after a set time, or set a sleep timer for playing media. Optional screensaver when stopping; extend or stop from the notification. Enable/disable in **Settings → Autostop**; works with all sources (including xstream). Takes effect after Kodi restart when enabled. |
 | **Repository** | Install and update the addon and skin from the **Doku-Kanal** repository (GitHub). One-time repo ZIP install, then all updates via Kodi’s repository. |
 
 #### Plugin menu and settings
@@ -44,10 +45,10 @@
 
 Installation order: (1) install the repo addon from ZIP once, (2) enable unknown sources if required, (3) install the addon (and optionally the skin) from the repo. After that, updates are delivered through the repo.
 
-**Where to download:** Use the [Releases](https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases) page. Under **Assets** you will find the ready-to-use Kodi ZIPs (repository, plugin, skin). Do **not** use “Source code (zip)” – that is the full development source; use the files listed under **Assets** instead.
+**Where to download:** Use the [Releases](https://github.com/benjarogit/dk-backup-sync/releases) page. Under **Assets** you will find the ready-to-use Kodi ZIPs (repository, plugin, skin). Do **not** use “Source code (zip)” – that is the full development source; use the files listed under **Assets** instead.
 
 1. **Install the repo addon (one-time)**  
-   On the [Releases](https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases) page, open the latest release and under **Assets** download the repository ZIP (e.g. **repository.dokukanal-1.0.zip**). In Kodi go to **Add-ons** → **Add-on browser** → **Install from zip file** and select that ZIP. This installs the Doku-Kanal repository; all future updates come from the repo.
+   On the [Releases](https://github.com/benjarogit/dk-backup-sync/releases) page, open the latest release and under **Assets** download the repository ZIP (e.g. **repository.dokukanal-1.0.zip**). In Kodi go to **Add-ons** → **Add-on browser** → **Install from zip file** and select that ZIP. This installs the Doku-Kanal repository; all future updates come from the repo.
 
 2. **Unknown sources**  
    If Kodi asks to allow unknown sources, go to **Settings** → **Add-ons** → **Unknown sources** and enable it. This is only needed for the first install from ZIP.
@@ -60,9 +61,9 @@ Installation order: (1) install the repo addon from ZIP once, (2) enable unknown
 
 ### Repo URLs (GitHub)
 
-- **addons.xml:** `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml`
-- **addons.xml.md5:** `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml.md5`
-- **ZIP downloads:** `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/`
+- **addons.xml:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml`
+- **addons.xml.md5:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml.md5`
+- **ZIP downloads:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/`
 
 ### Versioning
 
@@ -91,6 +92,7 @@ Installation order: (1) install the repo addon from ZIP once, (2) enable unknown
 | **Bildquellen** | Menü-Hintergrundbilder aus URL-Liste, lokalem Ordner oder Netzwerkpfad (SMB/NFS). **Einstellungen → Bilder**. |
 | **Backup / Wiederherstellung** | **Wartung → Backup** erstellt ein Userdata-ZIP (lokal oder URL); **addon_data** optional. **Wartung → Wiederherstellung**: von lokaler Datei oder URL (mit Validierung); optional userdata vorher bereinigen. |
 | **Auto-Clean** | Löscht Cache, Packages, Thumbnails und Logs nach Zeitplan. Intervall in den Addon-Einstellungen. |
+| **Autostop** | Stoppt pausierte Wiedergabe nach X Minuten automatisch oder setzt einen Schlaf-Timer für laufende Wiedergabe. Optional Bildschirmsparer beim Stopp; Verlängerung oder Stopp aus der Benachrichtigung. In **Einstellungen → Autostop** ein-/ausschaltbar; funktioniert mit allen Quellen (auch xstream). Nach Aktivierung beim nächsten Kodi-Start wirksam. |
 | **Repository** | Addon und Skin aus dem **Doku-Kanal**-Repository (GitHub) installieren und aktualisieren. Repo-ZIP einmal installieren, danach alle Updates über das Repository. |
 
 #### Plugin-Menü und Einstellungen
@@ -115,10 +117,10 @@ Installation order: (1) install the repo addon from ZIP once, (2) enable unknown
 
 Reihenfolge: (1) Repo-Addon einmal per ZIP installieren, (2) bei Bedarf „Unbekannte Quellen“ erlauben, (3) Addon (und optional Skin) aus dem Repo installieren. Danach kommen Updates über das Repo.
 
-**Wo herunterladen:** Auf der Seite [Releases](https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases) findest du unter **Assets** die fertigen Kodi-ZIPs (Repository, Plugin, Skin). **Nicht** „Source code (zip)“ verwenden – das ist der komplette Quellcode; nutze die Dateien unter **Assets**.
+**Wo herunterladen:** Auf der Seite [Releases](https://github.com/benjarogit/dk-backup-sync/releases) findest du unter **Assets** die fertigen Kodi-ZIPs (Repository, Plugin, Skin). **Nicht** „Source code (zip)“ verwenden – das ist der komplette Quellcode; nutze die Dateien unter **Assets**.
 
 1. **Repo-Addon einmalig installieren**  
-   Auf der Seite [Releases](https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/releases) das neueste Release öffnen und unter **Assets** **repository.dokukanal-1.0.0.zip** herunterladen. In Kodi **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** wählen und diese ZIP auswählen. Damit ist das Doku-Kanal-Repository installiert; alle weiteren Updates kommen über das Repo.
+   Auf der Seite [Releases](https://github.com/benjarogit/dk-backup-sync/releases) das neueste Release öffnen und unter **Assets** **repository.dokukanal-1.0.0.zip** herunterladen. In Kodi **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** wählen und diese ZIP auswählen. Damit ist das Doku-Kanal-Repository installiert; alle weiteren Updates kommen über das Repo.
 
 2. **Unbekannte Quellen**  
    Falls Kodi danach fragt: **Einstellungen** → **Add-ons** → **Unbekannte Quellen** erlauben. Nur für die erste Installation von einer ZIP nötig.
@@ -131,9 +133,9 @@ Reihenfolge: (1) Repo-Addon einmal per ZIP installieren, (2) bei Bedarf „Unbek
 
 ### Repo-URLs (GitHub)
 
-- **addons.xml:** `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml`
-- **addons.xml.md5:** `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml.md5`
-- **ZIP-Downloads:** `https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/`
+- **addons.xml:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml`
+- **addons.xml.md5:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml.md5`
+- **ZIP-Downloads:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/`
 
 ### Versionierung
 

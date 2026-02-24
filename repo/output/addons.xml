@@ -104,9 +104,9 @@
 	<extension point="xbmc.addon.repository">
 		<!-- Repo served from GitHub raw; branch: main. HTTPS only (Kodi best practice). -->
 		<dir>
-			<info>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/addons.xml.md5</checksum>
-			<datadir>https://raw.githubusercontent.com/benjarogit/Auto-FTP-Sync-Plus-2026/main/repo/output/</datadir>
+			<info>https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml.md5</checksum>
+			<datadir>https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/</datadir>
 		</dir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
