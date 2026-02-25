@@ -102,6 +102,14 @@ If you host your own repo server: upload `addons.xml`, `addons.xml.md5`, and `re
 
 Download plugin and skin ZIPs from [dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist) and install via **Install from zip file**. No repository, but no automatic updates.
 
+#### Troubleshooting: "Fail to Install Add-on from Zip File"
+
+If installation from an HTTPS source fails, common causes:
+
+- **SSL certificate** – Kodi (e.g. on LibreELEC, Android) may not trust your server’s certificate. Workaround: download the ZIP on a PC from [GitHub](https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip), copy to a USB stick or SMB share, add that path as a source in Kodi, then install from there.
+- **Try HTTP** – If your server allows it, add `http://` instead of `https://` as the source (for testing only).
+- **Kodi log** – Check `kodi.log` for the exact error (e.g. `SSL peer certificate`).
+
 ---
 
 ### Requirements
@@ -230,6 +238,14 @@ Bei eigenem Repo-Server: `addons.xml`, `addons.xml.md5` und `repository.dokukana
 **Option B – Direkte ZIP-Installation**
 
 Plugin- und Skin-ZIPs aus [dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist) herunterladen und über **Von ZIP-Datei installieren** einspielen. Kein Repository, aber keine automatischen Updates.
+
+#### Fehlerbehebung: „Fail to Install Add-on from Zip File“
+
+Wenn die Installation aus einer HTTPS-Quelle fehlschlägt, häufige Ursachen:
+
+- **SSL-Zertifikat** – Kodi (z. B. LibreELEC, Android) vertraut dem Server-Zertifikat evtl. nicht. **Lösung:** ZIP auf dem PC von [GitHub](https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip) herunterladen, auf USB-Stick oder SMB-Freigabe kopieren, diesen Pfad als Quelle in Kodi hinzufügen und von dort installieren.
+- **HTTP testen** – Falls dein Server es erlaubt, `http://` statt `https://` als Quelle eintragen (nur zum Testen).
+- **Kodi-Log** – In `kodi.log` steht die genaue Fehlermeldung (z. B. `SSL peer certificate`).
 
 ---
 
