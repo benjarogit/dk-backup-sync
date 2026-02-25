@@ -25,6 +25,8 @@ tools/
 docs/
 changelog_entry.sh
 repo/DEPLOY.md
+repo/.env
+.env.dkrepo
 # Lokaler Symlink .cursor/plans -> ~/.cursor/plans (Build-Button Workaround)
 .cursor/plans
 # Kodi-Quellcode (Referenz-Klon, nur zum Nachschlagen)
