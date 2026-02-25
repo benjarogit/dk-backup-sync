@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-URL-Parameter parsen (action, mode, name, ...).
-get_action() / get_mode() fuer Router; action hat Vorrang.
+Parse URL parameters (action, mode, name, ...).
+get_action() / get_mode() for router; action takes precedence.
 """
 from urllib.parse import parse_qsl, unquote_plus
 
 
 def parse_param_string(paramstring):
-    """Parst Query-String (ohne ?) in ein Dict."""
+    """Parse query string (without ?) into a dict."""
     if not paramstring:
         return {}
     return dict(parse_qsl(paramstring, keep_blank_values=True))
 
 
 class Params:
-    """Liest Parameter aus Plugin-URL. get_action() / get_mode() fuer Router."""
+    """Read parameters from plugin URL. get_action() / get_mode() for router."""
 
     def __init__(self, paramstring):
         self.params = parse_param_string(paramstring or '')
@@ -26,11 +26,11 @@ class Params:
         return unquote_plus(val) if isinstance(val, str) else val
 
     def get_action(self):
-        """action=... (Hauptparameter fuer Router)."""
+        """action=... (main parameter for router)."""
         return self.get('action') or self.get('mode')
 
     def get_mode(self):
-        """mode=... (Fallback fuer Abwaertskompatibilitaet)."""
+        """mode=... (fallback for backward compatibility)."""
         return self.get('mode') or self.get('action')
 
     def get_name(self):

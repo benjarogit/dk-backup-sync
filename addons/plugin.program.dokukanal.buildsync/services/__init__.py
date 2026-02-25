@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Services: eine Funktion pro fachlicher Aktion. Nur Rückgaben, keine Dialoge."""
+"""Services: one function per logical action. Return values only, no dialogs."""
 from services import backup_service
 from services import favorites_service
 from services import network_service

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Kapselung aller Kodi-Aufrufe (xbmc, xbmcgui, xbmcplugin, xbmcvfs).
-Rest des Addons importiert nur aus core.kodi_api; keine direkten xbmc-Imports in services/ui.
+Wrapper for all Kodi API calls (xbmc, xbmcgui, xbmcplugin, xbmcvfs).
+Rest of addon imports only from core.kodi_api; no direct xbmc imports in services/ui.
 """
 import xbmc
 import xbmcaddon
@@ -11,69 +11,69 @@ import xbmcvfs
 
 
 def raw_log(msg, level=None):
-    """Schreibt eine Zeile ins Kodi-Log (ohne Präfix)."""
+    """Write one line to Kodi log (no prefix)."""
     if level is None:
         level = xbmc.LOGINFO
     xbmc.log(msg, level)
 
 
 def sleep(ms):
-    """Kodi sleep in Millisekunden."""
+    """Kodi sleep in milliseconds."""
     xbmc.sleep(ms)
 
 
 def executebuiltin(cmd):
-    """Führt einen Kodi-Builtin-Befehl aus."""
+    """Execute a Kodi builtin command."""
     xbmc.executebuiltin(cmd)
 
 
 def translate_path(special_path):
-    """Übersetzt special:// in absoluten Pfad."""
+    """Translate special:// to absolute path."""
     return xbmcvfs.translatePath(special_path)
 
 
 def get_addon():
-    """Liefert das Addon-Objekt (xbmcaddon.Addon)."""
+    """Return the addon object (xbmcaddon.Addon)."""
     return xbmcaddon.Addon()
 
 
 def get_info_label(label):
-    """Liest ein Kodi-Info-Label."""
+    """Read a Kodi info label."""
     return xbmc.getInfoLabel(label) or ''
 
 
 def Dialog():
-    """Erstellt einen xbmcgui.Dialog."""
+    """Create an xbmcgui.Dialog."""
     return xbmcgui.Dialog()
 
 
 def DialogProgress():
-    """Erstellt einen xbmcgui.DialogProgress."""
+    """Create an xbmcgui.DialogProgress."""
     return xbmcgui.DialogProgress()
 
 
 def ListItem(label=''):
-    """Erstellt ein xbmcgui.ListItem."""
+    """Create an xbmcgui.ListItem."""
     return xbmcgui.ListItem(label)
 
 
 def add_directory_item(handle, url, listitem, is_folder=False):
-    """Fügt einen Eintrag zur Plugin-Liste hinzu."""
+    """Add an entry to the plugin list."""
     xbmcplugin.addDirectoryItem(handle=handle, url=url, listitem=listitem, isFolder=is_folder)
 
 
 def end_of_directory(handle):
-    """Schließt die Plugin-Liste."""
+    """Close the plugin list."""
     xbmcplugin.endOfDirectory(handle)
 
 
 def set_plugin_category(handle, category):
-    """Setzt die Kategorie der Plugin-Liste."""
+    """Set the plugin list category."""
     xbmcplugin.setPluginCategory(handle, category)
 
 
 def set_content(handle, content):
-    """Setzt den Inhaltstyp der Liste (optional)."""
+    """Set the list content type (optional)."""
     try:
         xbmcplugin.setContent(handle, content)
     except Exception:

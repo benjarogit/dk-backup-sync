@@ -2,17 +2,12 @@
 """
 Auto FTP Sync - Kodi service addon.
 Syncs favourites and addon_data via FTP, optional image rotation and startup file copies.
-Kodi Matrix (Python 3); cross-platform (special://, xbmcvfs).
-Nutzt resources.lib.common für ADDON, Einstellungen, Lokalisierung, Log.
+Uses resources.lib.common for ADDON, settings, localization, log.
 
-Architektur – alle Funktionen eigenständig (eine Funktion pro Feature):
-- Jedes Feature hat eine eigene, gekapselte Funktion (sync_favourites, sync_addon_data,
-  download_random_image, test_connection, test_image_sources, ensure_remote_structure, …).
-- Geteilt werden nur Hilfsfunktionen (_load_settings, show_notification, _get_backend,
-  _get_profile_settings, …) und ggf. Referenzen auf andere Funktionen, wo nötig.
-- Der Service-Block unten (if __name__ == "__main__") läuft nur beim Kodi-Start und
-  ruft mehrere dieser Funktionen nacheinander auf. Ein Aufruf von außen
-  (z. B. Plugin/run_actions: sync_favourites()) führt ausschließlich diese eine Funktion aus.
+Architecture: each feature is a self-contained function (sync_favourites, sync_addon_data,
+download_random_image, test_connection, test_image_sources, ensure_remote_structure, …).
+Shared helpers: _load_settings, show_notification, _get_backend, _get_profile_settings, …
+Service block (if __name__ == "__main__") runs only on Kodi start; external calls run one function only.
 """
 import os
 import random
@@ -28,7 +23,7 @@ from resources.lib.common import ADDON, ADDON_ID, ADDON_PATH, USERDATA, L, log, 
 
 
 def _load_settings():
-    """Lädt alle Service-Settings mit sicheren Lesern; repariert defekte Werte durch Zurückschreiben der Defaults."""
+    """Load all service settings with safe getters; repair invalid values by rewriting defaults."""
     global ENABLED, IS_MAIN_SYSTEM, OVERWRITE_STATIC, CUSTOM_FOLDER, SPECIFIC_CUSTOM_FOLDER
     global STATIC_FOLDERS, IMAGE_SOURCE_IDX, IMAGE_LIST_URL, IMAGE_LOCAL_FOLDER, IMAGE_NETWORK_PATH
     global ENABLE_IMAGE_ROTATION, ENABLE_ADDON_SYNC, IMAGE_DISPLAY_MODE, FAVOURITES_SYNC_INTERVAL_MINUTES, FAVOURITES_SYNC_MODE
@@ -60,7 +55,7 @@ def _load_settings():
     FAVOURITES_SYNC_MODE = raw_mode if raw_mode in ('merge', 'overwrite') else 'merge'
 
 
-# Defaults (werden in _load_settings() überschrieben)
+# Defaults (overwritten in _load_settings())
 ENABLED = False
 IS_MAIN_SYSTEM = True
 OVERWRITE_STATIC = False
@@ -77,7 +72,7 @@ IMAGE_DISPLAY_MODE = 0  # 0 = download, 1 = show directly from URL
 FAVOURITES_SYNC_INTERVAL_MINUTES = 20  # 0 = only at start
 FAVOURITES_SYNC_MODE = 'merge'  # 'merge' | 'overwrite'
 
-# Bildrotation: Benachrichtigung in den ersten 90 s nach Start unterdrücken (kein Toast beim Start/bei Einstellungsaktionen)
+# Image rotation: suppress notification for first 90s after start (no toast on start/settings actions)
 _IMAGE_NOTIFICATION_QUIET_UNTIL = 0.0
 
 # Pfade (ADDON_ID, ADDON_PATH, USERDATA aus common)
@@ -91,9 +86,9 @@ IMAGE_EXTENSIONS = ('.jpg', '.jpeg', '.png', '.webp', '.gif', '.bmp')
 
 def _get_profile_settings(connection_number):
     """
-    Liest die Verbindungseinstellungen für Verbindung 1, 2 oder 3.
-    connection_number: 1, 2 oder 3.
-    Returns: dict mit connection_type, host, user, password, base_path, sftp_port
+    Read connection settings for connection 1, 2 or 3.
+    connection_number: 1, 2 or 3.
+    Returns: dict with connection_type, host, user, password, base_path, sftp_port
     """
     if connection_number not in (1, 2, 3):
         connection_number = 1
@@ -115,16 +110,16 @@ def _get_profile_settings(connection_number):
 
 def _get_active_profile_settings():
     """
-    Liest die Verbindungseinstellungen der aktiven Verbindung (1, 2 oder 3).
-    Bei aktiver Verbindung „Keine“ (0): liefert Profil mit leerem Host (keine Remote-Aktionen).
-    Returns: dict mit connection_type, host, user, password, base_path, sftp_port
+    Read settings of the active connection (1, 2 or 3).
+    If active is "None" (0): returns profile with empty host (no remote actions).
+    Returns: dict with connection_type, host, user, password, base_path, sftp_port
     """
     try:
         active = int(safe_get_string('active_connection', '1') or '1')
     except (ValueError, TypeError):
         active = 1
     if active not in (1, 2, 3):
-        # „Keine“ (0) oder ungültig: leeres Profil, damit _has_connection_configured() False ist
+        # "None" (0) or invalid: empty profile so _has_connection_configured() is False
         p = _get_profile_settings(1)
         p['host'] = ''
         return p
@@ -820,7 +815,7 @@ def sync_addon_data():
             # 2. ZIP entpacken ins addon_data-Verzeichnis
             extract_zip(local_zip_path, local_base_path)
 
-            # 3. Lokale ZIP wieder löschen
+            # 3. Delete local ZIP again
             if os.path.exists(local_zip_path):
                 os.remove(local_zip_path)
                 log(f"Lokale ZIP-Datei gelöscht: {local_zip_path}", xbmc.LOGINFO)

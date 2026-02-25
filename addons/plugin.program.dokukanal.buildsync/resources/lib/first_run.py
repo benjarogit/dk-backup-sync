@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Ersteinrichtungs-Assistent: Geführter Dialog beim ersten Start.
-Setzt Einstellungen und first_run_done-Flag. Ob der Wizard schon durchlaufen
-wurde, wird ausschließlich über das Addon-Setting first_run_done (Bool) in
-resources/settings.xml gehalten; Kodi speichert es persistent (Best Practice).
-Nutzt resources.lib.common für ADDON, L, safe_get_bool.
+First-run wizard: guided dialog on first start.
+Sets settings and first_run_done flag. Whether the wizard has been run is stored
+only in addon setting first_run_done (bool) in resources/settings.xml; Kodi persists it.
+Uses resources.lib.common for ADDON, L, safe_get_bool.
 """
 import xbmc
 import xbmcgui
@@ -13,19 +12,19 @@ from resources.lib.common import ADDON, L, log, safe_get_bool
 
 
 def _safe_first_run_done(default=False):
-    """Liest first_run_done sicher (common.safe_get_bool)."""
+    """Read first_run_done safely (common.safe_get_bool)."""
     return safe_get_bool('first_run_done', default)
 
 
 def _step(heading_fmt, step, total, message):
-    """Dialog-Titel mit Schritt-Anzeige (z. B. „Schritt 2 von 11“)."""
+    """Dialog title with step display (e.g. Step 2 of 11)."""
     return heading_fmt % (step, total), message
 
 
 def run_wizard():
     """
-    Zeigt den Ersteinrichtungs-Assistenten mit Willkommen, Multiselect „Was einrichten?“ und Einzelschritten.
-    Setzt am Ende first_run_done auf true.
+    Show first-run wizard with welcome, multiselect "What to set up?", and single steps.
+    Sets first_run_done to true at the end.
     """
     d = xbmcgui.Dialog()
     step_fmt = L(30104)  # "Step %d of %d" / "Schritt %d von %d"
@@ -36,7 +35,7 @@ def run_wizard():
 
     # Schritt 2: Multiselect „Was soll eingerichtet werden?“ (ParanoidWizard-Anleihe)
     choices = [L(30129), L(30130), L(30131), L(30132)]  # Sync, addon_data, Verbindung, Backup-Ordner
-    preselect = [0, 1, 2]  # Sync, addon_data, Verbindung vorausgewählt
+    preselect = [0, 1, 2]  # Sync, addon_data, connection preselected
     sel = d.multiselect(L(30128), choices, preselect=preselect)
     if sel is None:
         ADDON.setSettingBool('first_run_done', True)
@@ -135,12 +134,12 @@ def run_wizard():
 
 
 def maybe_run():
-    """Startet den Assistenten nur, wenn first_run_done noch nicht gesetzt ist."""
+    """Start wizard only if first_run_done is not set yet."""
     if not _safe_first_run_done(default=False):
         run_wizard()
 
 
 def reset_and_run():
-    """Setzt first_run_done zurück und startet den Assistenten (Menüpunkt)."""
+    """Reset first_run_done and start wizard (menu item)."""
     ADDON.setSettingBool('first_run_done', False)
     run_wizard()

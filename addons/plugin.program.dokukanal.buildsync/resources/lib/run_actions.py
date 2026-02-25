@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Aktionen mit Dialog-Ablauf: über action_dialog.run_with_info_and_confirm bzw. confirm_then_run.
-Wird aus addon.py aufgerufen (identischer Ablauf wie Backup/Restore).
+Actions with dialog flow: via action_dialog.confirm_then_run.
+Called from addon.py (same flow as Backup/Restore).
 """
 import sys
 import traceback
@@ -15,14 +15,14 @@ from resources.lib.common import ADDON, ADDON_PATH, L, log
 
 
 def _ensure_auto_ftp_sync():
-    """Stellt sicher, dass das Addon-Root im Pfad ist und auto_ftp_sync importierbar ist."""
+    """Ensure addon root is on path and auto_ftp_sync is importable."""
     addon_path = xbmcvfs.translatePath(ADDON.getAddonInfo('path'))
     if addon_path not in sys.path:
         sys.path.insert(0, addon_path)
 
 
 def run_test_connection(connection=None):
-    """Verbindung testen: Bestätigung (confirm_then_run) → Aktion mit eigenem Progress und dialog.ok (wie Backup/Restore)."""
+    """Test connection: confirm_then_run → action with own progress and dialog.ok (like Backup/Restore)."""
     xbmc.sleep(100)
     try:
         _ensure_auto_ftp_sync()
@@ -75,7 +75,7 @@ def run_test_connection(connection=None):
 
 
 def _format_sync_result(result):
-    """Liefert die lokalisierte Meldung aus sync_favourites-Rückgabe oder None (wie plugin._format_sync_result)."""
+    """Return localized message from sync_favourites return value or None (like plugin._format_sync_result)."""
     if not result or not isinstance(result, (tuple, list)) or len(result) < 2:
         return None
     msg_id = result[1]
@@ -87,7 +87,7 @@ def _format_sync_result(result):
 
 
 def run_sync_favourites():
-    """Favoriten sichern: Bestätigung (confirm_then_run) → Aktion mit eigenem Progress und dialog.ok (wie Backup/Restore)."""
+    """Save favourites: confirm_then_run → action with own progress and dialog.ok (like Backup/Restore)."""
     xbmc.sleep(100)
     try:
         _ensure_auto_ftp_sync()
@@ -98,7 +98,7 @@ def run_sync_favourites():
             progress.create(L(30202), L(30300))
             result = auto_ftp_sync.sync_favourites(no_notification=True)
             progress.close()
-            # Kurz warten, falls Kodi gerade Fenster schließt/Skin entlädt – danach Notification/Dialog zuverlässiger
+            # Brief wait if Kodi is closing window/unloading skin – then notification/dialog more reliable
             xbmc.sleep(1500)
             msg = _format_sync_result(result)
             if not (msg or '').strip():
@@ -106,7 +106,7 @@ def run_sync_favourites():
             success = result and isinstance(result, (tuple, list)) and len(result) >= 1 and result[0]
             title = L(30202) if success else ADDON.getAddonInfo('name')
             msg_flat = (msg or '').replace('[CR]', ' ').replace('\n', ' ').replace(',', ' ').strip()[:200]
-            # Zuerst Notification (bleibt sichtbar, auch wenn Kodi das Fenster schließt)
+            # Notification first (stays visible even if Kodi closes window)
             try:
                 icon_path = xbmcvfs.translatePath(ADDON.getAddonInfo('path')) + '/resources/images/icon.png'
                 xbmc.executebuiltin('Notification(%s,%s,10000,%s)' % (title, msg_flat, icon_path))
@@ -143,7 +143,7 @@ def run_sync_favourites():
 
 
 def run_test_image_sources():
-    """Bildquelle testen: Bestätigung (confirm_then_run) → Aktion mit eigenem Progress und dialog.ok (wie Backup/Restore)."""
+    """Test image source: confirm_then_run → action with own progress and dialog.ok (like Backup/Restore)."""
     xbmc.sleep(100)
     try:
         _ensure_auto_ftp_sync()

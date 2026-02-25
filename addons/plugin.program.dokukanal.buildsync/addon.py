@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Entry-Point und Routing. action -> eine Service-Funktion; keine Business-Logik im Router.
-Handle -1 (Einstellungen): Marker-Logik; Listen-APIs nicht aufrufen.
+Entry point and routing. action -> one service function; no business logic in router.
+Handle -1 (settings): marker logic; do not call list APIs.
 """
 import os
 import sys
 import urllib.parse
+import urllib.request
+import urllib.error
 import time
 import xbmcvfs
 
@@ -26,11 +28,17 @@ log = logging_utils.log
 
 _ACTION_MARKER_PATH = 'special://userdata/addon_data/%s/.dialog_action_marker' % ADDON_ID
 _ACTION_MARKER_MAX_AGE = 20
+CHANGELOG_URL = 'https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/changelog.txt'
 
 try:
     HANDLE = int(sys.argv[1]) if len(sys.argv) > 1 else 0
 except (ValueError, IndexError, TypeError):
     HANDLE = -1
+
+# Diagnostic: log on every invoke (INFO). When clicking "[INFO] Instructions" in settings,
+# a new line should appear; if not, Kodi is not invoking the plugin. If yes, argv shows
+# the exact format for repair (no fallback guessing).
+log("BuildSync plugin invoked: argv=%s" % (list(sys.argv),), 1)
 
 
 def _format_sync_result(result):
@@ -88,6 +96,19 @@ def _run_action(action, connection=None, topic=None):
         _show_info_dialog(topic)
     elif action == 'instructions':
         _run_instructions()
+    elif action == 'show_changelog':
+        changelog_text = None
+        try:
+            req = urllib.request.Request(CHANGELOG_URL, headers={'User-Agent': 'Kodi-DokuKanal/1.0'})
+            with urllib.request.urlopen(req, timeout=15) as response:
+                raw = response.read()
+            changelog_text = (raw.decode('utf-8', errors='replace').strip() or '').replace('\n', '[CR]')
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError, ValueError) as e:
+            log("changelog fetch: %s" % e, 1)
+        if changelog_text:
+            dialogs.show_text(L(30134), changelog_text)
+        else:
+            kodi_api.Dialog().ok(L(30134), L(30136) % (ADDON.getAddonInfo('version') or ''))
     elif action and action.startswith('show_help_'):
         topic = action.replace('show_help_', '', 1)
         _show_info_dialog(topic)
@@ -210,6 +231,8 @@ def _show_info_dialog(topic=None):
         title, text = L(30351), L(30352)
     elif topic == 'skin':
         title, text = L(30353), L(30354)
+    elif topic == 'autostop':
+        title, text = L(30380), L(30381)
     else:
         title, text = L(30073), L(30074)
     dialogs.show_text(title, text)
@@ -224,6 +247,7 @@ def _run_instructions():
         ('backup', L(30156)),
         ('image', L(30349)),
         ('autoclean', L(30351)),
+        ('autostop', L(30380)),
         ('skin', L(30353)),
     ]
     labels = [t[1] for t in topics]
@@ -258,8 +282,21 @@ def _maybe_show_changelog_once():
     try:
         current = ADDON.getAddonInfo('version') or ''
         seen = ADDON.getSettingString('changelog_seen_version') or ''
-        if seen and seen != current and current:
-            kodi_api.Dialog().ok(L(30134), L(30135) % current)
+        if not seen or seen == current or not current:
+            ADDON.setSettingString('changelog_seen_version', current)
+            return
+        changelog_text = None
+        try:
+            req = urllib.request.Request(CHANGELOG_URL, headers={'User-Agent': 'Kodi-DokuKanal/1.0'})
+            with urllib.request.urlopen(req, timeout=15) as response:
+                raw = response.read()
+            changelog_text = (raw.decode('utf-8', errors='replace').strip() or '').replace('\n', '[CR]')
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError, ValueError) as e:
+            log("changelog fetch: %s" % e, 1)
+        if changelog_text:
+            dialogs.show_text(L(30134), changelog_text)
+        else:
+            kodi_api.Dialog().ok(L(30134), L(30136) % current)
         ADDON.setSettingString('changelog_seen_version', current)
     except Exception as e:
         log("changelog check: %s" % e, 0)
@@ -268,20 +305,6 @@ def _maybe_show_changelog_once():
 def route_main():
     if HANDLE < 0:
         return
-    try:
-        if xbmcvfs.exists(_ACTION_MARKER_PATH):
-            try:
-                f = xbmcvfs.File(_ACTION_MARKER_PATH, 'r')
-                raw = f.read()
-                f.close()
-                t = float((raw or '').strip())
-                if (time.time() - t) < _ACTION_MARKER_MAX_AGE:
-                    list_builder.end_of_directory(HANDLE)
-                    return
-            except (ValueError, OSError, IOError, TypeError):
-                pass
-    except Exception:
-        pass
     try:
         settings.ensure_settings_initialized()
     except Exception as e:
@@ -296,6 +319,7 @@ def route_main():
     list_builder.add_item(HANDLE, L(30054), 'autoclean')
     list_builder.add_item(HANDLE, L(30174), 'install_skin')
     list_builder.add_item(HANDLE, L(30342), 'instructions')
+    list_builder.add_item(HANDLE, L(30382), 'show_changelog')
     list_builder.add_item(HANDLE, L(30191), 'settings')
     list_builder.end_of_directory(HANDLE)
 
@@ -347,6 +371,7 @@ def route_category(name):
         list_builder.set_plugin_category(HANDLE, L(30071))
         list_builder.add_item(HANDLE, L(30192), 'info')
         list_builder.add_item(HANDLE, L(30137), 'info')
+        list_builder.add_item(HANDLE, L(30382), 'show_changelog')
         list_builder.add_item(HANDLE, L(30172), 'info', topic='dateimanager')
         list_builder.add_item(HANDLE, L(30138), 'debug')
         list_builder.end_of_directory(HANDLE)
@@ -390,9 +415,25 @@ DIRECT_ACTIONS = frozenset([
     'backup', 'restore', 'autoclean', 'settings', 'sync_favourites_now', 'info', 'info_server', 'info_ordner',
     'info_verbindung', 'info_backup', 'info_empfohlen', 'info_dateimanager', 'test_connection', 'test_image_sources',
     'about', 'debug', 'install_skin', 'wizard', 'first_run_again', 'test_connection_1', 'test_connection_2', 'test_connection_3',
-    'instructions', 'open_plugin',
-    'show_help_general', 'show_help_favourites', 'show_help_connection', 'show_help_image', 'show_help_backup', 'show_help_autoclean'
+    'instructions', 'open_plugin', 'show_changelog',
+    'show_help_general', 'show_help_favourites', 'show_help_connection', 'show_help_image', 'show_help_backup', 'show_help_autoclean', 'show_help_autostop'
 ])
+# Aus Einstellungen: argv[1] kann die Action sein (RunScript liefert ggf. nur 2 Argumente)
+if action is None and len(sys.argv) >= 2:
+    a1 = str(sys.argv[1] or '').strip()
+    if a1 in DIRECT_ACTIONS:
+        action = a1
+if action is None and len(sys.argv) > 0:
+    argv0 = (sys.argv[0] or '').strip()
+    if 'plugin://' in argv0 and '?' in argv0:
+        _q = argv0.split('?', 1)[1]
+        _qp = urllib.parse.parse_qs(_q)
+        for key in ('action', 'mode'):
+            if key in _qp and _qp[key]:
+                _a = (_qp[key][0] or '').strip()
+                if _a in DIRECT_ACTIONS:
+                    action = _a
+                    break
 if action is None and _param_str and '=' not in _param_str:
     bare = (_param_str or '').strip()
     if bare in DIRECT_ACTIONS:
@@ -412,6 +453,38 @@ if action is None and len(sys.argv) >= 2:
         action = (sys.argv[1] or '').strip() or None
 if action is None and len(sys.argv) >= 2 and str(sys.argv[1]).strip() in DIRECT_ACTIONS:
     action = str(sys.argv[1]).strip()
+# Fallback: Kodi may pass RunScript string or action in any arg
+if action is None:
+    for i, arg in enumerate(sys.argv):
+        s = (arg or '')
+        if isinstance(s, bytes):
+            try:
+                s = s.decode('utf-8', errors='replace')
+            except Exception:
+                s = str(s)
+        s = str(s).strip()
+        if s in DIRECT_ACTIONS:
+            action = s
+            break
+        if 'show_help_' in s:
+            for known in ('show_help_general', 'show_help_favourites', 'show_help_connection', 'show_help_image', 'show_help_backup', 'show_help_autoclean', 'show_help_autostop'):
+                if known in s:
+                    action = known
+                    break
+            if action is not None:
+                break
+        # RunScript(addon_id, action) als ein String in einem Arg
+        if action is None and 'RunScript(' in s and ',' in s:
+            try:
+                rest = s.split('RunScript(', 1)[1].strip()
+                if rest.endswith(')'):
+                    rest = rest[:-1]
+                parts = [p.strip() for p in rest.split(',', 1)]
+                if len(parts) >= 2 and parts[1] in DIRECT_ACTIONS:
+                    action = parts[1]
+                    break
+            except (IndexError, AttributeError):
+                pass
 connection = p.get('connection')
 if len(sys.argv) >= 2 and str(sys.argv[1]) in ('test_connection_1', 'test_connection_2', 'test_connection_3'):
     action = 'test_connection'
@@ -420,6 +493,9 @@ if action is None and _param_str and (_param_str or '').strip() in ('test_connec
     action = 'test_connection'
     connection = (_param_str or '').strip()[-1]
 category_name = p.get_name()
+
+# Diagnostic: after parsing; action/handle show what we recognized from argv
+log("BuildSync parsed: action=%s handle=%s" % (action, HANDLE), 1)
 
 if action == 'execute':
     route_execute(p)
@@ -433,8 +509,9 @@ if action == 'settings_actions':
         _add_settings_actions_items()
     sys.exit(0)
 if action in DIRECT_ACTIONS:
-    log("direct action=%s handle=%s" % (action, HANDLE), 1)
+    log("BuildSync running direct action: %s handle=%s" % (action, HANDLE), 1)
     if HANDLE == -1:
+        log("BuildSync argv from settings: %s" % (sys.argv,), 1)
         try:
             f = xbmcvfs.File(_ACTION_MARKER_PATH, 'w')
             f.write(str(time.time()))

@@ -3,7 +3,7 @@
 """
 Build Kodi repository: ZIPs und addons.xml aus dem Kodi-Addons-Ordner.
 Quelle: KODI_ADDONS (Default: $HOME/.kodi/addons)
-Ausgabe: repo/output/<addon_id>/<addon_id>-<version>.zip, addons.xml, addons.xml.md5
+Ausgabe: dist/<addon_id>/<addon_id>-<version>.zip, addons.xml, addons.xml.md5
 """
 import hashlib
 import os
@@ -30,7 +30,9 @@ def get_version_from_addon_xml(addon_dir):
     if not os.path.isfile(addon_xml):
         return None
     with open(addon_xml, "r", encoding="utf-8", errors="replace") as f:
-        m = re.search(r'version="([^"]+)"', f.read())
+        content = f.read()
+    # Match version in root <addon ...> tag, not in <?xml version="1.0" or <import version=
+    m = re.search(r'<addon\s[^>]*version="([^"]+)"', content)
     return m.group(1) if m else None
 
 
@@ -65,7 +67,7 @@ def read_addon_xml(addon_dir):
 
 def main():
     kodi_addons = get_kodi_addons_path()
-    output_base = os.path.join(REPO_ROOT, "repo", "output")
+    output_base = os.path.join(REPO_ROOT, "dist")
     os.makedirs(output_base, exist_ok=True)
 
     if not os.path.isdir(kodi_addons):

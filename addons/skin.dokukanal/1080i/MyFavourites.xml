@@ -342,13 +342,6 @@
                     <usealttexture>Library.IsScanningVideo</usealttexture>
                 </control>
                 <include>ButtonPlaylist</include>
-                <control type="button" id="5555">
-                    <include>DefContextButtonGradient</include>
-                    <align>left</align>
-                    <label>31195</label>
-                    <onclick>ReloadSkin()</onclick>
-                    <visible>Skin.HasSetting(DebugInfo)</visible>
-                </control>
                 <include>ControlButtons</include>
             </control>
         </control>

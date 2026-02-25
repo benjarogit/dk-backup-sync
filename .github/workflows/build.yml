@@ -1,0 +1,32 @@
+name: Build
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build repository
+        env:
+          KODI_ADDONS: ./addons
+        run: python3 repo/build_repo.py
+
+      - name: Commit and push dist/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add dist/
+          if git diff --staged --quiet; then
+            echo "No changes in dist/"
+          else
+            git commit -m "Build: Update dist/ [automated]"
+            git push
+          fi

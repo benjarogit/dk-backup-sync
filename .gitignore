@@ -13,15 +13,18 @@ Thumbs.db
 # Logs
 *.log
 
-# Addon-ZIPs nur unter repo/output/ (Build-Artefakte); keine ZIPs in addons/ committen
+# Addon-ZIPs in addons/ nicht committen (Build-Artefakte landen in dist/)
 addons/**/*.zip
 
-# repo/output/ is NOT ignored – it is committed so GitHub can serve addons.xml and ZIPs.
+# dist/ wird committed (Repository-Pakete für GitHub)
 
-# Development tools and docs (local only, not on GitHub)
+# Development tools (local only, not on GitHub)
 gitpush.sh
 ENTWICKLUNG.md
 tools/
+docs/
+changelog_entry.sh
+repo/DEPLOY.md
 # Lokaler Symlink .cursor/plans -> ~/.cursor/plans (Build-Button Workaround)
 .cursor/plans
 # Kodi-Quellcode (Referenz-Klon, nur zum Nachschlagen)
@@ -33,9 +36,8 @@ kodi-xbmc/
 .vale.ini
 *.code-workspace
 
-# Lokale Docs/Referenz (nicht für User)
+# Lokale Referenz (nicht für User)
 ANLEITUNG.md
-docs/
 tests/
 
 # Fremd-Addon-ZIPs (nur zum Anschauen, nicht ins Repo)

@@ -48,10 +48,6 @@ msgctxt "#30009"
 msgid "Static Folders (comma separated)"
 msgstr "Statische Ordner"
 
-msgctxt "#30010"
-msgid "Profile 1 – Connection"
-msgstr "Profil 1 – Verbindung"
-
 msgctxt "#30011"
 msgid "Base path (e.g. kodi – FTP/SFTP: directory on server, SMB: share name)"
 msgstr "Basis-Pfad (z. B. kodi – FTP/SFTP: Verzeichnis auf dem Server, SMB: Share-Name)"
@@ -80,93 +76,9 @@ msgctxt "#30017"
 msgid "Enable Image Rotation"
 msgstr "Hintergrundbild-Rotation aktivieren"
 
-msgctxt "#30018"
-msgid "Favourites downloaded"
-msgstr "Favoriten heruntergeladen"
-
-msgctxt "#30019"
-msgid "Error downloading Favourites"
-msgstr "Fehler beim Herunterladen der Favoriten. Verbindung (Einstellungen → Verbindung) und Ordnername (Einstellungen → Favoriten) prüfen."
-
-msgctxt "#30020"
-msgid "'addon_data' Upload successful"
-msgstr "'addon_data' Upload erfolgreich"
-
-msgctxt "#30021"
-msgid "Error downloading"
-msgstr "Fehler beim Herunterladen"
-
-msgctxt "#30022"
-msgid "Custom Folder Name is required"
-msgstr "Ordnername für dieses Gerät fehlt. Bitte unter Einstellungen → Favoriten eintragen."
-
-msgctxt "#30023"
-msgid "Custom folder '{folder}' does not exist on the server. Please create it and try again."
-msgstr "Der benutzerdefinierte Ordner '{folder}' existiert nicht auf dem Server. Bitte erstellen Sie ihn und versuchen Sie es erneut."
-
-msgctxt "#30024"
-msgid "Favorites successfully synchronized"
-msgstr "Favoriten erfolgreich synchronisiert"
-
-msgctxt "#30025"
-msgid "Error downloading {folder} favourites from server"
-msgstr "Fehler beim Herunterladen der Favoriten vom Server: {folder}"
-
-msgctxt "#30026"
-msgid "{folder} favourites downloaded"
-msgstr "{folder} Favoriten heruntergeladen"
-
-msgctxt "#30027"
-msgid "Synchronization complete. Reload to see the updated favourites?"
-msgstr "Synchronisation abgeschlossen. Neu laden, um die aktualisierten Favoriten anzuzeigen?"
-
-msgctxt "#30028"
-msgid "Error with favorites sync"
-msgstr "Fehler bei Favoriten-Sync. Verbindung (Einstellungen → Verbindung) und Ordnername (Einstellungen → Favoriten) prüfen, dann erneut versuchen."
-
-msgctxt "#30029"
-msgid "'addon_data' Upload failed"
-msgstr "'addon_data' Upload fehlgeschlagen"
-
-msgctxt "#30030"
-msgid "'addon_data' synchronized"
-msgstr "'addon_data' synchronisiert"
-
-msgctxt "#30031"
-msgid "Random image downloaded"
-msgstr "Zufallsbild heruntergeladen"
-
-msgctxt "#30032"
-msgid "Image list URL not provided"
-msgstr "URL für Bildliste nicht angegeben"
-
-msgctxt "#30033"
-msgid "No image URLs found in the list"
-msgstr "Keine Bild-URLs in der Liste gefunden"
-
-msgctxt "#30034"
-msgid "Cache cleared"
-msgstr "Cache geleert"
-
-msgctxt "#30035"
-msgid "'addon_data' sync failed"
-msgstr "'addon_data' Synchronisation fehlgeschlagen"
-
-msgctxt "#30036"
-msgid "Extra synchronization"
-msgstr "Extra Synchronisation"
-
-msgctxt "#30037"
-msgid "Skin 'arctic.zephyr' Startup Mod"
-msgstr "Skin 'arctic.zephyr' Startup Mod"
-
 msgctxt "#30038"
 msgid "Backup"
 msgstr "Backup"
-
-msgctxt "#30039"
-msgid "Enter build backup name"
-msgstr "Namen für Build-Backup eingeben"
 
 msgctxt "#30040"
 msgid "Creating build backup..."
@@ -203,10 +115,6 @@ msgstr "Wiederherstellung abgeschlossen."
 msgctxt "#30048"
 msgid "Errors: {count} files could not be extracted."
 msgstr "Fehler: {count} Dateien konnten nicht entpackt werden."
-
-msgctxt "#30049"
-msgid "Restart Kodi to apply changes."
-msgstr "Kodi neu starten, um Änderungen zu übernehmen."
 
 msgctxt "#30050"
 msgid "Wipe cache/temp before restore?"
@@ -252,14 +160,6 @@ msgctxt "#30060"
 msgid "Backup: Create"
 msgstr "Backup: Erstellen"
 
-msgctxt "#30061"
-msgid "Run Auto-Clean now"
-msgstr "Auto-Clean jetzt ausführen"
-
-msgctxt "#30062"
-msgid "Settings"
-msgstr "Einstellungen"
-
 msgctxt "#30063"
 msgid "Backup: Restore"
 msgstr "Backup: Zurücksetzen"
@@ -299,10 +199,6 @@ msgstr "Wartung"
 msgctxt "#30071"
 msgid "Guide & Setup"
 msgstr "Anleitung & Einrichtung"
-
-msgctxt "#30072"
-msgid "Sync runs automatically at startup. See Guide for FTP and folder setup."
-msgstr "Sync läuft automatisch beim Start. Siehe Anleitung zu FTP und Ordnerstruktur."
 
 msgctxt "#30073"
 msgid "Auto FTP Sync – Guide & Setup"
@@ -360,42 +256,6 @@ msgctxt "#30086"
 msgid "Network image path (SMB)"
 msgstr "Netzwerkpfad (SMB)"
 
-msgctxt "#30087"
-msgid "Active profile"
-msgstr "Aktives Profil"
-
-msgctxt "#30088"
-msgid "Profile 1"
-msgstr "Profil 1"
-
-msgctxt "#30089"
-msgid "Profile 2"
-msgstr "Profil 2"
-
-msgctxt "#30090"
-msgid "Profile 3"
-msgstr "Profil 3"
-
-msgctxt "#30091"
-msgid "Profile name"
-msgstr "Profilname"
-
-msgctxt "#30092"
-msgid "First-time setup"
-msgstr "Ersteinrichtung"
-
-msgctxt "#30093"
-msgid "Enable sync?"
-msgstr "Synchronisation aktivieren?"
-
-msgctxt "#30094"
-msgid "Setup complete. Open the addon menu and choose 'Guide & Setup' for the full guide."
-msgstr "Einrichtung abgeschlossen. Im Addon-Menü 'Anleitung & Einrichtung' für die volle Anleitung öffnen."
-
-msgctxt "#30095"
-msgid "Is this device the main system (upload source)?"
-msgstr "Ist dieses Gerät das Hauptsystem (Upload-Quelle)?"
-
 msgctxt "#30096"
 msgid "FTP"
 msgstr "FTP"
@@ -408,69 +268,9 @@ msgctxt "#30098"
 msgid "SMB"
 msgstr "SMB"
 
-msgctxt "#30099"
-msgid "Connection type"
-msgstr "Verbindungstyp"
-
 msgctxt "#30100"
 msgid "Run first-time setup again"
 msgstr "Ersteinrichtung erneut ausführen"
-
-msgctxt "#30101"
-msgid "Skin Arctic Zephyr Doku is not installed – Startup Mod has no effect."
-msgstr "Skin Arctic Zephyr Doku ist nicht installiert – Start-Up-Mod hat keine Wirkung."
-
-msgctxt "#30102"
-msgid "Setup wizard"
-msgstr "Einrichtungs-Assistent"
-
-msgctxt "#30103"
-msgid "Welcome. In a few steps we will set up sync, connection type, server and folder names. You can change everything later in Settings."
-msgstr "Willkommen. In wenigen Schritten richten wir Sync, Verbindungstyp, Server und Ordnernamen ein. Alles kannst du später in den Einstellungen ändern."
-
-msgctxt "#30104"
-msgid "Step %d of %d"
-msgstr "Schritt %d von %d"
-
-msgctxt "#30105"
-msgid "Enable sync of favourites (and optionally addon data) with the server?"
-msgstr "Soll die Synchronisation von Favoriten (und optional Addon-Daten) mit dem Server aktiviert werden?"
-
-msgctxt "#30106"
-msgid "Yes = this device uploads data to the server; other devices download from it."
-msgstr "Ja = dieses Gerät lädt Daten zum Server hoch; andere Geräte laden sie von dort."
-
-msgctxt "#30107"
-msgid "Connection type (FTP, SFTP or SMB)"
-msgstr "Verbindungstyp (FTP, SFTP oder SMB)"
-
-msgctxt "#30108"
-msgid "FTP Host (IP or hostname of your server)"
-msgstr "FTP-Host (IP oder Hostname des Servers)"
-
-msgctxt "#30109"
-msgid "FTP User (login name)"
-msgstr "FTP-Benutzer (Anmeldename)"
-
-msgctxt "#30110"
-msgid "FTP Password (for the user above)"
-msgstr "FTP-Passwort (für den obigen Benutzer)"
-
-msgctxt "#30111"
-msgid "FTP Base Path (path on the server, e.g. kodi)"
-msgstr "FTP-Basispfad (Pfad auf dem Server, z. B. kodi)"
-
-msgctxt "#30112"
-msgid "Custom folder name (name for this device on the server, e.g. MyDevice)"
-msgstr "Benutzerdefinierter Ordnername (Name für dieses Gerät auf dem Server, z. B. MyDevice)"
-
-msgctxt "#30113"
-msgid "Static folders (favourite categories, comma-separated, e.g. Anime, Horror)"
-msgstr "Statische Ordner (Favoriten-Kategorien, kommagetrennt, z. B. Anime, Horror)"
-
-msgctxt "#30114"
-msgid "Setup complete. Open the addon and choose 'Guide & Setup' at the top."
-msgstr "Einrichtung abgeschlossen. Addon öffnen und oben 'Anleitung & Einrichtung' wählen."
 
 msgctxt "#30118"
 msgid "Always"
@@ -492,57 +292,13 @@ msgctxt "#30122"
 msgid "Monthly"
 msgstr "Monatlich"
 
-msgctxt "#30123"
-msgid "Remote folder for addon_data missing. Create base path / auto_fav_sync / <custom_folder> on the server."
-msgstr "Remote-Ordner für addon_data fehlt. Lege auf dem Server den Pfad Basis / auto_fav_sync / <benutzerdefinierter Ordner> an."
-
-msgctxt "#30124"
-msgid "Connection & Profiles"
-msgstr "Verbindung & Profile"
-
-msgctxt "#30125"
-msgid "Info & Guide"
-msgstr "Info & Anleitung"
-
-msgctxt "#30126"
-msgid "General info"
-msgstr "Allgemeine Info"
-
-msgctxt "#30127"
-msgid "Not all folders could be created automatically. Please create the folder structure on the server manually (Settings → Info & Guide)."
-msgstr "Nicht alle Ordner konnten automatisch angelegt werden. Bitte lege die Ordnerstruktur auf dem Server manuell an (Einstellungen → Info & Anleitung)."
-
-msgctxt "#30128"
-msgid "What do you want to set up?"
-msgstr "Was soll eingerichtet werden?"
-
-msgctxt "#30129"
-msgid "Enable sync"
-msgstr "Sync aktivieren"
-
-msgctxt "#30130"
-msgid "Include addon_data sync"
-msgstr "addon_data-Sync einschließen"
-
-msgctxt "#30131"
-msgid "Set up connection (FTP/SFTP/SMB)"
-msgstr "Verbindung (FTP/SFTP/SMB) einrichten"
-
-msgctxt "#30132"
-msgid "Set backup folder"
-msgstr "Backup-Ordner festlegen"
-
-msgctxt "#30133"
-msgid "Backup folder path"
-msgstr "Backup-Ordner (Pfad)"
-
 msgctxt "#30134"
 msgid "Update"
 msgstr "Update"
 
-msgctxt "#30135"
-msgid "Version %s has been installed. See Guide for changes."
-msgstr "Version %s wurde installiert. Siehe Anleitung für Änderungen."
+msgctxt "#30136"
+msgid "Version %s has been installed. Changelog: see GitHub Releases."
+msgstr "Version %s wurde installiert. Changelog: siehe GitHub Releases."
 
 msgctxt "#30137"
 msgid "Show full guide"
@@ -576,10 +332,6 @@ msgctxt "#30144"
 msgid "Test connection"
 msgstr "Verbindung testen"
 
-msgctxt "#30145"
-msgid "Connection successful. Settings are saved."
-msgstr "Verbindung erfolgreich. Einstellungen sind gespeichert."
-
 msgctxt "#30146"
 msgid "Connection failed"
 msgstr "Verbindung fehlgeschlagen. Bitte Host, Benutzer und Passwort in den Einstellungen unter Verbindung prüfen."
@@ -594,7 +346,7 @@ msgstr "Serverstruktur"
 
 msgctxt "#30151"
 msgid "One folder = custom name (e.g. Benni); inside: favourites.xml and addon_data.zip. Per static entry one subfolder with that name containing favourites.xml. Use lowercase on the server (e.g. benni, anime).[CR][CR]Folder structure on FTP:[CR]Base path / auto_fav_sync / <folder name> / favourites.xml[CR]Example: /kodi/auto_fav_sync/benni/favourites.xml"
-msgstr "[B]Serverstruktur:[/B] Ein Ordner = Benutzerdefinierter Name (z. B. Benni); darin favourites.xml und ggf. addon_data.zip. Pro statischem Eintrag ein Unterordner mit diesem Namen, darin favourites.xml. Ordner in Kleinbuchstaben anlegen (z. B. benni, anime).[CR][CR]Ordnerstruktur auf FTP:[CR]Basis-Pfad / auto_fav_sync / <Ordnername> / favourites.xml[CR]Beispiel: /kodi/auto_fav_sync/benni/favourites.xml"
+msgstr "Auf dem Server (FTP/SFTP/SMB) muss für jedes „Gerät“ oder jeden Benutzer ein eigener Ordner existieren.[CR][CR][B]Struktur[/B]: Ein Ordner = ein Name (z. B. benni, anime). Darin liegen favourites.xml und optional addon_data.zip. Pro statischem Favoriten-Ordner (Einstellung „Statische Ordner“) ein Unterordner mit genau diesem Namen, darin favourites.xml.[CR][CR][B]Kleinbuchstaben[/B]: Ordner auf dem Server am besten in Kleinbuchstaben anlegen (z. B. benni, anime), damit es auf allen Geräten gleich funktioniert.[CR][CR][B]Beispiel FTP[/B]: Basis-Pfad / auto_fav_sync / benni / favourites.xml. Der Basis-Pfad wird unter Einstellungen → Verbindung eingetragen; auto_fav_sync und die Unterordner legt das Addon an oder du manuell.[CR][CR][B]Wo?[/B] Einstellungen → Verbindung (Basis-Pfad); Einstellungen → Favoriten (statische Ordner)."
 
 msgctxt "#30152"
 msgid "Create folders on server"
@@ -602,7 +354,7 @@ msgstr "Ordner auf Server anlegen"
 
 msgctxt "#30153"
 msgid "The addon tries to create the required remote folder structure automatically. If that fails (e.g. permissions), create it manually: base path/auto_fav_sync/<folder name> (lowercase, e.g. benni). Per static entry (setting 'Static folders') one subfolder with that name containing favourites.xml."
-msgstr "[B]Ordner auf dem Server anlegen:[/B] Das Addon versucht, die benötigte Remote-Ordnerstruktur automatisch anzulegen. Schlägt das fehl (z. B. Rechte), lege die Ordnerstruktur manuell an: Basis-Pfad/auto_fav_sync/<Ordnername> (Kleinbuchstaben, z. B. benni). Pro statischem Eintrag (Einstellung 'Statische Ordner') einen Unterordner mit genau diesem Namen, darin favourites.xml."
+msgstr "Die Ordner auf dem Server braucht das Addon für den Favoriten-Sync.[CR][CR][B]Automatisch[/B]: Beim ersten Sync versucht das Addon, die Ordner (z. B. auto_fav_sync und darunter dein Gerätename) selbst anzulegen. Funktioniert das, musst du nichts tun.[CR][CR][B]Manuell[/B]: Wenn es fehlschlägt (z. B. fehlende Rechte auf dem Server), lege die Ordner selbst an: Basis-Pfad/auto_fav_sync/<Ordnername> in Kleinbuchstaben (z. B. benni). Pro statischem Eintrag (Einstellung „Statische Ordner“) einen Unterordner mit genau diesem Namen; darin später die Datei favourites.xml (wird vom Addon geschrieben).[CR][CR][B]Typische Fehler[/B]: Falscher Basis-Pfad; Schreibrechte fehlen; Ordner mit Großbuchstaben oder Sonderzeichen. Nach dem Anlegen „Verbindung testen“ ausführen.[CR][CR][B]Wo?[/B] Einstellungen → Verbindung (Basis-Pfad); Einstellungen → Favoriten (Statische Ordner)."
 
 msgctxt "#30154"
 msgid "Connection & Test connection"
@@ -610,7 +362,7 @@ msgstr "Verbindung & Verbindung testen"
 
 msgctxt "#30155"
 msgid "In Settings → Connection you choose the connection type (FTP, SFTP, SMB). Sync uses this connection.[CR][CR]Test connection: In Settings → Connection use the 'Test connection' button. On success you see 'Connection successful'."
-msgstr "[B]Verbindung:[/B] In den Einstellungen unter Verbindung wählst du den Verbindungstyp (FTP, SFTP, SMB). Der Sync nutzt diese Verbindung.[CR][CR][B]Verbindung testen:[/B] In den Einstellungen unter Verbindung findest du den Button „Verbindung testen“. Bei Erfolg erscheint „Verbindung erfolgreich“."
+msgstr "Ohne funktionierende Verbindung zum Server läuft kein Sync.[CR][CR][B]Verbindungstyp[/B]: Unter Einstellungen → Verbindung wählst du FTP, SFTP oder SMB. SFTP und SMB nutzen Kodi-eigene Funktionen; meist sind keine Extra-Addons nötig.[CR][CR][B]Einstellungen pro Verbindung[/B]: Host (Adresse des Servers), Port, Benutzername, Passwort bzw. Pfad. Du kannst bis zu drei Profile speichern (z. B. Zuhause, Büro) und unter „Aktive Verbindung“ umschalten.[CR][CR][B]Verbindung testen[/B]: In den Einstellungen unter Verbindung den Button „Verbindung testen“ nutzen. Bei Erfolg erscheint „Verbindung erfolgreich“. Typische Fehler: falscher Host/Port, Firewall blockiert, falsches Passwort oder Pfad.[CR][CR][B]Wo?[/B] Einstellungen → Verbindung."
 
 msgctxt "#30156"
 msgid "Backup & Restore"
@@ -618,7 +370,7 @@ msgstr "Backup & Restore"
 
 msgctxt "#30157"
 msgid "Backup: Open addon → Create backup (main menu or Maintenance). Restore: Restore build → choose local ZIP file or URL. Optional: include addon_data in backup (Settings → Backup)."
-msgstr "[B]Backup und Restore:[/B] Backup: Addon öffnen → Backup erstellen (Hauptmenü oder Wartung). Restore: Build wiederherstellen → lokale ZIP-Datei oder URL wählen. Optional: addon_data in Backup einbeziehen (Einstellungen → Backup)."
+msgstr "Backup sichert deine Kodi-Daten (Einstellungen, Favoriten, ggf. Addon-Daten) in einer ZIP-Datei. Restore stellt sie wieder her.[CR][CR][B]Backup erstellen[/B]: Addon öffnen (Programme oder Einstellungen → Addon) → im Hauptmenü „Backup erstellen“ oder unter Wartung „Backup erstellen“. Die ZIP wird im konfigurierten Backup-Ordner gespeichert. Optional: Unter Einstellungen → Backup „addon_data in Backup einbeziehen“ aktivieren – dann werden auch Addon-Einstellungen mit gesichert.[CR][CR][B]Wiederherstellen[/B]: Addon öffnen → „Build wiederherstellen“. Lokale ZIP-Datei wählen oder eine URL eingeben (z. B. von einem Cloud-Speicher). Vor dem Restore kannst du wählen, ob der bisherige Benutzerordner geleert werden soll.[CR][CR][B]Typische Fehler[/B]: Zu wenig Speicherplatz; falscher Pfad; ZIP von einem anderen Kodi-Build. Nach Restore Kodi ggf. neu starten."
 
 msgctxt "#30158"
 msgid "Recommended settings"
@@ -626,7 +378,7 @@ msgstr "Empfohlene Einstellungen"
 
 msgctxt "#30159"
 msgid "Main system on, addon data sync on, background image rotation off, Auto-Clean off; Skin Startup on when the skin is installed."
-msgstr "[B]Empfohlene Einstellungen:[/B] Hauptsystem an, Addon-Datensynchronisation an, Hintergrundbildrotation aus, Auto-Clean aus; Skin-Start-Up an, wenn der Skin installiert ist."
+msgstr "Diese Vorschläge passen gut für den typischen Einsatz mit Sync und Skin.[CR][CR][B]Hauptsystem[/B]: An – damit dieses Gerät die Daten zum Server hochlädt (nur ein Gerät als Hauptsystem wählen).[CR][CR][B]Addon-Datensync[/B]: An – dann werden auch Einstellungen anderer Addons mit dem Server abgeglichen. Unter „Welches Gerät lädt Add-on-Daten hoch?“ nur ein Gerät wählen.[CR][CR][B]Hintergrundbildrotation[/B]: Aus – wenn du keine wechselnden Bilder brauchst; an, wenn du eine Slideshow möchtest.[CR][CR][B]Auto-Clean[/B]: Aus – es sei denn, du willst regelmäßig Cache/Thumbnails leeren lassen.[CR][CR][B]Skin-Start-Up[/B]: An, sobald der Doku-Kanal-Skin installiert ist – dann werden Skin-Einstellungen und Hintergrund beim Start geladen.[CR][CR][B]Wo?[/B] Einstellungen → Sync, Favoriten, Bilder, Auto-Clean, Skin."
 
 msgctxt "#30160"
 msgid "Picsum (Random)"
@@ -673,24 +425,16 @@ msgid "Add Doku-Kanal source to file manager?"
 msgstr "Quelle „Doku-Kanal“ im Dateimanager eintragen?"
 
 msgctxt "#30171"
-msgid "File manager source: In Settings → File manager → Add source you can add the Doku-Kanal repository. Name: Doku-Kanal. Path: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/tree/main/repo/output"
-msgstr "Dateimanager-Quelle: Unter Einstellungen → Dateimanager → Quelle hinzufügen kannst du das Doku-Kanal-Repository eintragen. Name: Doku-Kanal. Pfad: https://github.com/benjarogit/Auto-FTP-Sync-Plus-2026/tree/main/repo/output"
+msgid "File manager source: In Settings → File manager → Add source you can add the Doku-Kanal repository. Name: Doku-Kanal. Path: https://github.com/benjarogit/dk-backup-sync/tree/main/repo/output"
+msgstr "Über eine Quelle im Kodi-Dateimanager kannst du die Repo-ZIPs direkt im Dateisystem durchsuchen (z. B. um ein Addon manuell zu installieren).[CR][CR][B]Schritt für Schritt[/B]: In Kodi zu Einstellungen → Dateimanager → Quelle hinzufügen gehen. Als Name z. B. „Doku-Kanal“ eintragen. Als Pfad die Repo-URL eintragen (siehe unten). Speichern.[CR][CR][B]Pfad[/B]: https://github.com/benjarogit/dk-backup-sync/tree/main/repo/output – dort liegen addons.xml und die Addon-ZIPs. Kodi zeigt den Inhalt wie einen Ordner.[CR][CR][B]Hinweis[/B]: Normalerweise reicht die Installation des Repository-Addons (eine ZIP von der Releases-Seite); danach werden Updates über Add-ons → Repository geladen. Die Dateimanager-Quelle ist optional, z. B. für manuelle Installationen.[CR][CR][B]Wo?[/B] Kodi-Einstellungen → Dateimanager → Quelle hinzufügen."
 
 msgctxt "#30172"
 msgid "File manager source (Doku-Kanal)"
 msgstr "Dateimanager-Quelle (Doku-Kanal)"
 
-msgctxt "#30173"
-msgid "Recommendations"
-msgstr "Empfehlungen"
-
 msgctxt "#30174"
 msgid "Use / install Doku-Kanal skin"
 msgstr "Doku-Skin verwenden"
-
-msgctxt "#30175"
-msgid "Enable debug display for Doku-Kanal skin"
-msgstr "Debug-Anzeige für Doku-Kanal-Skin aktivieren"
 
 msgctxt "#30176"
 msgid "Doku-Kanal skin is already installed. You can activate it under Settings → Look and feel."
@@ -780,65 +524,9 @@ msgctxt "#30202"
 msgid "Backup favourites now"
 msgstr "Favoriten jetzt sichern"
 
-msgctxt "#30203"
-msgid "Test connection (active profile)"
-msgstr "Verbindung testen (aktives Profil)"
-
-msgctxt "#30204"
-msgid "Test image source"
-msgstr "Bildquelle testen"
-
-msgctxt "#30205"
-msgid "Create backup / Restore"
-msgstr "Backup erstellen / Wiederherstellen"
-
-msgctxt "#30206"
-msgid "Run AutoClean now"
-msgstr "AutoClean jetzt ausführen"
-
-msgctxt "#30207"
-msgid "Install skin"
-msgstr "Skin installieren"
-
-msgctxt "#30208"
-msgid "Guide & setup"
-msgstr "Anleitung & Einrichtung"
-
-msgctxt "#30209"
-msgid "Server & folders"
-msgstr "Server & Ordner"
-
-msgctxt "#30210"
-msgid "Connection (guide)"
-msgstr "Verbindung (Anleitung)"
-
-msgctxt "#30211"
-msgid "Backup (guide)"
-msgstr "Backup (Anleitung)"
-
-msgctxt "#30212"
-msgid "Recommended add-ons"
-msgstr "Empfohlene Add-ons"
-
-msgctxt "#30213"
-msgid "File manager"
-msgstr "Dateimanager"
-
-msgctxt "#30214"
-msgid "Debug / Logs"
-msgstr "Debug / Logs"
-
-msgctxt "#30215"
-msgid "Addon → Settings & Actions → …"
-msgstr "Addon → Einstellungen & Aktionen → …"
-
 msgctxt "#30220"
 msgid "Since no connection is configured, favourites were saved locally only.\n\nLocation: {path}"
 msgstr "Da keine Verbindung konfiguriert wurde, wurden die Favoriten nur lokal gesichert.\n\nSpeicherort: {path}"
-
-msgctxt "#30221"
-msgid "Favourites will now be saved.[CR][CR]• If a connection is configured (FTP/SFTP/SMB), favourites will be saved to the server.[CR]• A local backup (favourites.xml.bak) is always created.[CR][CR]Continue?"
-msgstr "Die Favoriten werden jetzt gesichert.[CR][CR]• Bei bestehender Verbindung (FTP/SFTP/SMB) werden die Favoriten auf den Server gesichert.[CR]• Lokal wird in jedem Fall eine Sicherungskopie (favourites.xml.bak) erstellt.[CR][CR]Fortfahren?"
 
 msgctxt "#30222"
 msgid "Favourites sync mode"
@@ -852,10 +540,6 @@ msgctxt "#30224"
 msgid "Overwrite only"
 msgstr "Nur überschreiben: nur Server-Liste verwenden (lokale Favoriten ersetzen)"
 
-msgctxt "#30225"
-msgid "Run connection test now?"
-msgstr "Verbindungstest jetzt ausführen?"
-
 msgctxt "#30226"
 msgid "Not configured."
 msgstr "Keine Verbindung eingerichtet. Host, Benutzer und Pfad unter Einstellungen → Verbindung eintragen."
@@ -867,14 +551,6 @@ msgstr "Testen"
 msgctxt "#30228"
 msgid "Cancel"
 msgstr "Abbrechen"
-
-msgctxt "#30229"
-msgid "Open plugin from Program Add-ons to run actions."
-msgstr "Plugin unter Programme starten, um Aktionen auszuführen."
-
-msgctxt "#30230"
-msgid "Open plugin menu"
-msgstr "Plugin-Menü öffnen"
 
 msgctxt "#30300"
 msgid "Please wait…"
@@ -1042,7 +718,7 @@ msgstr "FTP-Sync"
 
 msgctxt "#30344"
 msgid "Sync on startup: Favourites, Add-on-Data, images. Add-on-Data: enable sync, then choose which device uploads (one device only)."
-msgstr "Sync beim Start: Favoriten, Add-on-Data, Bilder. Add-on-Data: Sync aktivieren, dann festlegen welches Gerät hochlädt (nur ein Gerät)."
+msgstr "Diese Anleitung erklärt den FTP-Sync beim Kodi-Start.[CR][CR][B]Was wird synchronisiert?[/B] Beim Start können Favoriten (favourites.xml), Add-on-Daten (z. B. Einstellungen anderer Addons) und Hintergrundbilder mit einem Server abgeglichen werden. Alles wird unter Einstellungen → Sync ein- oder ausgeschaltet.[CR][CR][B]Hauptsystem[/B] bedeutet: Dieses Gerät gilt als „Hauptgerät“. Nur ein Gerät sollte als Hauptsystem eingestellt sein; es lädt die Daten zum Server hoch. Alle anderen Geräte laden von dort herunter. So vermeidest du Konflikte.[CR][CR][B]Add-on-Data[/B]: Zuerst „Add-on-Datensync“ aktivieren. Dann unter „Welches Gerät lädt Add-on-Daten hoch?“ genau ein Gerät wählen (nur eines). Typische Fehlerquelle: Zwei Geräte als Uploader – dann überschreiben sich die Daten.[CR][CR][B]Wo einstellen?[/B] Einstellungen → Sync: Sync beim Start, Hauptsystem, Favoriten-Intervall, Add-on-Data und Bilder."
 
 msgctxt "#30345"
 msgid "Favourites"
@@ -1050,7 +726,7 @@ msgstr "Favoriten"
 
 msgctxt "#30346"
 msgid "Sync interval, merge/overwrite mode. Server folder for sync. Static folders for overwrite."
-msgstr "Sync-Intervall, Merge/Overwrite-Modus. Server-Ordner für Sync. Statische Ordner für Überschreiben."
+msgstr "So bleiben deine Kodi-Favoriten auf mehreren Geräten gleich.[CR][CR][B]Sync-Intervall[/B]: Wie oft (in Minuten) Favoriten mit dem Server abgeglichen werden. 0 = nur beim Kodi-Start. Unter Einstellungen → Sync einstellbar.[CR][CR][B]Merge (Zusammenführen)[/B]: Lokale und Server-Favoriten werden zusammengeführt; nichts geht verloren. [B]Overwrite (Überschreiben)[/B]: Nur die Liste vom Server wird übernommen; lokale Änderungen gehen verloren. Modus unter Einstellungen → Favoriten wählbar.[CR][CR][B]Server-Ordner[/B]: Auf dem FTP/SFTP/SMB-Server muss ein Ordner pro „Benutzer“ existieren (z. B. ein Ordner „benni“ mit favourites.xml darin). Siehe Anleitung „Serverstruktur“ und „Ordner auf Server anlegen“.[CR][CR][B]Statische Ordner[/B]: Vordefinierte Kategorien (z. B. Anime, Horror). Sie werden vom Addon verwaltet; bei „Nur überschreiben“ wird nur die Server-Liste übernommen."
 
 msgctxt "#30347"
 msgid "Show instructions"
@@ -1066,7 +742,7 @@ msgstr "Bildeinstellungen"
 
 msgctxt "#30350"
 msgid "Image source (URL, local, network), rotation, display mode."
-msgstr "Bildquelle (URL, lokal, Netzwerk), Rotation, Anzeigemodus."
+msgstr "Das Addon kann Hintergrundbilder fürs Menü rotieren (z. B. Slideshow).[CR][CR][B]Bildquelle[/B]: Unter Einstellungen → Bilder wählst du die Quelle: eine URL (z. B. Picsum für Zufallsbilder), einen lokalen Ordner oder einen Netzwerkpfad (SMB/NFS). Der Pfad muss von Kodi erreichbar sein.[CR][CR][B]Rotation[/B]: Wie oft das Bild gewechselt wird (Intervall in Minuten). 0 = kein Wechsel.[CR][CR][B]Anzeigemodus[/B]: Skalierung, z. B. Füllen oder Zentriert. Wenn nichts angezeigt wird: Pfad prüfen, bei URLs Internetverbindung prüfen; bei SMB Benutzer/Passwort in der Quelle eintragen.[CR][CR][B]Wo?[/B] Einstellungen → Bilder."
 
 msgctxt "#30351"
 msgid "Auto Clean"
@@ -1074,7 +750,7 @@ msgstr "Auto Clean"
 
 msgctxt "#30352"
 msgid "Clear cache, packages, thumbnails, logs. Optionally clear addon caches (all addons)."
-msgstr "Cache, Packages, Thumbnails, Logs leeren. Optional Addon-Caches aller Add-ons leeren."
+msgstr "Auto-Clean räumt regelmäßig Kodi- und ggf. Addon-Caches weg – gut gegen Speichermangel und alte Daten.[CR][CR][B]Was wird gelöscht?[/B] Cache, Paket-Cache, Thumbnails (Vorschaubilder), Logs. Optional: Caches aller Add-ons. Unter Einstellungen → Auto-Clean kannst du Intervalle und die Option „Addon-Caches leeren“ einstellen.[CR][CR][B]Ablauf[/B]: Beim nächsten geplanten Lauf (oder manuell über Addon-Menü → Auto-Clean ausführen) werden die gewählten Ordner geleert. Kodi läuft weiter.[CR][CR][B]Typische Fehler[/B]: Zu kurzes Intervall – dann werden Thumbnails ständig neu geladen. „Addon-Caches“ nur aktivieren, wenn du Platz brauchst oder Addons Probleme machen.[CR][CR][B]Wo?[/B] Einstellungen → Auto-Clean; Menüpunkt „Auto-Clean ausführen“ im Addon."
 
 msgctxt "#30353"
 msgid "Doku-Skin"
@@ -1082,4 +758,117 @@ msgstr "Doku-Skin"
 
 msgctxt "#30354"
 msgid "Install or activate the Doku-Kanal skin from addon settings."
-msgstr "Doku-Kanal-Skin aus den Addon-Einstellungen installieren oder aktivieren."
+msgstr "Der Doku-Kanal-Skin ist das Erscheinungsbild (Theme) für Kodi, das zu diesem Addon passt.[CR][CR][B]Installation[/B]: Wenn der Skin noch nicht installiert ist, findest du unter Einstellungen → Skin einen Eintrag zum Installieren. Dazu muss das Doku-Kanal-Repository installiert sein (eine einmalige ZIP-Installation von der Releases-Seite).[CR][CR][B]Aktivierung[/B]: Ist der Skin bereits installiert, wechsle in Kodi unter Einstellungen → Erscheinungsbild → Skin zu „Doku-Kanal (Skin)“.[CR][CR][B]Skin-Start-Up[/B]: In den Addon-Einstellungen kannst du „Skin-Start-Up beim Kodi-Start“ aktivieren – dann werden z. B. Hintergrundbilder und Einstellungen des Skins beim Start geladen.[CR][CR][B]Wo?[/B] Einstellungen → Skin; Kodi-Einstellungen → Erscheinungsbild."
+
+msgctxt "#30355"
+msgid "Autostop"
+msgstr "Autostop"
+
+msgctxt "#30356"
+msgid "Enable Autostop"
+msgstr "Autostop aktivieren"
+
+msgctxt "#30357"
+msgid "Stop paused after (minutes)"
+msgstr "Pause stoppen nach (Minuten)"
+
+msgctxt "#30358"
+msgid "Sleep timer (minutes)"
+msgstr "Schlaf-Timer (Minuten)"
+
+msgctxt "#30359"
+msgid "Notify before stop (seconds)"
+msgstr "Hinweis vor Stopp (Sekunden)"
+
+msgctxt "#30360"
+msgid "Fixed extension (minutes)"
+msgstr "Feste Verlängerung (Minuten)"
+
+msgctxt "#30361"
+msgid "Variable"
+msgstr "Variable"
+
+msgctxt "#30362"
+msgid "Pause handling"
+msgstr "Pause-Verhalten"
+
+msgctxt "#30363"
+msgid "Start screensaver when stopping"
+msgstr "Bildschirmsparer beim Stopp starten"
+
+msgctxt "#30364"
+msgid "Reset sleep timer to 0 when stopped"
+msgstr "Schlaf-Timer beim Stopp auf 0 setzen"
+
+msgctxt "#30365"
+msgid "Show \"Stop playback now\" in extension dialog"
+msgstr "\"Wiedergabe jetzt stoppen\" im Verlängerungsdialog anzeigen"
+
+msgctxt "#30366"
+msgid "Log Autostop activity (debug)"
+msgstr "Autostop-Aktivität protokollieren (Debug)"
+
+msgctxt "#30367"
+msgid "Sleep timer"
+msgstr "Schlaf-Timer"
+
+msgctxt "#30368"
+msgid "Playback will stop in "
+msgstr "Wiedergabe stoppt in "
+
+msgctxt "#30369"
+msgid " seconds."
+msgstr " Sekunden."
+
+msgctxt "#30370"
+msgid "Extended by "
+msgstr "Verlängert um "
+
+msgctxt "#30371"
+msgid " minutes."
+msgstr " Minuten."
+
+msgctxt "#30372"
+msgid "Sleep timer"
+msgstr "Schlaf-Timer"
+
+msgctxt "#30373"
+msgid "Choose extension time"
+msgstr "Verlängerung wählen"
+
+msgctxt "#30374"
+msgid "User requested stop playback."
+msgstr "Wiedergabe auf Benutzerwunsch gestoppt."
+
+msgctxt "#30375"
+msgid "Notification time and stop time cannot be equal; notification set to 5 min."
+msgstr "Hinweiszeit und Stoppzeit dürfen nicht gleich sein; Hinweis auf 5 Min. gesetzt."
+
+msgctxt "#30376"
+msgid "Paused too long"
+msgstr "Zu lange pausiert"
+
+msgctxt "#30377"
+msgid "Autostop stopped (paused): "
+msgstr "Autostop gestoppt (Pause): "
+
+msgctxt "#30378"
+msgid "Autostop stopped (sleep timer): "
+msgstr "Autostop gestoppt (Schlaf-Timer): "
+
+msgctxt "#30379"
+msgid "[INFO] Instructions"
+msgstr "[INFO] Anleitung"
+
+msgctxt "#30380"
+msgid "Autostop"
+msgstr "Autostop"
+
+msgctxt "#30381"
+msgid "Autostop: Pause-Stop, Play-Stop, notification, screensaver, extension. Use the sleep timer or the \"Stop playback now\" option in the extension dialog."
+msgstr "Autostop beendet die Wiedergabe automatisch – z. B. nach langer Pause oder nach einer eingestellten Laufzeit (Schlaf-Timer).[CR][CR][B]Pause-Stop[/B]: Wenn ein Video zu lange pausiert ist („Pause stoppen nach … Minuten“), wird die Wiedergabe gestoppt. Verhindert, dass etwas stundenlang „angehalten“ bleibt.[CR][CR][B]Schlaf-Timer[/B]: Stoppt die Wiedergabe nach einer festen Minutenanzahl – z. B. zum Einschlafen. Unter Einstellungen → Autostop einstellbar.[CR][CR][B]Benachrichtigung und Verlängerung[/B]: Kurz vor dem Stopp erscheint eine Meldung. In dem Dialog kannst du „Verlängerung“ wählen (noch ein paar Minuten) oder „Wiedergabe jetzt stoppen“. Optional startet der Bildschirmsparer beim Stopp.[CR][CR][B]Wo?[/B] Einstellungen → Autostop. Nach Änderungen Kodi neu starten, damit Autostop greift."
+
+msgctxt "#30382"
+msgid "Show changelog"
+msgstr "Changelog anzeigen"
+

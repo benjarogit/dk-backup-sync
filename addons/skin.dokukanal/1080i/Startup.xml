@@ -23,7 +23,6 @@
     <onload>Skin.Reset(TMDbHelper.MonitorContainer)</onload>
 
     <!-- First start settings -->
-    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(DebugInfo)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(global.hidecirles)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(home.modernwidgets)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(home.vertical.widgets)</onload>

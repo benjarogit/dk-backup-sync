@@ -1,26 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Gemeinsame Addon-Grundlagen – eine zentrale Stelle für alle Module.
+Shared addon base – single place for all modules.
 
-Alle Module können hier zurückgreifen auf:
-- ADDON, ADDON_ID, ADDON_PATH
-- L(msg_id) für Lokalisierung
-- log(msg, level) mit einheitlichem Präfix
-- safe_get_string / safe_get_bool für Einstellungen (mit Reparatur bei Fehler)
-- Pfade: HOME, USERDATA, TEMP, ADDON_DATA
-
-Kein xbmcplugin, nur xbmc/xbmcaddon/xbmcvfs – nutzbar von Service, Plugin und allen Libs.
+Modules can use: ADDON, ADDON_ID, ADDON_PATH; L(msg_id) for localization;
+log(msg, level) with unified prefix; safe_get_string/safe_get_bool for settings (with repair on error);
+paths: HOME, USERDATA, TEMP, ADDON_DATA.
+No xbmcplugin; only xbmc/xbmcaddon/xbmcvfs – usable from service, plugin and all libs.
 """
 import xbmc
 import xbmcaddon
 import xbmcvfs
 
-# Addon-Objekt und Basis-Infos (einmal pro Addon)
+# Addon object and base info (once per addon)
 ADDON = xbmcaddon.Addon()
 ADDON_ID = ADDON.getAddonInfo('id')
 ADDON_PATH = xbmcvfs.translatePath(ADDON.getAddonInfo('path'))
 
-# Kodi-Pfade (für Backup, AutoClean, Favourites etc.)
+# Kodi paths (backup, AutoClean, favourites, etc.)
 HOME = xbmcvfs.translatePath('special://home')
 USERDATA = xbmcvfs.translatePath('special://userdata')
 TEMP = xbmcvfs.translatePath('special://temp')
@@ -30,18 +26,18 @@ LOG_PREFIX = "[DokuKanal BuildSync]"
 
 
 def L(msg_id):
-    """Lokalisierung: Addon-String anhand msg_id (z. B. 30144)."""
+    """Localization: addon string by msg_id (e.g. 30144)."""
     return ADDON.getLocalizedString(msg_id)
 
 
 def log(msg, level=xbmc.LOGINFO):
-    """Log mit einheitlichem Präfix."""
+    """Log with unified prefix."""
     xbmc.log("%s %s" % (LOG_PREFIX, msg), level)
 
 
 def safe_get_string(setting_id, default=''):
     """
-    Liest String-Setting. Bei Fehler (z. B. Invalid setting type): Default zurückschreiben, dann default zurückgeben.
+    Read string setting. On error (e.g. Invalid setting type): write default back, then return default.
     """
     try:
         return ADDON.getSettingString(setting_id) or default
@@ -68,7 +64,7 @@ def safe_get_bool(setting_id, default=False):
 
 
 def safe_set_string(setting_id, value):
-    """Schreibt String-Setting. Bei Fehler still."""
+    """Write string setting. On error: silent."""
     try:
         ADDON.setSettingString(setting_id, str(value) if value is not None else '')
     except (TypeError, Exception):
@@ -76,7 +72,7 @@ def safe_set_string(setting_id, value):
 
 
 def safe_set_bool(setting_id, value):
-    """Schreibt Bool-Setting. Bei Fehler still."""
+    """Write bool setting. On error: silent."""
     try:
         ADDON.setSettingBool(setting_id, bool(value))
     except (TypeError, Exception):

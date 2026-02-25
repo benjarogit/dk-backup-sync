@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Backup and Restore (ZIP snapshot) for Kodi userdata / full home.
-Uses addon settings for paths; no dependency on Open Wizard CONFIG.
-Supports restore from local file or from URL.
-Nutzt resources.lib.common für ADDON, Pfade, log.
-Validierung: Manifest (creator + version) und Pfad-Whitelist (nur userdata/ und addons/).
+Uses addon settings for paths. Supports restore from local file or URL.
+Uses resources.lib.common for ADDON, paths, log.
+Validation: manifest (creator + version) and path whitelist (userdata/ and addons/ only).
 """
 import json
 import os
@@ -26,17 +25,17 @@ ADDONS_EXCLUDE = ['packages']  # addons subdirs to skip in build backup
 EXCLUDE_FILES = ['kodi.log', 'kodi.old.log', 'xbmc.log', 'xbmc.old.log', '.DS_Store']
 DATA_PATH = os.path.join(USERDATA, 'addon_data')
 
-# Nur Dateien mit diesem Präfix gelten als Build-Backup (create_backup_core schreibt doku_backup_DDMMYYYY_HHMM.zip)
+# Only files with this prefix count as build backup (create_backup_core writes doku_backup_DDMMYYYY_HHMM.zip)
 BACKUP_FILENAME_PREFIX = "doku_backup_"
-# Manifest im ZIP: beweist Herkunft, verhindert Einschleusen fremder ZIPs
+# Manifest in ZIP: proves origin, prevents loading foreign ZIPs
 BACKUP_MANIFEST_FILENAME = "doku_backup_manifest.json"
 BACKUP_MANIFEST_VERSION = 1
-# Erlaubte Top-Level-Pfade im Backup (kein Path-Traversal, keine anderen Ordner)
+# Allowed top-level paths in backup (no path traversal, no other folders)
 BACKUP_ALLOWED_PREFIXES = ("userdata/", "userdata\\", "addons/", "addons\\")
 
 
 def _load_backup_config():
-    """Lädt die konfigurierbare Backup-Liste aus resources/backup_restore.json. Bei Fehler None."""
+    """Load configurable backup list from resources/backup_restore.json. Returns None on error."""
     try:
         json_path = os.path.join(ADDON_PATH, 'resources', 'backup_restore.json')
         if not os.path.exists(json_path):
@@ -52,8 +51,8 @@ def _load_backup_config():
 
 def _collect_backup_items_from_config(config, include_addon_data=True):
     """
-    Sammelt (abs_path, arcname) für ZIP. arcname relativ zu userdata (favourites.xml oder addon_data/...).
-    setting_id: nur inkludieren wenn Setting true (z. B. backup_include_addon_data).
+    Collect (abs_path, arcname) for ZIP. arcname relative to userdata (favourites.xml or addon_data/...).
+    setting_id: include only when setting is true (e.g. backup_include_addon_data).
     """
     to_add = []
     for item in config:
@@ -145,7 +144,7 @@ def _download_zip_from_url(url, target_path, progress_dialog=None):
 
 
 def _collect_addons_for_backup():
-    """Sammelt (abs_path, zip_arcname) für addons/ mit zip_arcname = addons/rel."""
+    """Collect (abs_path, zip_arcname) for addons/ with zip_arcname = addons/rel."""
     to_add = []
     if not os.path.isdir(ADDONS_DIR):
         return to_add
@@ -247,7 +246,7 @@ def create_backup_core(include_addon_data=True, target_base=None, progress_callb
                     zf.write(abs_path, zip_arcname)
                 except Exception as e:
                     log("Skip %s: %s" % (zip_arcname, e), xbmc.LOGERROR)
-            # Manifest: Herkunft + Version, für Validierung bei Restore (gegen fremde/umbenannte ZIPs)
+            # Manifest: origin + version for restore validation (against foreign/renamed ZIPs)
             manifest = {
                 "creator": ADDON_ID,
                 "version": BACKUP_MANIFEST_VERSION,
@@ -263,8 +262,8 @@ def create_backup_core(include_addon_data=True, target_base=None, progress_callb
 
 def create_backup(include_addon_data=True, target_base=None):
     """
-    Build-Backup: ZIP mit userdata und addons. Zeigt Progress und Ergebnis-Dialog.
-    Bei backup_save_to_connection: ZIP in Temp, dann Upload auf Verbindung.
+    Build backup: ZIP with userdata and addons. Shows progress and result dialog.
+    If backup_save_to_connection: ZIP to temp, then upload to connection.
     """
     dialog = xbmcgui.Dialog()
     progress = xbmcgui.DialogProgress()
@@ -509,12 +508,12 @@ def _get_local_backup_zips():
 
 
 def run_restore():
-    """Entry: Lokal / URL / Von Verbindung. Back = cancel. Local: backup path or browse. URL: restore_url or ask. Connection: list remote, download, restore."""
+    """Entry: Local / URL / From connection. Back = cancel. Local: backup path or browse. URL: restore_url or ask. Connection: list remote, download, restore."""
     dialog = xbmcgui.Dialog()
     title = ADDON.getLocalizedString(30038) + " – " + ADDON.getLocalizedString(30320)
     choices = [
-        ADDON.getLocalizedString(30064),  # Lokale Datei wählen
-        ADDON.getLocalizedString(30065),  # Externe Datei (URL) wählen
+        ADDON.getLocalizedString(30064),  # Choose local file
+        ADDON.getLocalizedString(30065),  # Choose external file (URL)
         ADDON.getLocalizedString(30329),  # Von Verbindung (FTP/SFTP/SMB)
     ]
     idx = dialog.select(title, choices)
@@ -534,11 +533,11 @@ def run_restore():
             pass
 
     if idx == 0:
-        # Lokal: zuerst Backup-Ordner aus Einstellungen prüfen
+        # Local: check backup folder from settings first
         zip_list = _get_local_backup_zips()
         if zip_list:
             choice_labels = [os.path.basename(p) for p in zip_list]
-            choice_labels.append(ADDON.getLocalizedString(30324))  # Andere Datei wählen...
+            choice_labels.append(ADDON.getLocalizedString(30324))  # Choose other file...
             sel = dialog.select(ADDON.getLocalizedString(30064), choice_labels)
             if sel < 0:
                 return
@@ -551,7 +550,7 @@ def run_restore():
         return
 
     if idx == 2:
-        # Von Verbindung: Backups auf Server auflisten, auswählen, herunterladen, wiederherstellen
+        # From connection: list backups on server, select, download, restore
         conn_num = (ADDON.getSettingString('backup_connection') or '1').strip() or '1'
         try:
             conn_int = int(conn_num) if conn_num in ('1', '2', '3') else 1
@@ -573,7 +572,7 @@ def run_restore():
             if not zips:
                 dialog.ok(ADDON.getLocalizedString(30001), ADDON.getLocalizedString(30044) + "\n(%s: %s)" % (ADDON.getLocalizedString(30329), remote_path))
                 return
-            zips.sort(reverse=True)  # neueste zuerst (Dateiname enthält Datum)
+            zips.sort(reverse=True)  # newest first (filename contains date)
             sel = dialog.select(ADDON.getLocalizedString(30329), zips)
             if sel < 0:
                 return
