@@ -13,7 +13,7 @@ Benötigte Umgebungsvariablen (z. B. in der Shell exportieren):
     export DKREPO_FTP_PORT="21"              # optional, Default 21
     export DKREPO_FTP_USER="dein_user"
     export DKREPO_FTP_PASS="dein_passwort"
-    export DKREPO_FTP_BASEDIR="/kodi/dk-repo"
+    export DKREPO_FTP_BASEDIR="/dk-repo"
 
 Aufruf:
 
