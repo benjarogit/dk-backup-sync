@@ -3,7 +3,7 @@
 """
 Build Kodi repository: ZIPs und addons.xml aus dem Kodi-Addons-Ordner.
 Quelle: KODI_ADDONS (Default: $HOME/.kodi/addons)
-Ausgabe: dist/<addon_id>/<addon_id>-<version>.zip, addons.xml, addons.xml.md5
+Ausgabe: dist/<addon_id>/<addon_id>-<version>.zip, addons.xml, addons.xml.md5, index.html
 """
 import hashlib
 import os
@@ -85,6 +85,7 @@ def main():
         return 1
 
     addon_xmls = []
+    repo_version = None
     for addon_id in ADDON_IDS:
         src = os.path.join(kodi_addons, addon_id)
         if not os.path.isdir(src):
@@ -94,6 +95,8 @@ def main():
         if not version:
             print("Hinweis: Keine Version in addon.xml:", addon_id)
             continue
+        if addon_id == "repository.dokukanal":
+            repo_version = version
         out_dir = os.path.join(output_base, addon_id)
         zip_name = f"{addon_id}-{version}.zip"
         zip_path = os.path.join(out_dir, zip_name)
@@ -113,6 +116,21 @@ def main():
     with open(md5_path, "w", encoding="utf-8") as f:
         f.write(hashlib.md5(addons_xml_content.encode("utf-8")).hexdigest())
     print("Erstellt:", md5_path)
+
+    if repo_version:
+        index_path = os.path.join(REPO_ROOT, "index.html")
+        zip_filename = f"repository.dokukanal-{repo_version}.zip"
+        index_content = f'''<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Doku-Kanal Repository</title></head>
+<body>
+<p><a href="dist/repository.dokukanal/{zip_filename}">{zip_filename}</a></p>
+</body>
+</html>
+'''
+        with open(index_path, "w", encoding="utf-8") as f:
+            f.write(index_content)
+        print("Erstellt:", index_path)
     return 0
 
 
