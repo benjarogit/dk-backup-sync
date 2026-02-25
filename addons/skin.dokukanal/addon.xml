@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="skin.dokukanal" version="1.0.0" name="Doku-Kanal (Skin)" provider-name="jurialmunkey, beatmasterrs">
+<addon id="skin.dokukanal" version="1.0.1" name="Doku-Kanal (Skin)" provider-name="jurialmunkey, beatmasterrs">
     <requires>
         <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="plugin.program.dokukanal.buildsync" version="1.0.0"/>
@@ -11,7 +11,7 @@
         <import addon="script.embuary.helper" version="1.2.14"/>
         <import addon="plugin.video.themoviedb.helper" version="0.0.1"/>
     </requires>
-    <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="true" effectslowdown="1">
+    <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="false" effectslowdown="1">
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
     </extension>
     <extension point="xbmc.addon.metadata">

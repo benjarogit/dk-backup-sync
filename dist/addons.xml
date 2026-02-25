@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.program.dokukanal.buildsync" version="1.0.0" name="Doku-Kanal (Build and Sync)" provider-name="Doku-Kanal">
+<addon id="plugin.program.dokukanal.buildsync" version="1.0.1" name="Doku-Kanal (Build and Sync)" provider-name="Doku-Kanal">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="xbmc.addon" version="21.0.0"/>
@@ -25,7 +25,7 @@
 		</assets>
 	</extension>
 </addon>
-<addon id="skin.dokukanal" version="1.0.0" name="Doku-Kanal (Skin)" provider-name="jurialmunkey, beatmasterrs">
+<addon id="skin.dokukanal" version="1.0.1" name="Doku-Kanal (Skin)" provider-name="jurialmunkey, beatmasterrs">
     <requires>
         <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="plugin.program.dokukanal.buildsync" version="1.0.0"/>
@@ -37,7 +37,7 @@
         <import addon="script.embuary.helper" version="1.2.14"/>
         <import addon="plugin.video.themoviedb.helper" version="0.0.1"/>
     </requires>
-    <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="true" effectslowdown="1">
+    <extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" debugging="false" effectslowdown="1">
         <res width="1920" height="1080" aspect="16:9" default="true" folder="1080i" />
     </extension>
     <extension point="xbmc.addon.metadata">
@@ -84,7 +84,7 @@
         <description lang="fr">Arctic: Zephyr - Reloaded est basé sur le skin original Arctic: Zephyr, créé par jurialmunkey. Arctic se focalise sur le fait d&apos;être simple, claire et minimaliste. Optimisé pour l&apos;addon Auto FTP Sync (plugin.program.dokukanal.buildsync).</description>
     </extension>
 </addon>
-<addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.0" provider-name="Doku-Kanal">
+<addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.1" provider-name="Doku-Kanal">
 	<extension point="xbmc.addon.repository" name="Doku-Kanal Repository">
 		<dir minversion="21.0.0">
 			<info compressed="false">https://dkrepo.sunnyc.de/addons.xml</info>
