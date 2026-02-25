@@ -85,23 +85,34 @@ Based on **Arctic Zephyr** (jurialmunkey, beatmasterrs). Minimal, clean, elegant
 - **checksum:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml.md5`
 - **datadir:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/` – Catalog and addon ZIPs all from GitHub.
 
-If you host your own repo server: upload `addons.xml`, `addons.xml.md5`, and `repository.dokukanal/repository.dokukanal-1.0.0.zip` to your web root. For **install from zip** to work when users add the repo URL as source, use the Apache config in `repo/htaccess-for-dkrepo.txt` (no gzip for .zip, `Accept-Ranges: bytes`). Enable directory listing (`Options +Indexes`) so users can browse to the zip.
+**Installation source (GitHub Pages):** Add `https://benjarogit.github.io/dk-backup-sync/` as source in Kodi, then **Install from zip file** → browse to the page → click the repository ZIP link, or add the source and Kodi will show the index.html with the download link.
+
+**Alternative:** [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) or download the ZIP from [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) and install from local/USB/SMB.
+
+If you host your own repo server: upload `addons.xml`, `addons.xml.md5`, and `repository.dokukanal/repository.dokukanal-1.0.5.zip` to your web root. For **install from zip** to work when users add the repo URL as source, use the Apache config in `repo/htaccess-for-dkrepo.txt` (no gzip for .zip, `Accept-Ranges: bytes`). Enable directory listing (`Options +Indexes`) so users can browse to the zip.
 
 ---
 
 ### Installation
 
+**Option 0 – GitHub Pages (recommended)**
+
+1. In Kodi: **Add-ons** → **Add-on browser** → **Install from zip file** → **Add source** → enter `https://benjarogit.github.io/dk-backup-sync/`
+2. Browse to the source → you’ll see a page with a link to **repository.dokukanal-1.0.5.zip** → select it to install.
+3. Then: **Add-ons** → **Install from repository** → **Doku-Kanal Repository** → install plugin and skin.
+4. *(GitHub Pages must be enabled: Repo Settings → Pages → Deploy from branch → main, / (root).)*
+
 **If "Install from zip" does nothing, use this (reliable):**
 
-1. **Get the ZIP locally** – On a PC, download [repository.dokukanal-1.0.0.zip](https://github.com/benjarogit/dk-backup-sync/raw/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip) and copy it to a USB stick or a folder Kodi can use as a source (e.g. SMB share, local storage).
+1. **Get the ZIP locally** – On a PC, download [repository.dokukanal-1.0.5.zip](https://github.com/benjarogit/dk-backup-sync/raw/main/dist/repository.dokukanal/repository.dokukanal-1.0.5.zip) and copy it to a USB stick or a folder Kodi can use as a source (e.g. SMB share, local storage).
 2. **In Kodi, add a source** that points to that folder (or USB) – do **not** use an HTTPS/URL as the install source.
-3. **Add-ons** → **Add-on browser** → **Install from zip file** → go to that source → select **repository.dokukanal-1.0.0.zip**.
+3. **Add-ons** → **Add-on browser** → **Install from zip file** → go to that source → select **repository.dokukanal-1.0.5.zip**.
 4. Enable **Unknown sources** (Settings → Add-ons) if Kodi asks.
 5. Then: **Add-ons** → **Install from repository** → **Doku-Kanal Repository** → install the plugin and optionally the skin.
 
-**Option A – Repository (recommended once the ZIP is installed)**
+**Option A – Repository (once the ZIP is installed)**
 
-1. **repository.dokukanal-1.0.0.zip** von [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) oder [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) herunterladen.
+1. **repository.dokukanal-1.0.5.zip** from [GitHub Pages](https://benjarogit.github.io/dk-backup-sync/), [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal), or [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) herunterladen.
 2. In Kodi: **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** → ZIP auswählen (am zuverlässigsten von lokaler Quelle/USB/SMB, nicht direkt von HTTPS).
 3. **Add-ons** → **Aus Repository installieren** → **Doku-Kanal Repository** → **Doku-Kanal (Build and Sync)** und optional **Doku-Kanal (Skin)** installieren.
 4. **Unbekannte Quellen** erlauben, falls nötig (Einstellungen → Add-ons).
@@ -114,7 +125,7 @@ Download plugin and skin ZIPs from [dist](https://github.com/benjarogit/dk-backu
 
 If "Install from zip" shows no error but nothing happens, or fails:
 
-- **SSL certificate** – Kodi (e.g. on LibreELEC, Android) may not trust your server’s certificate. Workaround: download the ZIP on a PC from [GitHub](https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip), copy to a USB stick or SMB share, add that path as a source in Kodi, then install from there.
+- **SSL certificate** – Kodi (e.g. on LibreELEC, Android) may not trust your server’s certificate. Workaround: download the ZIP on a PC from [GitHub](https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.5.zip), copy to a USB stick or SMB share, add that path as a source in Kodi, then install from there.
 - **Try local file** – Add a source pointing to a folder where you saved the ZIP (e.g. Downloads, USB, SMB). Browse to the file and select it – avoids HTTPS/SSL issues.
 - **Kodi log** – Enable debug logging (Settings → System → Logging), reproduce the issue, then check `kodi.log` for the exact error (e.g. `SSL peer certificate`, `Failed to install`).
 
@@ -130,7 +141,8 @@ If "Install from zip" shows no error but nothing happens, or fails:
 
 ### Links
 
-- **Repository ZIP:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip
+- **Repository (GitHub Pages):** https://benjarogit.github.io/dk-backup-sync/
+- **Repository ZIP:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.5.zip
 - **dist/** (all ZIPs): https://github.com/benjarogit/dk-backup-sync/tree/main/dist
 - **Changelog:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/changelog.txt
 
@@ -226,27 +238,38 @@ Basiert auf **Arctic Zephyr** (jurialmunkey, beatmasterrs). Klar, minimalistisch
 
 ### Repository: Doku-Kanal
 
-- **info:** `https://dkrepo.sunnyc.de/addons.xml` (oder deine Repo-URL)
-- **checksum:** `https://dkrepo.sunnyc.de/addons.xml.md5`
+- **info:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml`
+- **checksum:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml.md5`
 - **datadir:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/` – Addon-ZIPs werden von GitHub bereitgestellt.
 
-Bei eigenem Repo-Server: `addons.xml`, `addons.xml.md5` und `repository.dokukanal/repository.dokukanal-1.0.0.zip` ins Web-Root hochladen. Damit **„Von ZIP installieren“** direkt über die URL funktioniert, Apache-Konfiguration aus `repo/htaccess-for-dkrepo.txt` verwenden (kein gzip für .zip, `Accept-Ranges: bytes`). Verzeichnislisten (`Options +Indexes`) aktivieren, damit Nutzer zur ZIP navigieren können.
+**Installationsquelle (GitHub Pages):** `https://benjarogit.github.io/dk-backup-sync/` als Quelle in Kodi hinzufügen, dann **Von ZIP-Datei installieren** → zur Seite navigieren → Link zur Repository-ZIP anklicken.
+
+**Alternativ:** [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) oder ZIP von [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) herunterladen und von lokal/USB/SMB installieren.
+
+Bei eigenem Repo-Server: `addons.xml`, `addons.xml.md5` und `repository.dokukanal/repository.dokukanal-1.0.5.zip` ins Web-Root hochladen. Damit **„Von ZIP installieren“** direkt über die URL funktioniert, Apache-Konfiguration aus `repo/htaccess-for-dkrepo.txt` verwenden (kein gzip für .zip, `Accept-Ranges: bytes`). Verzeichnislisten (`Options +Indexes`) aktivieren, damit Nutzer zur ZIP navigieren können.
 
 ---
 
 ### Installation
 
+**Option 0 – GitHub Pages (empfohlen)**
+
+1. In Kodi: **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** → **Quelle hinzufügen** → `https://benjarogit.github.io/dk-backup-sync/` eintragen.
+2. Zur Quelle wechseln → Seite mit Link zu **repository.dokukanal-1.0.5.zip** wird angezeigt → auswählen und installieren.
+3. Danach: **Add-ons** → **Aus Repository installieren** → **Doku-Kanal Repository** → Plugin und Skin installieren.
+4. *(GitHub Pages muss aktiviert sein: Repo Settings → Pages → Deploy from branch → main, / (root).)*
+
 **So klappt die Repository-Installation zuverlässig (wenn „Von ZIP installieren“ sonst nichts macht):**
 
-1. **ZIP lokal haben** – Auf dem PC [repository.dokukanal-1.0.0.zip](https://github.com/benjarogit/dk-backup-sync/raw/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip) herunterladen und z.B. auf USB-Stick oder in einen Ordner kopieren, den Kodi als Quelle sehen kann (z.B. SMB-Freigabe, lokaler Speicher).
+1. **ZIP lokal haben** – Auf dem PC [repository.dokukanal-1.0.5.zip](https://github.com/benjarogit/dk-backup-sync/raw/main/dist/repository.dokukanal/repository.dokukanal-1.0.5.zip) herunterladen und z.B. auf USB-Stick oder in einen Ordner kopieren, den Kodi als Quelle sehen kann (z.B. SMB-Freigabe, lokaler Speicher).
 2. **In Kodi eine Quelle hinzufügen**, die auf diesen Ordner (oder USB) zeigt – **kein** HTTPS, keine Web-URL.
-3. **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** → zu dieser Quelle wechseln → **repository.dokukanal-1.0.0.zip** auswählen.
+3. **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** → zu dieser Quelle wechseln → **repository.dokukanal-1.0.5.zip** auswählen.
 4. **Unbekannte Quellen** erlauben (Einstellungen → Add-ons), falls Kodi danach fragt.
 5. Danach: **Add-ons** → **Aus Repository installieren** → **Doku-Kanal Repository** → Plugin und ggf. Skin installieren.
 
-**Option A – Über Repository (empfohlen)**
+**Option A – Über Repository**
 
-1. **repository.dokukanal-1.0.0.zip** von [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) oder [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) (falls eingerichtet) herunterladen.
+1. **repository.dokukanal-1.0.5.zip** von [GitHub Pages](https://benjarogit.github.io/dk-backup-sync/), [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) oder [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) herunterladen.
 2. In Kodi: **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** → ZIP auswählen.
 3. **Add-ons** → **Addons aus Repository installieren** → **Doku-Kanal Repository** → **Doku-Kanal (Build and Sync)** und optional **Doku-Kanal (Skin)** installieren.
 4. **Unbekannte Quellen** erlauben, falls erforderlich (Einstellungen → Add-ons).
@@ -262,7 +285,7 @@ Wenn „Von ZIP-Datei installieren“ keine Fehlermeldung zeigt, aber nichts pas
 - **Kodi neu starten** – Kodi speichert fehlgeschlagene Installationen. Nach einem Fehlversuch startet es oft erst nach Neustart neu. Kodi vollständig beenden, neu starten, Installation erneut versuchen.
 - **Unbekannte Quellen** – Muss erlaubt sein: Einstellungen → Add-ons → Unbekannte Quellen.
 - **Kodi 18.2–18.9 Bug** – Bekanntes Problem: ZIP-Installation kann still fehlschlagen. Auf Kodi 18.1 downgraden oder auf Kodi 19+ updaten (wir benötigen Kodi 21).
-- **SSL-Zertifikat** – Kodi (z. B. LibreELEC, Android) vertraut dem Server evtl. nicht. **Lösung:** ZIP auf dem PC von [GitHub dist](https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip) oder [dkrepo](https://dkrepo.sunnyc.de/repository.dokukanal/) herunterladen, auf USB oder SMB kopieren, diesen Pfad als Quelle in Kodi hinzufügen, von dort installieren.
+- **SSL-Zertifikat** – Kodi (z. B. LibreELEC, Android) vertraut dem Server evtl. nicht. **Lösung:** ZIP auf dem PC von [GitHub dist](https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.5.zip) oder [dkrepo](https://dkrepo.sunnyc.de/repository.dokukanal/) herunterladen, auf USB oder SMB kopieren, diesen Pfad als Quelle in Kodi hinzufügen, von dort installieren.
 - **Lokale Datei** – Quelle auf einen Ordner setzen, in dem die ZIP liegt (z. B. Downloads, USB, SMB). Dann zur Datei navigieren und auswählen – umgeht HTTPS/SSL-Probleme.
 - **Kodi-Log** – Debug-Log aktivieren (Einstellungen → System → Protokollierung), Fehler reproduzieren, in `kodi.log` die genaue Meldung prüfen.
 
@@ -278,7 +301,8 @@ Wenn „Von ZIP-Datei installieren“ keine Fehlermeldung zeigt, aber nichts pas
 
 ### Links
 
-- **Repository-ZIP:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip
+- **Repository (GitHub Pages):** https://benjarogit.github.io/dk-backup-sync/
+- **Repository-ZIP:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.5.zip
 - **dist/** (alle ZIPs): https://github.com/benjarogit/dk-backup-sync/tree/main/dist
 - **Changelog:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/changelog.txt
 
