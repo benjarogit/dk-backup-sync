@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.0" provider-name="Doku-Kanal">
-	<extension point="xbmc.addon.repository">
-		<dir>
-			<info>https://dkrepo.sunnyc.de/addons.xml</info>
+	<extension point="xbmc.addon.repository" name="Doku-Kanal Repository">
+		<dir minversion="21.0.0">
+			<info compressed="false">https://dkrepo.sunnyc.de/addons.xml</info>
 			<checksum>https://dkrepo.sunnyc.de/addons.xml.md5</checksum>
-			<datadir>https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/</datadir>
+			<datadir zip="true">https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/</datadir>
 			<hashes>false</hashes>
 		</dir>
 	</extension>

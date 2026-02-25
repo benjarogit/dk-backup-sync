@@ -1,0 +1,26 @@
+# .htaccess für dkrepo.sunnyc.de (Webroot /kodi/dk-repo)
+# Damit Kodi die Repository-ZIP direkt von HTTPS installieren kann.
+# Inhalt nach /kodi/dk-repo/.htaccess kopieren (oder in Apache vhost einbinden).
+
+# 1) ZIP-Dateien NICHT mit gzip komprimieren (mod_deflate).
+#    Kodi braucht die rohe ZIP; Content-Encoding: gzip würde die Installation brechen.
+<IfModule mod_deflate.c>
+  SetEnvIfNoCase Request_URI \.zip$ no-gzip dont-vary
+</IfModule>
+
+# 2) MIME-Type für ZIP explizit setzen (falls nicht schon gesetzt).
+<IfModule mod_mime.c>
+  AddType application/zip .zip
+</IfModule>
+
+# 3) Accept-Ranges: bytes – Kodi liest ZIP per Range-Requests (Seek ans Dateiende für End-of-Central-Directory).
+#    Apache sendet das bei statischen Dateien normalerweise automatisch.
+#    Falls ein Proxy davor sitzt: Proxy muss Range-Requests durchreichen und 206/Content-Range unterstützen.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(zip)$">
+    Header set Accept-Ranges "bytes"
+  </FilesMatch>
+</IfModule>
+
+# Optional: Verzeichnisliste erlauben, damit Nutzer im Browser/Quelle dkrepo durchklicken können.
+Options +Indexes

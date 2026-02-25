@@ -45,10 +45,10 @@ def should_exclude(name):
 
 
 def zip_addon(source_dir, zip_path, addon_id):
-    """ZIP mit Addon-Inhalt – Dateien liegen in addon_id/ (Kodi-Anforderung)."""
+    """ZIP mit Addon-Inhalt – Dateien in addon_id/. Kodi braucht genau EINEN Ordner im Root
+    (AddonInstaller.cpp: items.Size()==1 und items[0]->IsFolder()), daher zuerst Ordner-Eintrag."""
     os.makedirs(os.path.dirname(zip_path), exist_ok=True)
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
-        # Expliziter Ordner-Eintrag zuerst (Kodi/create_repository.py-Standard)
         zf.writestr("%s/" % addon_id, "")
         for root, dirs, files in os.walk(source_dir):
             dirs[:] = [d for d in dirs if not should_exclude(d)]
