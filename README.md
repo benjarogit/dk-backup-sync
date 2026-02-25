@@ -1,147 +1,261 @@
-# Auto FTP Sync Plus
+# Doku-Kanal – Build & Sync + Skin
 
-**[English](#english)** | **[Deutsch](#deutsch)**
+**[English](#english)** · **[Deutsch](#deutsch)**
 
 ---
 
 <a name="english"></a>
 ## English
 
-**Auto FTP Sync Plus** is a Kodi addon that keeps your favourites and addon data in sync across devices (FTP, SFTP, SMB), runs backups and restores, rotates menu backgrounds from URLs or network paths, and cleans cache and thumbnails on a schedule. It is used together with the **Doku-Kanal (Skin)** skin, which is offered in the same repository.
+### Overview
 
-### Features
+The **Doku-Kanal** project provides a Kodi repository, the **Doku-Kanal (Build and Sync)** plugin, and the **Doku-Kanal (Skin)** for Kodi 21 (Omega) and newer.
+
+| Component | Description |
+|-----------|-------------|
+| **Repository** | `repository.dokukanal` – Provides plugin and skin. Install once from ZIP, then get updates via Kodi’s Add-on manager. |
+| **Plugin** | `plugin.program.dokukanal.buildsync` – Sync favourites and addon_data (FTP/SFTP/SMB), backup/restore, image rotation, AutoClean, Autostop. |
+| **Skin** | `skin.dokukanal` – Arctic Zephyr–based skin, optimized for the plugin. |
+
+---
+
+### Plugin: Doku-Kanal (Build and Sync)
+
+Synchronizes favourites and addon_data between devices, runs backups, rotates menu backgrounds, and cleans cache/thumbnails on a schedule. **No external addons required** – no Super Favourites, no xstream, no inputstreamhelper.
+
+#### Features
 
 | Area | Description |
 |------|-------------|
-| **Sync** | Syncs your favourites (`favourites.xml`) and, optionally, addon_data (packed as ZIP) with a remote server. Choose what to sync in the addon settings. |
-| **Protocols** | FTP, SFTP (Kodi xbmcvfs), and SMB. No extra addons needed for SFTP/SMB on supported Kodi builds. |
-| **Connection profiles** | Up to 3 saved profiles (e.g. Home, Office, NAS). The **active profile** is selected under **Settings → Connection**. |
-| **First-run wizard** | Guides you through enabling sync, main system, connection type, host, credentials and folder. Run again from the addon menu: “Run first-time setup again”. |
-| **Image sources** | Menu background images rotate from URLs, a local folder, or a network path (SMB/NFS). **Settings → Images**. |
-| **Backup / Restore** | **Maintenance → Backup** creates a full userdata ZIP (local or URL); you can include **addon_data**. **Maintenance → Restore** lets you restore from a local file or URL (with validation); optionally clear userdata before restore. |
-| **Auto-Clean** | Deletes cache, packages, thumbnails and logs on a schedule. Configure interval in addon settings. |
-| **Autostop** | Automatically stop paused playback after a set time, or set a sleep timer for playing media. Optional screensaver when stopping; extend or stop from the notification. Enable/disable in **Settings → Autostop**; works with all sources (including xstream). Takes effect after Kodi restart when enabled. |
-| **Repository** | Install and update the addon and skin from the **Doku-Kanal** repository (GitHub). One-time repo ZIP install, then all updates via Kodi’s repository. |
+| **Sync** | Syncs `favourites.xml` and optionally addon_data (ZIP) with a remote server. Configure what to sync in addon settings. |
+| **Protocols** | **FTP**, **SFTP** (Kodi xbmcvfs), **SMB**. No extra addons for SFTP/SMB on supported Kodi builds. |
+| **Connection profiles** | Up to 3 saved profiles (e.g. Home, Office, NAS). Select active profile under **Settings → Connection**. |
+| **Static favourite folders** | Built-in folders (Anime, Horror, etc.) – no Super Favourites. Located in `addon_data/plugin.program.dokukanal.buildsync/Static Favourites/`. Editable in settings. |
+| **Sync mode** | Merge (union) or overwrite. Favourites sync interval configurable (5–60 min or off). |
+| **First-run wizard** | Guides through sync enable, main system, connection type, host, credentials, folder. Run again from plugin menu: “Run first-time setup again”. |
+| **Image rotation** | Menu background from URL list, local folder, network path (SMB/NFS), or Picsum. **Settings → Images**. |
+| **Backup** | Full userdata ZIP (local or URL). Optional addon_data. **Maintenance → Backup**. |
+| **Restore** | Restore from local file or URL (with validation). Option to wipe cache before restore. **Maintenance → Restore**. |
+| **Auto-Clean** | Deletes cache, packages, thumbnails, logs on a schedule. Configure interval in addon settings. |
+| **Autostop** | Stop paused playback after X minutes, or sleep timer for playing media. Optional screensaver when stopping. Enable in **Settings → Autostop**. Works with all sources. |
+| **Changelog** | View changelog from plugin menu. Shown once after update. |
+| **Skin install** | Opens addon browser to install Doku-Kanal (Skin) from the repository. |
 
-#### Plugin menu and settings
+#### Plugin menu (Program Add-ons → Doku-Kanal)
 
-- **Doku-Kanal shortcut:** In the skin, a shortcut (e.g. under Programs) opens the plugin window directly (no addon-info crash). Description and icon (dksync.png) can be set in skin settings.
-- **Settings:** Clear labels for Sync, Add-on data, and Favourite folders; categories and an “Open plugin” button; optional “Show instructions” per section. Open the plugin from **Add-on settings** to see the full menu and instructions.
-- **Instructions:** Available in the plugin menu and per settings section. System-wide background image support.
+- Sync favourites now
+- Test connection
+- Backup
+- Restore
+- Test image sources
+- Auto-Clean
+- Install skin
+- Instructions
+- Changelog
+- Settings
 
-#### Skin (Doku-Kanal)
+#### Settings categories
 
-- **Font:** Geist. **DialogTextViewer** and addon settings dialogs styled (border radius, highlight colour).
-- **GlobalFanart:** Uses the same background source as the home slideshow (`home.slideshowpath`).
+- **General** – Enable sync, addon_data sync, main system flag
+- **Favourites** – Sync interval, mode (merge/overwrite), static folders, custom folder
+- **Connection** – Profile 1–3: host, port, user, password, base path (FTP/SFTP/SMB)
+- **Images** – Source (URL list, folder, network path, Picsum), rotation interval
+- **Backup** – Storage path (local or network)
+- **Auto-Clean** – Enable, frequency, what to clear
+- **Autostop** – Enable, pause timeout, sleep timer, screensaver
+
+---
+
+### Skin: Doku-Kanal
+
+Based on **Arctic Zephyr** (jurialmunkey, beatmasterrs). Minimal, clean, elegant. Optimized for the Build and Sync plugin.
+
+- **Font:** Geist
+- **GlobalFanart:** Same source as home slideshow (`home.slideshowpath`)
+- **Doku-Kanal shortcut:** Skin shortcut opens plugin directly (no addon-info crash). Icon and label configurable in skin settings.
+- **Menu structure:** Wartung (Maintenance), Backup, Einstellungen (Settings) aligned with plugin.
+
+**Requires:** script.skinshortcuts, script.globalsearch, script.image.resource.select, resource.images.weathericons.white, script.embuary.info, script.embuary.helper, plugin.video.themoviedb.helper.
+
+---
+
+### Repository: Doku-Kanal
+
+- **info:** `https://dkrepo.sunnyc.de/addons.xml` (or your repo URL)
+- **checksum:** `https://dkrepo.sunnyc.de/addons.xml.md5`
+- **datadir:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/` – Addon ZIPs are served from GitHub.
+
+If you host your own repo server: upload `addons.xml`, `addons.xml.md5`, and `repository.dokukanal/repository.dokukanal-1.0.0.zip` to your web root. Enable directory listing (`Options +Indexes`) if users add the URL as a source.
+
+---
+
+### Installation
+
+**Option A – Repository (recommended)**
+
+1. Download **repository.dokukanal-1.0.0.zip** from [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) or [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) if set up.
+2. In Kodi: **Add-ons** → **Add-on browser** → **Install from zip file** → select the ZIP.
+3. **Add-ons** → **Install from repository** → **Doku-Kanal Repository** → install **Doku-Kanal (Build and Sync)** and optionally **Doku-Kanal (Skin)**.
+4. Enable **Unknown sources** if prompted (Settings → Add-ons).
+
+**Option B – Direct ZIP**
+
+Download plugin and skin ZIPs from [dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist) and install via **Install from zip file**. No repository, but no automatic updates.
+
+---
 
 ### Requirements
 
 - **Kodi 21** (Omega) or newer
-- Static favourite folders (Anime, Horror, …) are managed by the addon; no external addon required. Location: `addon_data/plugin.program.dokukanal.buildsync/Static Favourites/`
-- For SFTP: Kodi with vfs.sftp support (or addon)
-- Other addons’ data (e.g. Shortlist) in addon_data is synced when “sync addon_data” is enabled
+- SFTP: Kodi with vfs.sftp support
+- Skin: script.skinshortcuts, script.embuary.helper, plugin.video.themoviedb.helper, etc. (see skin addon)
 
-### Installation (Kodi standard)
+---
 
-Installation order: (1) install the repo addon from ZIP once, (2) enable unknown sources if required, (3) install the addon (and optionally the skin) from the repo. After that, updates are delivered through the repo.
+### Links
 
-**Where to download:** Use the [Releases](https://github.com/benjarogit/dk-backup-sync/releases) page. Under **Assets** you will find the ready-to-use Kodi ZIPs (repository, plugin, skin). Do **not** use “Source code (zip)” – that is the full development source; use the files listed under **Assets** instead.
+- **Repository ZIP:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip
+- **dist/** (all ZIPs): https://github.com/benjarogit/dk-backup-sync/tree/main/dist
+- **Changelog:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/changelog.txt
 
-1. **Install the repo addon (one-time)**  
-   On the [Releases](https://github.com/benjarogit/dk-backup-sync/releases) page, open the latest release and under **Assets** download the repository ZIP (e.g. **repository.dokukanal-1.0.zip**). In Kodi go to **Add-ons** → **Add-on browser** → **Install from zip file** and select that ZIP. This installs the Doku-Kanal repository; all future updates come from the repo.
-
-2. **Unknown sources**  
-   If Kodi asks to allow unknown sources, go to **Settings** → **Add-ons** → **Unknown sources** and enable it. This is only needed for the first install from ZIP.
-
-3. **Install addon and skin from the repo**  
-   **Add-ons** → **Add-on browser** → **Install from repository** → select **Doku-Kanal** → install **Doku-Kanal (Build and Sync)**. Optionally install the skin **Doku-Kanal (Skin)** from the same repository. Alternatively, install from ZIP using the plugin and skin ZIPs under **Assets** (e.g. **plugin.program.dokukanal.buildsync-*.zip**, **skin.dokukanal-*.zip**).
-
-4. **Updates**  
-   Once the repo is installed, Kodi will check for updates automatically. The repo points to this GitHub repository; you get new addon and skin versions through **Add-ons** → **My add-ons** → **Check for updates** or when Kodi updates on its own.
-
-### Repo URLs (GitHub)
-
-- **addons.xml:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml`
-- **addons.xml.md5:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml.md5`
-- **ZIP downloads:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/`
+---
 
 ### Versioning
 
-[Semantic Versioning 2.0.0](https://semver.org/) (MAJOR.MINOR.PATCH). First release: **1.0.0**.
+[Semantic Versioning 2.0.0](https://semver.org/). Current: **1.0.0**.
 
-### License / Credits
+---
+
+### Credits
 
 - **Doku-Kanal (Build and Sync):** Doku-Kanal
-- **Doku-Kanal (Skin):** Based on Arctic Zephyr (jurialmunkey, beatmasterrs). See skin addon for license.
+- **Doku-Kanal (Skin):** Based on Arctic Zephyr (jurialmunkey, beatmasterrs). Creative Commons Non-Commercial 3.0.
 
 ---
 
 <a name="deutsch"></a>
 ## Deutsch
 
-**Auto FTP Sync Plus** ist ein Kodi-Addon, das Favoriten und Addon-Daten zwischen Geräten synchron hält (FTP, SFTP, SMB), Backups erstellt und wiederherstellt, Menü-Hintergründe aus URLs oder Netzwerkpfaden rotieren lässt und Cache sowie Thumbnails nach Zeitplan aufräumt. Es wird zusammen mit dem Skin **Doku-Kanal (Skin)** genutzt, der im gleichen Repository angeboten wird.
+### Übersicht
 
-### Features
+Das **Doku-Kanal**-Projekt stellt ein Kodi-Repository, das Plugin **Doku-Kanal (Build and Sync)** und den Skin **Doku-Kanal (Skin)** für Kodi 21 (Omega) und neuer bereit.
+
+| Komponente | Beschreibung |
+|------------|--------------|
+| **Repository** | `repository.dokukanal` – Liefert Plugin und Skin. Einmal per ZIP installieren, danach Updates über den Addon-Manager. |
+| **Plugin** | `plugin.program.dokukanal.buildsync` – Favoriten- und addon_data-Sync (FTP/SFTP/SMB), Backup/Wiederherstellung, Bildrotation, AutoClean, Autostop. |
+| **Skin** | `skin.dokukanal` – Arctic-Zephyr-basierter Skin, für das Plugin optimiert. |
+
+---
+
+### Plugin: Doku-Kanal (Build and Sync)
+
+Synchronisiert Favoriten und addon_data zwischen Geräten, erstellt Backups, rotiert Menü-Hintergründe und räumt Cache/Thumbnails nach Zeitplan auf. **Keine externen Addons nötig** – kein Super Favourites, kein xstream, kein inputstreamhelper.
+
+#### Funktionen
 
 | Bereich | Beschreibung |
-|--------|--------------|
-| **Sync** | Synchronisiert Favoriten (`favourites.xml`) und optional addon_data (als ZIP) mit einem Server. Was synchronisiert wird, stellst du in den Addon-Einstellungen ein. |
-| **Protokolle** | FTP, SFTP (Kodi xbmcvfs) und SMB. Für SFTP/SMB sind auf unterstützten Kodi-Versionen keine Zusatz-Addons nötig. |
-| **Verbindungsprofile** | Bis zu 3 gespeicherte Profile (z. B. Zuhause, Büro, NAS). Das **aktive Profil** wählst du unter **Einstellungen → Verbindung**. |
-| **Ersteinrichtungs-Assistent** | Führt durch Aktivierung des Syncs, Hauptsystem, Verbindungstyp, Host, Zugangsdaten und Ordner. Im Addon-Menü: „Ersteinrichtung erneut ausführen“. |
-| **Bildquellen** | Menü-Hintergrundbilder aus URL-Liste, lokalem Ordner oder Netzwerkpfad (SMB/NFS). **Einstellungen → Bilder**. |
-| **Backup / Wiederherstellung** | **Wartung → Backup** erstellt ein Userdata-ZIP (lokal oder URL); **addon_data** optional. **Wartung → Wiederherstellung**: von lokaler Datei oder URL (mit Validierung); optional userdata vorher bereinigen. |
-| **Auto-Clean** | Löscht Cache, Packages, Thumbnails und Logs nach Zeitplan. Intervall in den Addon-Einstellungen. |
-| **Autostop** | Stoppt pausierte Wiedergabe nach X Minuten automatisch oder setzt einen Schlaf-Timer für laufende Wiedergabe. Optional Bildschirmsparer beim Stopp; Verlängerung oder Stopp aus der Benachrichtigung. In **Einstellungen → Autostop** ein-/ausschaltbar; funktioniert mit allen Quellen (auch xstream). Nach Aktivierung beim nächsten Kodi-Start wirksam. |
-| **Repository** | Addon und Skin aus dem **Doku-Kanal**-Repository (GitHub) installieren und aktualisieren. Repo-ZIP einmal installieren, danach alle Updates über das Repository. |
+|---------|--------------|
+| **Sync** | Synchronisiert `favourites.xml` und optional addon_data (ZIP) mit einem Server. Was synchronisiert wird, stellst du in den Einstellungen ein. |
+| **Protokolle** | **FTP**, **SFTP** (Kodi xbmcvfs), **SMB**. Keine Zusatz-Addons für SFTP/SMB auf unterstützten Kodi-Versionen. |
+| **Verbindungsprofile** | Bis zu 3 Profile (z. B. Zuhause, Büro, NAS). Aktives Profil unter **Einstellungen → Verbindung** wählen. |
+| **Statische Favoritenordner** | Integrierte Ordner (Anime, Horror usw.) – kein Super Favourites. Speicherort: `addon_data/plugin.program.dokukanal.buildsync/Static Favourites/`. In den Einstellungen anpassbar. |
+| **Sync-Modus** | Merge (Vereinigung) oder Überschreiben. Favoriten-Sync-Intervall konfigurierbar (5–60 Min oder aus). |
+| **Ersteinrichtungs-Assistent** | Führt durch Sync-Aktivierung, Hauptsystem, Verbindungstyp, Host, Zugangsdaten, Ordner. Erneut ausführbar über „Ersteinrichtung erneut ausführen“ im Plugin-Menü. |
+| **Bildrotation** | Menü-Hintergrund aus URL-Liste, lokalem Ordner, Netzwerkpfad (SMB/NFS) oder Picsum. **Einstellungen → Bilder**. |
+| **Backup** | Vollständiges Userdata-ZIP (lokal oder URL). Optional addon_data. **Wartung → Backup**. |
+| **Wiederherstellung** | Von lokaler Datei oder URL (mit Validierung). Option: Cache vorher löschen. **Wartung → Wiederherstellung**. |
+| **Auto-Clean** | Löscht Cache, Packages, Thumbnails, Logs nach Zeitplan. Intervall in den Einstellungen. |
+| **Autostop** | Pausierte Wiedergabe nach X Minuten stoppen oder Schlaf-Timer für laufende Wiedergabe. Optional Bildschirmsparer beim Stopp. In **Einstellungen → Autostop** aktivierbar. Funktioniert mit allen Quellen. |
+| **Changelog** | Changelog im Plugin-Menü. Nach Update einmalig angezeigt. |
+| **Skin installieren** | Öffnet Addon-Browser zum Installieren des Doku-Kanal (Skin) aus dem Repository. |
 
-#### Plugin-Menü und Einstellungen
+#### Plugin-Menü (Programme → Doku-Kanal)
 
-- **Doku-Kanal-Shortcut:** Im Skin öffnet ein Shortcut (z. B. unter Programme) direkt das Plugin-Fenster (kein Addon-Info-Crash). Beschreibung und Icon (dksync.png) in den Skin-Einstellungen.
-- **Einstellungen:** Klare Labels für Sync, Add-on-Daten und Favoriten-Ordner; Kategorien und Button „Plugin öffnen“; optional „Anleitung anzeigen“ pro Bereich. Plugin unter **Addon-Einstellungen** öffnen für volles Menü und Anleitungen.
-- **Anleitungen:** Im Plugin-Menü und pro Einstellungsbereich. Hintergrundbild systemweit.
+- Favoriten jetzt synchronisieren
+- Verbindung testen
+- Backup
+- Wiederherstellen
+- Bildquellen testen
+- Auto-Clean
+- Skin installieren
+- Anleitungen
+- Changelog
+- Einstellungen
 
-#### Skin (Doku-Kanal)
+#### Einstellungsbereiche
 
-- **Schrift:** Geist. **DialogTextViewer** und Addon-Einstellungsdialoge mit Rahmen (Border-Radius, Highlight-Farbe).
-- **GlobalFanart:** Nutzt dieselbe Quelle wie der Home-Slideshow (`home.slideshowpath`).
+- **Allgemein** – Sync aktivieren, addon_data-Sync, Hauptsystem-Flag
+- **Favoriten** – Sync-Intervall, Modus (Merge/Überschreiben), statische Ordner, benutzerdefinierter Ordner
+- **Verbindung** – Profil 1–3: Host, Port, Benutzer, Passwort, Basispfad (FTP/SFTP/SMB)
+- **Bilder** – Quelle (URL-Liste, Ordner, Netzwerkpfad, Picsum), Rotations-Intervall
+- **Backup** – Speicherpfad (lokal oder Netzwerk)
+- **Auto-Clean** – Aktivieren, Häufigkeit, was gelöscht wird
+- **Autostop** – Aktivieren, Pausen-Timeout, Schlaf-Timer, Bildschirmsparer
+
+---
+
+### Skin: Doku-Kanal
+
+Basiert auf **Arctic Zephyr** (jurialmunkey, beatmasterrs). Klar, minimalistisch, elegant. Für das Build-and-Sync-Plugin optimiert.
+
+- **Schrift:** Geist
+- **GlobalFanart:** Dieselbe Quelle wie die Home-Slideshow (`home.slideshowpath`)
+- **Doku-Kanal-Shortcut:** Skin-Shortcut öffnet das Plugin direkt (kein Addon-Info-Absturz). Icon und Beschriftung in den Skin-Einstellungen änderbar.
+- **Menüstruktur:** Wartung, Backup, Einstellungen – abgestimmt auf das Plugin.
+
+**Benötigt:** script.skinshortcuts, script.globalsearch, script.image.resource.select, resource.images.weathericons.white, script.embuary.info, script.embuary.helper, plugin.video.themoviedb.helper.
+
+---
+
+### Repository: Doku-Kanal
+
+- **info:** `https://dkrepo.sunnyc.de/addons.xml` (oder deine Repo-URL)
+- **checksum:** `https://dkrepo.sunnyc.de/addons.xml.md5`
+- **datadir:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/` – Addon-ZIPs werden von GitHub bereitgestellt.
+
+Bei eigenem Repo-Server: `addons.xml`, `addons.xml.md5` und `repository.dokukanal/repository.dokukanal-1.0.0.zip` ins Web-Root hochladen. Verzeichnislisten (`Options +Indexes`) aktivieren, falls Nutzer die URL als Quelle hinzufügen.
+
+---
+
+### Installation
+
+**Option A – Über Repository (empfohlen)**
+
+1. **repository.dokukanal-1.0.0.zip** von [GitHub dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist/repository.dokukanal) oder [dkrepo.sunnyc.de](https://dkrepo.sunnyc.de/) (falls eingerichtet) herunterladen.
+2. In Kodi: **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** → ZIP auswählen.
+3. **Add-ons** → **Addons aus Repository installieren** → **Doku-Kanal Repository** → **Doku-Kanal (Build and Sync)** und optional **Doku-Kanal (Skin)** installieren.
+4. **Unbekannte Quellen** erlauben, falls erforderlich (Einstellungen → Add-ons).
+
+**Option B – Direkte ZIP-Installation**
+
+Plugin- und Skin-ZIPs aus [dist](https://github.com/benjarogit/dk-backup-sync/tree/main/dist) herunterladen und über **Von ZIP-Datei installieren** einspielen. Kein Repository, aber keine automatischen Updates.
+
+---
 
 ### Voraussetzungen
 
 - **Kodi 21** (Omega) oder neuer
-- Statische Favoritenordner (Anime, Horror, …) werden vom Addon verwaltet; kein externes Addon nötig. Speicherort: `addon_data/plugin.program.dokukanal.buildsync/Static Favourites/`
-- Für SFTP: Kodi mit vfs.sftp-Unterstützung (bzw. Addon)
-- Daten anderer Addons (z. B. Shortlist) im addon_data werden mit synchronisiert, wenn die Option „addon_data synchronisieren“ aktiviert ist
+- SFTP: Kodi mit vfs.sftp-Unterstützung
+- Skin: script.skinshortcuts, script.embuary.helper, plugin.video.themoviedb.helper usw. (siehe Skin-Addon)
 
-### Installation (Kodi-Standard)
+---
 
-Reihenfolge: (1) Repo-Addon einmal per ZIP installieren, (2) bei Bedarf „Unbekannte Quellen“ erlauben, (3) Addon (und optional Skin) aus dem Repo installieren. Danach kommen Updates über das Repo.
+### Links
 
-**Wo herunterladen:** Auf der Seite [Releases](https://github.com/benjarogit/dk-backup-sync/releases) findest du unter **Assets** die fertigen Kodi-ZIPs (Repository, Plugin, Skin). **Nicht** „Source code (zip)“ verwenden – das ist der komplette Quellcode; nutze die Dateien unter **Assets**.
+- **Repository-ZIP:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/repository.dokukanal/repository.dokukanal-1.0.0.zip
+- **dist/** (alle ZIPs): https://github.com/benjarogit/dk-backup-sync/tree/main/dist
+- **Changelog:** https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/changelog.txt
 
-1. **Repo-Addon einmalig installieren**  
-   Auf der Seite [Releases](https://github.com/benjarogit/dk-backup-sync/releases) das neueste Release öffnen und unter **Assets** **repository.dokukanal-1.0.0.zip** herunterladen. In Kodi **Add-ons** → **Addon-Browser** → **Von ZIP-Datei installieren** wählen und diese ZIP auswählen. Damit ist das Doku-Kanal-Repository installiert; alle weiteren Updates kommen über das Repo.
-
-2. **Unbekannte Quellen**  
-   Falls Kodi danach fragt: **Einstellungen** → **Add-ons** → **Unbekannte Quellen** erlauben. Nur für die erste Installation von einer ZIP nötig.
-
-3. **Addon und Skin aus dem Repo installieren**  
-   **Add-ons** → **Addon-Browser** → **Addons aus Repository installieren** → **Doku-Kanal** wählen → **Doku-Kanal (Build and Sync)** installieren. Optional den Skin **Doku-Kanal (Skin)** aus demselben Repository installieren. Alternativ Addon und Skin per ZIP aus den **Assets** installieren (z. B. **plugin.program.dokukanal.buildsync-*.zip**, **skin.dokukanal-*.zip**).
-
-4. **Updates**  
-   Sobald das Repo installiert ist, prüft Kodi automatisch auf Updates. Das Repo zeigt auf dieses GitHub-Repository; neue Addon- und Skin-Versionen erhältst du über **Add-ons** → **Meine Add-ons** → **Auf Updates prüfen** oder durch die automatische Update-Prüfung von Kodi.
-
-### Repo-URLs (GitHub)
-
-- **addons.xml:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml`
-- **addons.xml.md5:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/addons.xml.md5`
-- **ZIP-Downloads:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/repo/output/`
+---
 
 ### Versionierung
 
-[Semantic Versioning 2.0.0](https://semver.org/) (MAJOR.MINOR.PATCH). Erstes Release: **1.0.0**.
+[Semantic Versioning 2.0.0](https://semver.org/). Aktuell: **1.0.0**.
 
-### Lizenz / Credits
+---
+
+### Credits
 
 - **Doku-Kanal (Build and Sync):** Doku-Kanal
-- **Doku-Kanal (Skin):** Basiert auf Arctic Zephyr (jurialmunkey, beatmasterrs). Lizenz siehe Skin-Addon.
+- **Doku-Kanal (Skin):** Basiert auf Arctic Zephyr (jurialmunkey, beatmasterrs). Creative Commons Non-Commercial 3.0.
