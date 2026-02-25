@@ -81,9 +81,9 @@ Based on **Arctic Zephyr** (jurialmunkey, beatmasterrs). Minimal, clean, elegant
 
 ### Repository: Doku-Kanal
 
-- **info:** `https://dkrepo.sunnyc.de/addons.xml` (or your repo URL)
-- **checksum:** `https://dkrepo.sunnyc.de/addons.xml.md5`
-- **datadir:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/` – Addon ZIPs are served from GitHub.
+- **info:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml`
+- **checksum:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml.md5`
+- **datadir:** `https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/` – Catalog and addon ZIPs all from GitHub.
 
 If you host your own repo server: upload `addons.xml`, `addons.xml.md5`, and `repository.dokukanal/repository.dokukanal-1.0.0.zip` to your web root. For **install from zip** to work when users add the repo URL as source, use the Apache config in `repo/htaccess-for-dkrepo.txt` (no gzip for .zip, `Accept-Ranges: bytes`). Enable directory listing (`Options +Indexes`) so users can browse to the zip.
 

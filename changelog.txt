@@ -1,3 +1,7 @@
+Version 1.0.2 – 2025-02-25 (Repository)
+
+- Repository 1.0.2: info/checksum nun von GitHub statt dkrepo – Updates laufen vollständig über GitHub.
+
 Version 1.0.21 – 2025-02-21
 
 - Changelog aus Git-Commits; Anzeige nach Update aus GitHub (changelog.txt).

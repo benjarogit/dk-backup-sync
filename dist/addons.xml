@@ -84,11 +84,11 @@
         <description lang="fr">Arctic: Zephyr - Reloaded est basé sur le skin original Arctic: Zephyr, créé par jurialmunkey. Arctic se focalise sur le fait d&apos;être simple, claire et minimaliste. Optimisé pour l&apos;addon Auto FTP Sync (plugin.program.dokukanal.buildsync).</description>
     </extension>
 </addon>
-<addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.1" provider-name="Doku-Kanal">
+<addon id="repository.dokukanal" name="Doku-Kanal Repository" version="1.0.2" provider-name="Doku-Kanal">
 	<extension point="xbmc.addon.repository" name="Doku-Kanal Repository">
 		<dir minversion="21.0.0">
-			<info compressed="false">https://dkrepo.sunnyc.de/addons.xml</info>
-			<checksum>https://dkrepo.sunnyc.de/addons.xml.md5</checksum>
+			<info compressed="false">https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/addons.xml.md5</checksum>
 			<datadir zip="true">https://raw.githubusercontent.com/benjarogit/dk-backup-sync/main/dist/</datadir>
 			<hashes>false</hashes>
 		</dir>
