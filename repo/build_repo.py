@@ -62,7 +62,12 @@ def read_addon_xml(addon_dir):
     if not os.path.isfile(path):
         return None
     with open(path, "r", encoding="utf-8", errors="replace") as f:
-        return f.read().strip()
+        content = f.read().strip()
+    # XML-Deklaration entfernen (nur eine am Anfang von addons.xml erlaubt)
+    if content.startswith("<?xml"):
+        end = content.find("?>") + 2
+        content = content[end:].lstrip()
+    return content
 
 
 def main():
