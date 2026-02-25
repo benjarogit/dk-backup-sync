@@ -44,7 +44,8 @@ def should_exclude(name):
     return False
 
 
-def zip_addon(source_dir, zip_path):
+def zip_addon(source_dir, zip_path, addon_id):
+    """ZIP mit Addon-Inhalt – Dateien liegen in addon_id/ (Kodi-Anforderung)."""
     os.makedirs(os.path.dirname(zip_path), exist_ok=True)
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for root, dirs, files in os.walk(source_dir):
@@ -53,7 +54,8 @@ def zip_addon(source_dir, zip_path):
                 if should_exclude(f):
                     continue
                 path = os.path.join(root, f)
-                arcname = os.path.relpath(path, source_dir)
+                rel = os.path.relpath(path, source_dir)
+                arcname = "%s/%s" % (addon_id, rel)
                 zf.write(path, arcname)
 
 
@@ -93,7 +95,7 @@ def main():
         out_dir = os.path.join(output_base, addon_id)
         zip_name = f"{addon_id}-{version}.zip"
         zip_path = os.path.join(out_dir, zip_name)
-        zip_addon(src, zip_path)
+        zip_addon(src, zip_path, addon_id)
         print("Erstellt:", zip_path)
         xml_content = read_addon_xml(src)
         if xml_content:
